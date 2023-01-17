@@ -12,6 +12,7 @@
 :root{
   --background-color: linear-gradient(33deg, rgba(76,143,206,1) 0%, rgba(231,110,226,1) 100%);
   --box-black: rgba(51, 51, 51,0.7);
+  --menu-color: #333;
 }
 
 /*
@@ -33,7 +34,7 @@ html{
 
 .menu {
     overflow: hidden;
-    background-color: #333;
+    background-color: var(--menu-color);
     position: fixed;
     top: 0;
     width: 100%;
@@ -47,7 +48,7 @@ html{
   }
 
   .menu a{
-    background-color: #333;
+    background-color: var(--menu-color);
     color: #f2f2f2;
     float: left;
     display: block;
@@ -60,12 +61,30 @@ html{
   
   .menu a:hover{
     background: #ddd;
-    color: #333;
+    color: var(--menu-color);
   }
 
-  /*
+/*
+  FANCY SCROLLBAR
+*/
+
+::-webkit-scrollbar { 
+
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background: #CCC; 
+}
+::-webkit-scrollbar-thumb {
+  background: #555; 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #777
+}
+
+/*
   PAGE STYLE
-  */
+*/
 
 .content{
     margin-top: 60px;
@@ -84,9 +103,11 @@ html{
 .header{
   display: grid;
   margin: 0 30px;
+  row-gap: 20px;
   gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas: "summary graph graph";
+  grid-template-areas: "summary graph graph"
+                       "div div div";
 }
 
 .prev-summary, .prev-graph{
@@ -105,6 +126,16 @@ html{
 
 .summary{
   grid-area: summary;
+}
+
+/*
+  DIVISOR STYLE
+*/
+
+.divisor{
+  height: 10px;
+  width: 100%;
+  background-color: var(--menu-color);
 }
 
 /*
