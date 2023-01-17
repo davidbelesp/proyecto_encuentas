@@ -5,9 +5,18 @@
   color: white
 }
 
+/*
+  COLOR & VAR NORMALIZATION
+*/
+
 :root{
-  --main-black: rgba(51, 51, 51,0.6);
+  --background-color: linear-gradient(33deg, rgba(76,143,206,1) 0%, rgba(231,110,226,1) 100%);
+  --box-black: rgba(51, 51, 51,0.7);
 }
+
+/*
+  BODY MARGIN INIT
+*/
 
 body{
     margin: 0;
@@ -15,9 +24,12 @@ body{
 }
 
 html{
-  background: rgb(76,143,206);
-    background: linear-gradient(33deg, rgba(76,143,206,1) 0%, rgba(231,110,226,1) 100%);
+  background: var(--background-color)
 }
+
+/*
+  FIXED MENU STYLE
+*/
 
 .menu {
     overflow: hidden;
@@ -51,22 +63,55 @@ html{
     color: #333;
   }
 
+  /*
+  PAGE STYLE
+  */
+
 .content{
     margin-top: 60px;
     height: 2000px;
 }
 
-.graph{
-  margin-top: 20px;
-  height: 150px;
-  background-color: var(--main-black);
+.box{
+  border-radius: 10px;
+  background-color: var(--box-black);
 }
+
+/*
+  HEADER SUMMARY & GRAPH
+*/
+
+.header{
+  display: grid;
+  margin: 0 30px;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "summary graph graph";
+}
+
+.prev-summary, .prev-graph{
+  display: block;
+  padding: 10px;
+}
+
+.prev-graph{
+  grid-area: graph;
+}
+
+.graph{
+  height: 100%;
+  width: 100%;
+}
+
+.summary{
+  grid-area: summary;
+}
+
+/*
+  COMMENT AREA
+*/
 
 .comment{
   margin: 20px;
 }
 
-.box{
-  border-radius: 10px;
-  background-color: var(--main-black);
-}
