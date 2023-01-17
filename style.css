@@ -1,7 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+*{
+  font-family: 'Roboto Mono', monospace;
+  color: white
+}
+
+:root{
+  --main-black: rgba(51, 51, 51,0.6);
+}
+
 body{
     margin: 0;
     padding: 0;
+}
 
+html{
+  background: rgb(76,143,206);
+    background: linear-gradient(33deg, rgba(76,143,206,1) 0%, rgba(231,110,226,1) 100%);
 }
 
 .menu {
@@ -12,24 +27,46 @@ body{
     width: 100%;
   }
 
+  .menu img{
+    float: left;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+  }
+
   .menu a{
     background-color: #333;
+    color: #f2f2f2;
     float: left;
     display: block;
-    color: #f2f2f2;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14.5px 20px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 1rem;
     transition-duration: 0.3s;
   }
   
   .menu a:hover{
     background: #ddd;
-    color: black;
+    color: #333;
   }
 
 .content{
     margin-top: 60px;
-    height: 10000px;
+    height: 2000px;
+}
+
+.graph{
+  margin-top: 20px;
+  height: 150px;
+  background-color: var(--main-black);
+}
+
+.comment{
+  margin: 20px;
+}
+
+.box{
+  border-radius: 10px;
+  background-color: var(--main-black);
 }
