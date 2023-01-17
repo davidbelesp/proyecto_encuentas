@@ -12,6 +12,7 @@
 :root{
   --background-color: linear-gradient(33deg, rgba(76,143,206,1) 0%, rgba(231,110,226,1) 100%);
   --box-black: rgba(51, 51, 51,0.7);
+  --box-black-selected: rgba(70, 70, 70,0.7);
   --menu-color: #333;
 }
 
@@ -25,7 +26,8 @@ body{
 }
 
 html{
-  background: var(--background-color)
+  background: var(--background-color);
+  background-attachment: fixed;
 }
 
 /*
@@ -33,6 +35,7 @@ html{
 */
 
 .menu {
+    z-index: 1;
     overflow: hidden;
     background-color: var(--menu-color);
     position: fixed;
@@ -62,6 +65,7 @@ html{
   .menu a:hover{
     background: #ddd;
     color: var(--menu-color);
+    font-size: 2rem;
   }
 
 /*
@@ -73,7 +77,7 @@ html{
   width: 15px;
 }
 ::-webkit-scrollbar-track {
-  background: #CCC; 
+  background: #ccc; 
 }
 ::-webkit-scrollbar-thumb {
   background: #555; 
@@ -87,13 +91,16 @@ html{
 */
 
 .content{
-    margin-top: 60px;
-    height: 2000px;
+    margin-top: 80px;
 }
 
 .box{
   border-radius: 10px;
   background-color: var(--box-black);
+}
+
+.centered-text{
+  text-align: center;
 }
 
 /*
@@ -125,6 +132,7 @@ html{
 }
 
 .summary{
+  padding: 10px;
   grid-area: summary;
 }
 
@@ -133,16 +141,69 @@ html{
 */
 
 .divisor{
-  height: 10px;
-  width: 100%;
+  display: flex;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.half-1,.half-2{
   background-color: var(--menu-color);
+  width: 42%;
+}
+
+.half-1{
+  border-radius: 0 10px 10px 0;
+}
+.half-2{
+  border-radius: 10px 0 0 10px;
+}
+
+.divisor-text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 200px;
+  background-color: var(--menu-color);
+  border-radius: 10px;
+  color: white;
+  height: 30px;
+  width: 16%;
+  text-align: center;
+}
+.divisor-text > p{
+  margin: 0;
 }
 
 /*
   COMMENT AREA
 */
 
-.comment{
-  margin: 20px;
+.comments{
+  display: flex;
+  flex-direction: row;
 }
 
+.comment{
+  padding: 10px;
+  word-break: break-word;
+  margin: 20px 20px 40px 20px;
+}
+
+.comment.box{
+  filter: brightness(0.8);
+}
+
+.comments-left,.comments-right{
+  max-width: 50%;
+}
+
+.comment.box:hover{
+  transition-duration: 0.3s;
+  background-color: var(--box-black-selected);
+}
+
+#date{
+  font-size: .7rem;
+  text-align: right;
+}
