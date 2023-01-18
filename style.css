@@ -12,7 +12,7 @@
 :root{
   --background-color: linear-gradient(33deg, rgba(76,143,206,1) 0%, rgba(231,110,226,1) 100%);
   --box-black: rgba(51, 51, 51,0.7);
-  --box-black-selected: rgba(70, 70, 70,0.7);
+  --box-black-selected: rgba(75, 75, 75,0.7);
   --menu-color: #333;
 }
 
@@ -91,7 +91,7 @@ html{
 */
 
 .content{
-    margin-top: 80px;
+  margin-top: 80px;
 }
 
 .box{
@@ -142,8 +142,9 @@ html{
 
 .divisor{
   display: flex;
-  gap: 20px;
+  gap: 0px;
   flex-wrap: nowrap;
+  margin-bottom: 30px;
 }
 
 .half-1,.half-2{
@@ -151,12 +152,6 @@ html{
   width: 42%;
 }
 
-.half-1{
-  border-radius: 0 10px 10px 0;
-}
-.half-2{
-  border-radius: 10px 0 0 10px;
-}
 
 .divisor-text{
   display: flex;
@@ -165,7 +160,6 @@ html{
 
   min-width: 200px;
   background-color: var(--menu-color);
-  border-radius: 10px;
   color: white;
   height: 30px;
   width: 16%;
@@ -191,7 +185,8 @@ html{
 }
 
 .comment.box{
-  filter: brightness(0.8);
+  filter: brightness(1);
+  transition-duration: 0.3s;
 }
 
 .comments-left,.comments-right{
@@ -199,11 +194,25 @@ html{
 }
 
 .comment.box:hover{
-  transition-duration: 0.3s;
   background-color: var(--box-black-selected);
 }
 
 #date{
   font-size: .7rem;
   text-align: right;
+  margin-bottom: 0;
+}
+
+/*
+  FOOTER
+*/
+
+.footer{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 11px;
+  background-color: var(--menu-color);
+  height: 100px;
+  width: 100%;
 }
