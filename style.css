@@ -10,7 +10,7 @@
 */
 
 :root{
-  --background-color: linear-gradient(33deg, rgba(76,143,206,1) 0%, rgba(231,110,226,1) 100%);
+  --background-color: linear-gradient(45deg, rgba(76,143,206,1) 0%, rgba(231,110,226,1) 100%);
   --box-black: rgba(51, 51, 51,0.7);
   --box-black-selected: rgba(75, 75, 75,0.7);
   --menu-color: #333;
@@ -27,8 +27,22 @@ body{
 
 html{
   background: var(--background-color);
+  animation-name: background-animation;
+  animation: gradient 35s ease infinite;
+  background-size: 300%;
   background-attachment: fixed;
 }
+
+/*
+  BACKGROUND ANIMATION
+*/
+
+@keyframes gradient {
+  0% {background-position: 0% 50%;}
+	50% {background-position: 100% 50%;}
+	100% {background-position: 0% 50%;}
+}
+
 
 /*
   FIXED MENU STYLE
@@ -67,6 +81,13 @@ html{
     color: var(--menu-color);
     font-size: 2rem;
   }
+
+/*
+  FIXED MENU DROPDOWN 
+  TODO ---
+*/
+
+
 
 /*
   FANCY SCROLLBAR
@@ -145,10 +166,11 @@ html{
   gap: 0px;
   flex-wrap: nowrap;
   margin-bottom: 30px;
+  background-color: var(--menu-color);
+  width: 100%;
 }
 
 .half-1,.half-2{
-  background-color: var(--menu-color);
   width: 42%;
 }
 
@@ -159,7 +181,6 @@ html{
   justify-content: center;
 
   min-width: 200px;
-  background-color: var(--menu-color);
   color: white;
   height: 30px;
   width: 16%;
@@ -215,4 +236,18 @@ html{
   background-color: var(--menu-color);
   height: 100px;
   width: 100%;
+}
+
+/*
+  MEDIA (PHONE STYLING)
+*/
+
+@media screen and (max-width: 600px){
+  .comments{
+    flex-direction: column;
+  }
+
+  .comments-left,.comments-right{
+    max-width: 100%;
+  }
 }
