@@ -130,17 +130,14 @@ html{
 
 .header{
   display: grid;
-  margin: 0 30px;
-  row-gap: 20px;
-  gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "summary graph graph"
                        "div div div";
 }
 
 .prev-summary, .prev-graph{
+  padding: 20px;
   display: block;
-  padding: 10px;
 }
 
 .prev-graph{
