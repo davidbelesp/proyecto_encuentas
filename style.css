@@ -396,7 +396,7 @@ html{
   /* DIVISION MEDIA */
 
   .divisor{
-    min-width: 230px;
+    min-width: 250px;
   }
 
   /* FIXED MENU */
@@ -406,6 +406,7 @@ html{
 
   .hamburger-menu{
     display: block;
+    min-width: 250px;
   }
 
   .content{
