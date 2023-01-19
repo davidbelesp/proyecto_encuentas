@@ -82,47 +82,10 @@
                         <p id="comment-text">Test de comentario (texto)</p>
                         <p id="date">18/1/2023</p>
                     </div>
-                    <div class="comment box">
-                        <p id="comment-text"> TEST DE COMENTARIO MUY LARGO AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
-                        <p id="date">2/9/2022</p>
-                    </div>
-                    <div class="comment box">
-                        <p id="comment-text">Test de comentario largo y fecha outdated, aqui no se destaca el comentario debido a que la fecha es antigua (+3 meses)</p>
-                        <p id="date">2/9/2022</p>
-                    </div>
-                    <div class="comment box">
-                        <p id="comment-text">Test de comentario largo y fecha outdated, aqui no se destaca el comentario debido a que la fecha es antigua (+3 meses)</p>
-                        <p id="date">2/9/2022</p>
-                    </div>
                 </div>
                 <div class="comments-right">
-                    <div class="comment box">
-                        <p id="comment-text">Test de comentario largo y fecha outdated, aqui no se destaca el comentario debido a que la fecha es antigua (+3 meses)</p>
-                        <p id="date">2/9/2022</p>
-                    </div>
-                    <div class="comment box">
-                        <p id="comment-text">Test de comentario (texto)</p>
-                        <p id="date">22/1/2023</p>
-                    </div>
-                    <div class="comment box">
-                        <p id="comment-text">Test de comentario largo y fecha outdated, aqui no se destaca el comentario debido a que la fecha es antigua (+3 meses)</p>
-                        <p id="date">2/9/2022</p>
-                    </div>
-                    <div class="comment box">
-                        <p id="comment-text">Test de comentario (texto)</p>
-                        <p id="date">22/1/2023</p>
-                    </div>
-                    <div class="comment box">
-                        <p id="comment-text">Test de comentario (texto)</p>
-                        <p id="date">22/1/2023</p>
-                    </div>
-                    <div class="comment box">
-                        <p id="comment-text"> TEST DE COMENTARIO MUY LARGO AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</p>
-                        <p id="date">2/9/2022</p>
-                    </div>
-                </div>
 
-                
+                </div>
             </div>
         </div>
         <div class="footer">
@@ -131,7 +94,97 @@
     </div>
 </body>
 <script>
+datos = {
+    "valoraciones":[8,7,9,7,2,3,6,1,4,5,2,8,7,9,4],
+    "tareas":[7,8,3,7,8,2,8,5,9,1,7,5,8,5,6],
+    "satisfaccion":[1,1,0,0,1,1,0,1,0,1,0,1,0,1,1],
+    "comments":[{
+        "text":"Chapter too parties its letters nor. Cheerful but whatever ladyship disposed yet judgment. Lasted answer oppose to ye months no esteem. Branched is on an ecstatic directly it.",
+        "date":"14/01/2023"
+    },{
+        "text":"Pleased him another was settled for. Moreover end horrible endeavor entrance any families. Income appear extent on of thrown in admire. Stanhill on we if vicinity material in. Saw him smallest you provided ecstatic supplied. Garret wanted expect remain as mr. Covered parlors concern we express in visited to do. Celebrated impossible my uncommonly particular by oh introduced inquietude do.",
+        "date":"07/09/2022"
+    },{
+        "text":"Is he staying arrival address earnest. To preference considered it themselves inquietude collecting estimating. View park for why gay knew face. Next than near to four so hand. Times so do he downs me would. Witty abode party her found quiet law.",
+        "date":"14/01/2023"
+    },{
+        "text":"Esto es un texto de prueba mas largo de lo normal, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget rutrum ligula. Duis gravida faucibus elementum. Pellentesque at dapibus enim. Pellentesque at ligula blandit, pulvinar nisi vitae, luctus odio. Ut blandit ornare volutpat. Sed quis blandit lorem. Phasellus tortor ipsum, pretium id dolor a, lacinia sodales ligula. Morbi porta sodales justo, quis pharetra elit molestie et. Duis suscipit ornare justo, at placerat massa dignissim nec. Pellentesque semper enim ac nibh ullamcorper aliquam in sit amet dolor.",
+        "date":"14/01/2023"
+    },{
+        "text":"Can curiosity may end shameless explained. True high on said mr on come. An do mr design at little myself wholly entire though.",
+        "date":"14/01/2023"
+    },{
+        "text":"Full he none no side.",
+        "date":"14/01/2023"
+    },{
+        "text":"Expression alteration entreaties mrs can terminated estimating. Her too add narrow having wished. To things so denied admire. Am wound worth water he linen at vexed.",
+        "date":"14/01/2023"
+    },{
+        "text":"He went such dare good mr fact. The small own seven saved man age ﻿no offer. Suspicion did mrs nor furniture smallness. Scale whole downs often leave not eat. An expression reasonably cultivated indulgence mr he surrounded instrument. Gentleman eat and consisted are pronounce distrusts.\n\nIs post each that just leaf no. He connection interested so we an sympathize advantages. To said is it shed want do. Occasional middletons everything so to. Have spot part for his quit may. Enable it is square my an regard. Often merit stuff first oh up hills as he. Servants contempt as although addition dashwood is procured. Interest in yourself an do of numerous feelings cheerful confined.",
+        "date":"14/01/2023"
+    },{
+        "text":"Esto es un texto de prueba mas largo de lo normal, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget rutrum ligula. Duis gravida faucibus elementum. Pellentesque at dapibus enim. Pellentesque at ligula blandit, pulvinar nisi vitae, luctus odio. Ut blandit ornare volutpat. Sed quis blandit lorem. Phasellus tortor ipsum, pretium id dolor a, lacinia sodales ligula. Morbi porta sodales justo, quis pharetra elit molestie et. Duis suscipit ornare justo, at placerat massa dignissim nec. Pellentesque semper enim ac nibh ullamcorper aliquam in sit amet dolor.",
+        "date":"14/01/2023"
+    },{
+        "text":"Considered discovered ye sentiments projecting entreaties of melancholy is.",
+        "date":"14/01/2023"
+    },{
+        "text":"Oh no turned behind polite piqued enough at. Forbade few through inquiry blushes you",
+        "date":"14/01/2023"
+    },{
+        "text":"Attended of on stronger or mr pleasure",
+        "date":"14/01/2023"
+    },{
+        "text":"Esto es un texto de prueba mas largo de lo normal, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget rutrum ligula. Duis gravida faucibus elementum. Pellentesque at dapibus enim. Pellentesque at ligula blandit, pulvinar nisi vitae, luctus odio. Ut blandit ornare volutpat. Sed quis blandit lorem. Phasellus tortor ipsum, pretium id dolor a, lacinia sodales ligula. Morbi porta sodales justo, quis pharetra elit molestie et. Duis suscipit ornare justo, at placerat massa dignissim nec. Pellentesque semper enim ac nibh ullamcorper aliquam in sit amet dolor.",
+        "date":"14/01/2023"
+    },{
+        "text":"Or landlord packages overcame distance smallest in recurred",
+        "date":"14/01/2023"
+    },{
+        "text":"Felicity in dwelling to drawings. His pleasure new steepest for reserved formerly disposed jennings.",
+        "date":"14/01/2023"
+    }]
+}
 
+var addtoleft = true
+
+function addComment(data){
+    const comments_left = document.querySelector(".comments-left")
+    const comments_right = document.querySelector(".comments-right")
+
+    const comment_div = document.createElement("div")
+    const comment_text = document.createElement("p")
+    const date = document.createElement("p")
+
+    comment_div.classList.add("comment")
+    comment_div.classList.add("box")
+
+    date.setAttribute("id","date")
+    comment_text.setAttribute("id","comment-text")
+
+    text = document.createTextNode(data["text"])
+    datetext = document.createTextNode(data["date"])
+
+    date.appendChild(datetext)
+    comment_text.appendChild(text)
+
+    comment_div.appendChild(comment_text)
+    comment_div.appendChild(date)
+
+    if (addtoleft){
+        comments_left.appendChild(comment_div)
+        addtoleft = false
+    } else {
+        comments_right.appendChild(comment_div)
+        addtoleft = true
+    }
+}
+
+const comentarios = datos["comments"]
+
+comentarios.forEach(element => {
+    addComment(element)
+});
     
 
 </script>

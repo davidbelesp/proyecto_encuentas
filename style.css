@@ -173,7 +173,7 @@ html{
 
 #menu li{
   transition-duration: .3s;
-  margin-bottom: 30px;
+  margin-bottom: 33px;
   padding: 15px;
   font-size: 22px;
 }
@@ -286,6 +286,7 @@ html{
   margin-bottom: 30px;
   background-color: var(--menu-color);
   width: 100%;
+  user-select: none;
 }
 
 .half-1,.half-2{
