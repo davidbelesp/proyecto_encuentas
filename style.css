@@ -25,12 +25,17 @@ body{
     padding: 0;
 }
 
-html{
+.page{
   background: var(--background-color);
   animation-name: background-animation;
   animation: gradient 35s ease infinite;
-  background-size: 300%;
-  background-attachment: fixed;
+  background-size: auto 100%;
+  padding-top: 100px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1
 }
 
 /*
@@ -173,7 +178,7 @@ html{
 
 #menu li{
   transition-duration: .3s;
-  margin-bottom: 30px;
+  margin-bottom: 33px;
   padding: 15px;
   font-size: 22px;
 }
@@ -209,10 +214,6 @@ html{
 /*
   PAGE STYLE
 */
-
-.content{
-  margin-top: 80px;
-}
 
 .box{
   border-radius: 10px;
@@ -286,6 +287,7 @@ html{
   margin-bottom: 30px;
   background-color: var(--menu-color);
   width: 100%;
+  user-select: none;
 }
 
 .half-1,.half-2{
@@ -362,6 +364,13 @@ html{
 */
 
 @media screen and (max-width: 600px){
+  /* BACKGROUND FIX */
+
+  html{
+    background-size: 100vw 100vh;
+    bottom: -100px;
+  }
+
   /* COMMENT MEDIA */
   .comments{
     flex-direction: column;
@@ -369,6 +378,7 @@ html{
 
   .comments-left,.comments-right{
     max-width: 100%;
+    padding: 0 10px;
   }
 
   .comment{
@@ -409,7 +419,7 @@ html{
     min-width: 250px;
   }
 
-  .content{
-    margin-top: 0;
+  .page{
+    padding-top: 0;
   }
 }
