@@ -5,19 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link href="./style.css" rel="stylesheet"></link>
+    <link rel="stylesheet" href="./form.css">
     <title>formulario</title>
 </head>
 <body>
-    <h1></h1>
-    <form action="enviar.php" method="post" id="form">
-        <label for="nota"> Nota: </label>
-        <input type="range" name="nota" value="1" min="1" max="10" required>
-        <br>
-        <label for="comentario"> Comentario: </label>
-        <input type="text" name="comentario">
-        <br>
+    <div class="page">
+        <div class="hamburger-menu">
+            <div id="menuToggle" class="no-selectable">
+                <input type="checkbox"/>
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                  <a href="#"><li>Inicio</li></a>
+                  <a href="./form.html"><li>Encuesta</li></a>
+                  <a href="#"><li>Resumen</li></a>
+                  <a href="#"><li>Contacto</li></a>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="menu">
+            <img src="./logo-example.png" alt="logo">
+            <a href="./index.html">Inicio</a>
+            <a href="./summa.html">Resumen</a>
+            <a href="">Contacto</a>
+        </div>
 
-        <button type="submit">Enviar</button>
-    </form>
+        <div class="content">
+            <form action="enviar.php" method="post" id="form">
+                <label for="nota"> Nota: </label>
+                <input type="range" name="nota" value="1" min="1" max="10" required>
+                <br>
+                <label for="comentario"> Comentario: </label>
+                <input type="text" name="comentario">
+                <br>
+        
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+    
 </body>
 </html>
