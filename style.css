@@ -25,12 +25,17 @@ body{
     padding: 0;
 }
 
-html{
+.page{
   background: var(--background-color);
   animation-name: background-animation;
   animation: gradient 35s ease infinite;
-  background-size: 300%;
-  background-attachment: fixed;
+  background-size: auto 100%;
+  padding-top: 100px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1
 }
 
 /*
@@ -55,6 +60,9 @@ html{
     position: fixed;
     top: 0;
     width: 100%;
+  }
+  .hamburger-menu{
+    display: none;
   }
 
   .menu img{
@@ -84,10 +92,106 @@ html{
 
 /*
   FIXED MENU DROPDOWN 
-  TODO ---
 */
 
+.hamburger-menu{
+  background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+  height: 100px;
+}
 
+#menuToggle{
+  display: block;
+  position: relative;
+  width: 50px;
+  top: 50px;
+  left: 50px;
+  z-index: 1;
+}
+
+#menuToggle a{
+  text-decoration: none;
+  color: #232323;
+  transition: color 0.3s ease;
+}
+
+#menuToggle input{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -8px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2; 
+}
+
+#menuToggle span{ /* HAMBURGER PART */
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: var(--menu-color);
+  border-radius: 3px;
+  z-index: 1;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2){
+  transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked ~ span{ /* HAMB TO CROSS ANIMATION*/
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #fdfdfd;
+  }
+
+  #menuToggle input:checked ~ span:nth-last-child(3){
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+  }
+
+  #menuToggle input:checked ~ span:nth-last-child(2){
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menu{
+  position: absolute;
+  width: 350%;
+  margin: -100px 0 0 -50px;
+  padding-top: 125px;
+  background: var(--menu-color);
+  list-style-type: none;
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li{
+  transition-duration: .3s;
+  margin-bottom: 33px;
+  padding: 15px;
+  font-size: 22px;
+}
+
+#menu li:hover{
+  background: #fff;
+  color: var(--menu-color);
+  font-size: 1.7rem;
+}
+
+#menuToggle input:checked ~ ul{
+  transform: none;
+}
 
 /*
   FANCY SCROLLBAR
@@ -111,10 +215,6 @@ html{
   PAGE STYLE
 */
 
-.content{
-  margin-top: 80px;
-}
-
 .box{
   border-radius: 10px;
   background-color: var(--box-black);
@@ -124,12 +224,21 @@ html{
   text-align: center;
 }
 
+.no-selectable{
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 /*
   HEADER SUMMARY & GRAPH
 */
 
 .header{
   display: grid;
+  margin: 0 20px;
+  row-gap: 30px;
+  gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "summary graph graph"
                        "div div div";
@@ -153,6 +262,19 @@ html{
   padding: 10px;
   grid-area: summary;
 }
+/*
+  SUMMARY TABLE
+*/
+
+.summary{
+  display: flex;
+}
+
+.summary-table{
+  width: 100%;
+}
+
+
 
 /*
   DIVISOR STYLE
@@ -165,6 +287,7 @@ html{
   margin-bottom: 30px;
   background-color: var(--menu-color);
   width: 100%;
+  user-select: none;
 }
 
 .half-1,.half-2{
@@ -209,6 +332,7 @@ html{
 
 .comments-left,.comments-right{
   max-width: 50%;
+  padding: 10px;
 }
 
 .comment.box:hover{
@@ -240,11 +364,62 @@ html{
 */
 
 @media screen and (max-width: 600px){
+  /* BACKGROUND FIX */
+
+  html{
+    background-size: 100vw 100vh;
+    bottom: -100px;
+  }
+
+  /* COMMENT MEDIA */
   .comments{
     flex-direction: column;
   }
 
   .comments-left,.comments-right{
     max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .comment{
+    min-width: 170px;
+  }
+
+  /* HEADER MEDIA */
+
+  .header{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .prev-summary, .prev-graph{
+    min-width: 190px;
+    padding: 20px;
+    display: block;
+  }
+  
+  .prev-graph{
+    height: auto;
+    width: auto;
+  }
+
+  /* DIVISION MEDIA */
+
+  .divisor{
+    min-width: 250px;
+  }
+
+  /* FIXED MENU */
+  .menu{
+    display: none;
+  }
+
+  .hamburger-menu{
+    display: block;
+    min-width: 250px;
+  }
+
+  .page{
+    padding-top: 0;
   }
 }
