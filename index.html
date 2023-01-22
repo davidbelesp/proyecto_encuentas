@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <script src="./main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <title>Inicio</title>
 </head>
 <body>
-<<<<<<< Updated upstream
    <h1>PAGINA DE INICIO</h1> 
-=======
     <div class="wrapper active-page1">
         <div class="page page1">
             <div class="title">
@@ -21,7 +22,6 @@
             <div class="buttons">
                 <button id="student button" onclick="redirect('./form.html')">Alumno</button>
                 <div class="separate"></div>
-                <button id="professor button" onclick="redirect('./summary.html')">Profesor</button>
             </div>
         </div>
         <div class="page page3">
@@ -32,6 +32,14 @@
         <div class="btn up invisible"></div>
         <div class="btn down"></div>
       </div>
->>>>>>> Stashed changes
 </body>
+<script>
+    
+    const nav_buttons = document.querySelectorAll("div.up, div.down")
+    nav_buttons.forEach(button => button.addEventListener("click", (event) => {
+        changeIndexPage(event);
+    }))
+    
+    setTimeout(() => {noWLogo();}, 0);
+</script>
 </html>
