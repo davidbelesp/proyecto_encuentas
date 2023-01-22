@@ -18,10 +18,14 @@
         $bbdd = "encuestas";
 
         $conexion = mysqli_connect($host,$user,$pass,$bbdd);
+        if(mysqli_connect_errno()){
+            echo "FALLO AL CARGAR LA BASE DE DATOS";
+            exit();
+        }
         /*Consulta  comentario*/
-        $consulta = "SELECT comentario,fecha FROM encuesta";
+        $consulta = "SELECT comentario,fecha FROM encuesta limit 10";
         $resultado = mysqli_query($conexion,$consulta);
-        $comentario_with_fecha = mysqli_fetch_all($resultado);
+        $comentario_with_fecha = mysqli_fetch_all($resultado,MYSQLI_ASSOC);
 
         /*Consulta Puntuacion*/
         $consulta = "select sum(nota)/count(nota) from encuesta";
@@ -38,8 +42,8 @@
                         if($i==0 || $i%2==0){
                             echo"
                             <div class='comment box'>
-                            <p id='comment-text'>".$comentario_with_fecha[$i][0]."</p>
-                            <p id='date'>".$comentario_with_fecha[$i][1]."</p>
+                            <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
+                            <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
                             </div>";
                         }
                     }
@@ -49,8 +53,8 @@
                         if($i%2!=0){
                             echo"
                             <div class='comment box'>
-                            <p id='comment-text'>".$comentario_with_fecha[$i][0]."</p>
-                            <p id='date'>".$comentario_with_fecha[$i][1]."</p>
+                            <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
+                            <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
                             </div>";
                         }
                     }
@@ -145,6 +149,7 @@
             <p>Texto de ejemplo en el footer</p>
         </div>
     </div>
+    <?php mysqli_close($conexion) ?>
 </body>
 <script>
 setTimeout(() => {noWLogo()}, 0);
