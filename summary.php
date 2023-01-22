@@ -60,7 +60,10 @@
                     }
                     break;
                 default:
-                    echo "ERROR";
+                    echo  "<div class='comment box'>
+                    <p id='comment-text'>"."ERROR"."</p>
+                    <p id='date'>"."ERROR"."</p>
+                    </div>";
             }
         }
     ?>
