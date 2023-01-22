@@ -136,9 +136,9 @@
   }
 
   /*BUTTON STYLE*/
-  .wrapper .page.page2 .buttons{
-    height: 100%;
-  }
+.wrapper .page.page2 .buttons{
+  height: 100%;
+}
 .wrapper .page.page2 .buttons button{
   font-weight: bold;
   font-size: 20px;
