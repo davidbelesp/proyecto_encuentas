@@ -18,32 +18,39 @@
         $bbdd = "encuestas";
 
         $conexion = mysqli_connect($host,$user,$pass,$bbdd);
+        /*Consulta  comentario*/
         $consulta = "SELECT comentario,fecha FROM encuesta limit 10";
         $resultado = mysqli_query($conexion,$consulta);
-        $datos = mysqli_fetch_all($resultado);
+        $comentario_with_fecha = mysqli_fetch_all($resultado);
+
+        /*Consulta Puntuacion*/
+        $consulta = "select sum(nota)/count(nota) from encuesta";
+        $resultado = mysqli_query($conexion,$consulta);
+        $notaAvg = mysqli_fetch_row($resultado);
+
 
         /*IMPRIMIR COMENTARIO IZQ Y DERECHA*/
         function imprimirComentario($lado){
-            global $datos;
+            global $comentario_with_fecha;
             switch ($lado){
                 case "izquierda":
-                    for($i=0;$i<count($datos);$i++){
+                    for($i=0;$i<count($comentario_with_fecha);$i++){
                         if($i==0 || $i%2==0){
                             echo"
                             <div class='comment box'>
-                            <p id='comment-text'>".$datos[$i][0]."</p>
-                            <p id='date'>".$datos[$i][1]."</p>
+                            <p id='comment-text'>".$comentario_with_fecha[$i][0]."</p>
+                            <p id='date'>".$comentario_with_fecha[$i][1]."</p>
                             </div>";
                         }
                     }
                     break;
                 case "derecha":
-                    for($i=0;$i<count($datos);$i++){
+                    for($i=0;$i<count($comentario_with_fecha);$i++){
                         if($i%2!=0){
                             echo"
                             <div class='comment box'>
-                            <p id='comment-text'>".$datos[$i][0]."</p>
-                            <p id='date'>".$datos[$i][1]."</p>
+                            <p id='comment-text'>".$comentario_with_fecha[$i][0]."</p>
+                            <p id='date'>".$comentario_with_fecha[$i][1]."</p>
                             </div>";
                         }
                     }
@@ -90,7 +97,7 @@
                             <tbody>
                                 <tr>
                                     <td>Valoración</td>
-                                    <td>6.7</td>
+                                    <td> <?php echo round($notaAvg[0],1); ?> </td>
                                 </tr>
                                 <tr>
                                     <td>Satisfecho</td>
