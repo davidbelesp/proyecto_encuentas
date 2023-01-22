@@ -19,7 +19,7 @@
 
         $conexion = mysqli_connect($host,$user,$pass,$bbdd);
         /*Consulta  comentario*/
-        $consulta = "SELECT comentario,fecha FROM encuesta limit 10";
+        $consulta = "SELECT comentario,fecha FROM encuesta";
         $resultado = mysqli_query($conexion,$consulta);
         $comentario_with_fecha = mysqli_fetch_all($resultado);
 
