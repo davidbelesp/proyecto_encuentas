@@ -42,27 +42,20 @@
             if($comentario_with_fecha!==NULL && ( $lado=="izquierda" ||$lado=="derecha" ) ){
                 switch ($lado){
                     case "izquierda":
-                        global $guardado;
                         for($i=0;$i<count($comentario_with_fecha);$i++){
-                            global $guardado;
                             if($i==0 || $i%2==0){
-                                global $guardado;
                                 $guardado.="
                                 <div class='comment box'>
                                 <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
                                 <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
                                 </div>";
-                                
                             }
                         }
                         return $guardado;
                         break;
                     case "derecha":
-                        global $guardado;
                         for($i=0;$i<count($comentario_with_fecha);$i++){
-                            global $guardado;
                             if($i%2!=0){
-                                global $guardado;
                                 $guardado.="
                                 <div class='comment box'>
                                 <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
