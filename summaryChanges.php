@@ -30,56 +30,59 @@
             $resultado = $conexion->query($consulta);
             $notaAvg = $resultado->fetch_row();
         }catch (Exception $e){
-            echo "ERROR BASE DE DATOS";
+            echo "ERROR AL CONECTAR CON LA BASE DE DATOS";
         }
+
+    /*FUNCIONES*/
 
         /*IMPRIMIR COMENTARIO IZQ Y DERECHA*/
         function imprimirComentario($lado){
             global $comentario_with_fecha;
             $guardado="";
-            switch ($lado){
-                case "izquierda":
-                    global $guardado;
-                    for($i=0;$i<count($comentario_with_fecha);$i++){
+            if($comentario_with_fecha!==NULL && ( $lado=="izquierda" ||$lado=="derecha" ) ){
+                switch ($lado){
+                    case "izquierda":
                         global $guardado;
-                        if($i==0 || $i%2==0){
+                        for($i=0;$i<count($comentario_with_fecha);$i++){
                             global $guardado;
-                            $guardado.="
-                            <div class='comment box'>
-                            <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
-                            <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
-                            </div>";
-                            
+                            if($i==0 || $i%2==0){
+                                global $guardado;
+                                $guardado.="
+                                <div class='comment box'>
+                                <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
+                                <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
+                                </div>";
+                                
+                            }
                         }
-                    }
-                    return $guardado;
-                    break;
-                case "derecha":
-                    global $guardado;
-                    for($i=0;$i<count($comentario_with_fecha);$i++){
+                        return $guardado;
+                        break;
+                    case "derecha":
                         global $guardado;
-                        if($i%2!=0){
+                        for($i=0;$i<count($comentario_with_fecha);$i++){
                             global $guardado;
-                            $guardado.="
-                            <div class='comment box'>
-                            <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
-                            <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
-                            </div>";
+                            if($i%2!=0){
+                                global $guardado;
+                                $guardado.="
+                                <div class='comment box'>
+                                <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
+                                <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
+                                </div>";
+                            }
                         }
-                    }
-                    return $guardado;
-                    break;
-                default:
-                    $guardado =  "<div class='comment box'>
-                    <p id='comment-text'>"."ERROR"."</p>
-                    <p id='date'>"."ERROR"."</p>
-                    </div>";
-                    return $guardado;
+                        return $guardado;
+                        break;
+                }
+            }else{
+                return "<div class='comment box'>
+                <p id='comment-text'>ERROR</p>
+                <p id='date'>ERROR</p>
+                </div>";
             }
         }
 
         /*IMPRIMIR MENSAJE DEPENDE DE SI ES NULL O NO*/
-        function switchPrintValueNullMessage($valorCompNull,$conecta,$no_conecta){
+        function switchPrintValueOrNullMessage($valorCompNull,$no_conecta,$conecta){
             if($valorCompNull===NULL){
                 echo $no_conecta;
             }else{
@@ -124,7 +127,7 @@
                             <tbody>
                                 <tr>
                                     <td>Valoración</td>
-                                    <td> <?php switchPrintValueNullMessage($notaAvg,round($notaAvg[0],1),"-"); ?> </td>
+                                    <td> <?php switchPrintValueOrNullMessage($notaAvg,"-",round($notaAvg[0],1)); ?> </td>
                                 </tr>
                                 <tr>
                                     <td>Satisfecho</td>
@@ -159,10 +162,10 @@
             </div>
             <div class="comments">
                 <div class="comments-left">
-                    <?php switchPrintValueNullMessage($comentario_with_fecha,imprimirComentario("izquierda"),imprimirComentario("error")); ?>
+                    <?php switchPrintValueOrNullMessage($comentario_with_fecha,imprimirComentario("error"),imprimirComentario("izquierda")); ?>
                 </div>
                 <div class="comments-right">
-                    <?php switchPrintValueNullMessage($comentario_with_fecha,imprimirComentario("derecha"),imprimirComentario("error")); ?>
+                    <?php switchPrintValueOrNullMessage($comentario_with_fecha,imprimirComentario("error"),imprimirComentario("derecha")); ?>
                 </div>
 
                 
