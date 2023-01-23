@@ -12,11 +12,7 @@
 <body>
     <div class="page">
     <?php
-        $host = "localhost";
-        $user = "root";
-        $pass = "";
-        $bbdd = "encuestas";
-
+        require("optionsbbdd.php");
         $conexion = new mysqli($host,$user,$pass,$bbdd);
         if($conexion->connect_errno){
             echo "FALLO AL CARGAR LA BASE DE DATOS";
