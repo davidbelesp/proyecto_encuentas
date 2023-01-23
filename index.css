@@ -77,15 +77,58 @@
   }
 
 /* EACH PAGE STYLE */
-
+  /* PAGE 1 */
   .wrapper .page.page1 {
     background: linear-gradient(10deg, #66a6b8 20%, #5471B9 80%);
-
+    display: flex;
+    flex-direction: column;
+  } 
+  .title{
+    line-height: 25vh;
+    user-select: none;
+    margin-left: 3vw;
+    margin-top: 30vh;
+    font-size: 12vw;
   }
+
+  #title{
+    transition-duration: 1s;
+  }
+  #title:hover{
+    letter-spacing: 102%;
+    transition-duration: 1s;
+    font-size: 115%;
+  }
+
+  /* PAGE 2 STYLE */ 
   .wrapper .page.page2 {
     background: linear-gradient(45deg, #f29c54 0%, #DB4367 100%);
 
   }
+  .wrapper .page.page2 .buttons{
+    font-size: 3rem;
+    height: 100%;
+  }
+  .wrapper .page.page2 .buttons button{
+    font: 20px bold;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    
+    width: 100%;
+    height: 50%;
+    background-color: #23af5600;
+    text-decoration: none;
+    border: 0;
+  }
+  .wrapper .page.page2 .buttons button:hover{
+    background-color: #ffffff17;
+  }
+  .wrapper .page.page2 .buttons .separate{
+    height: 1px;
+    background-color: #333;
+  }
+  /* PAGE 3 STYLE */
   .wrapper .page.page3 {
     background: linear-gradient(135deg, #23af56 0%, #67A79A 100%);
 
@@ -166,7 +209,7 @@
   background-color: #333;
 }
 /*PAGE 1 TEMP*/
-.wrapper .page.page1 .title{
+/* .wrapper .page.page1 .title{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -177,4 +220,4 @@
   font: 30px bold;
   color: #fff;
   text-align: center;
-}
+} */
