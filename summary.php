@@ -16,14 +16,14 @@
         $user = "root";
         $pass = "";
         $bbdd = "encuestas";
-        
+
         $conexion = new mysqli($host,$user,$pass,$bbdd);
         if(mysqli_connect_errno()){
             echo "FALLO AL CARGAR LA BASE DE DATOS";
             exit();
         }
         /*Consulta  comentario*/
-        $consulta = "SELECT comentario,fecha FROM encuesta limit 10";
+        $consulta = "SELECT comentario,fecha FROM encuesta";
         $resultado = $conexion->query($consulta);
         $comentario_with_fecha = $resultado->fetch_all(MYSQLI_ASSOC);
 
