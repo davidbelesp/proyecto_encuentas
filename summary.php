@@ -18,7 +18,7 @@
         $bbdd = "encuestas";
 
         $conexion = new mysqli($host,$user,$pass,$bbdd);
-        if(mysqli_connect_errno()){
+        if($conexion->connect_errno){
             echo "FALLO AL CARGAR LA BASE DE DATOS";
             exit();
         }
