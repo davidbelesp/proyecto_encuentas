@@ -14,6 +14,10 @@
 */
 
 .page{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
   background: var(--background-color);
   animation-name: background-animation;
   animation: gradient 35s ease infinite;
@@ -23,7 +27,11 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1
+  z-index: -1;
+  min-height: calc(100vh - 100px);
+}
+.content{
+  flex: 1 1 auto;
 }
 
 /*

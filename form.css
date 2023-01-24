@@ -1,30 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
-
-*{
-    font-family: 'Roboto Mono', monospace;
-    color: white
-}
+/* FORM STYLE */
 
 :root{
-    --background-color: linear-gradient(45deg, rgba(76,143,206,1) 0%, rgba(231,110,226,1) 100%);
-    --box-black: rgba(51, 51, 51,0.7);
-    --box-black-selected: rgba(75, 75, 75,0.7);
-    --menu-color: #333;
+
 }
 
-html, body{
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    width: 100%; 
-    background: var(--menu-color);
-}
-
-.page {
-    background: var(--background-color);
-    height: 100%;
-    width: 100%;
-}
-.page .content form input{
-    color: black;
-}
