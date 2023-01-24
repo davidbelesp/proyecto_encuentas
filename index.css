@@ -30,19 +30,34 @@
       font-size: 70%;
     }
     .nav-buttons {
-       top: 95% !important;
-       right: 50% !important;
-       scale: 2;
-       transform: rotate(270deg) !important;
+      top: 95% !important;
+      right: 50% !important;
+      scale: 2;
+      transform: rotate(270deg) !important;
     }
     .nav-buttons .btn.up {
-            top: -19vw !important;
-            transform: rotate(-45deg);
-        }
-        .nav-buttons .btn.down {
-            bottom: -19vw !important;
-            transform: rotate(135deg);
+      top: -19vw !important;
+      transform: rotate(-45deg);
     }
+    .nav-buttons .btn.down {
+      bottom: -19vw !important;
+      transform: rotate(135deg);
+    }
+    /* PAGE 1 MEDIA*/
+    .title{
+      position: absolute;
+      transform: rotate(90deg) translateX(-17vh) translateY(20vw);
+      line-height: 11vw;
+    }.enc{font-size: 115%}.enc:hover{font-size: 115%}
+    #title:hover:not(.enc){
+      font-size: 100%;
+    }
+    @keyframes breath{
+      0%{ border: 0.3em solid #fff; }
+      50%{ border: 0.5em solid #fff; }
+      100%{ border: 0.3em solid #fff; }
+    }
+
   }
   
 /* GENERAL PAGE STYLE */
@@ -77,24 +92,39 @@
   }
 
 /* EACH PAGE STYLE */
-  /* PAGE 1 */
+  /* PAGE 1 STYLE */
   .wrapper .page.page1 {
     background: linear-gradient(10deg, #66a6b8 20%, #5471B9 80%);
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
   } 
-  .title{
-    line-height: 25vh;
+  .logo{
     user-select: none;
-    margin-left: 3vw;
-    margin-top: 30vh;
-    font-size: 12vw;
+    min-width: 100px;
+    width: 10vw;
+    position: absolute;
+    top: 8vh;
+    right: 5vw;
   }
+
+  .title{
+    position: absolute;
+    color: white;
+    font-size: 11vw;
+    top: 37vh;
+    left: 30px;
+    text-transform: uppercase;
+    user-select: none;
+    line-height: 11vw;
+  }.enc{font-size: 115%}.enc:hover{font-size: 135%}
 
   #title{
     transition-duration: 1s;
   }
-  #title:hover{
+  #title:hover:not(.enc){
     letter-spacing: 102%;
     transition-duration: 1s;
     font-size: 115%;
@@ -103,17 +133,17 @@
   /* PAGE 2 STYLE */ 
   .wrapper .page.page2 {
     background: linear-gradient(45deg, #f29c54 0%, #DB4367 100%);
-
   }
   .wrapper .page.page2 .buttons{
     font-size: 3rem;
     height: 100%;
   }
   .wrapper .page.page2 .buttons button{
-    font: 20px bold;
+    font: 10vw bold;
     color: #fff;
     text-transform: uppercase;
-    font-weight: bold;
+
+    transition-duration: .1s;
     
     width: 100%;
     height: 50%;
@@ -122,11 +152,13 @@
     border: 0;
   }
   .wrapper .page.page2 .buttons button:hover{
+    font: 13vw bold;
+    font-weight: bolder;
     background-color: #ffffff17;
   }
   .wrapper .page.page2 .buttons .separate{
-    height: 1px;
-    background-color: #333;
+    height: 5px;
+    background-color: rgb(255, 255, 255);
   }
   /* PAGE 3 STYLE */
   .wrapper .page.page3 {
@@ -134,7 +166,7 @@
 
   }
 
-/* ANIMATIONS */
+/* ANIMATIONS FOR CHANGING PAGE */
   .wrapper.active-page1 {transform: translateY(0%);}
   .wrapper.active-page1 .page.page1 {transform: scale(1);}
   .wrapper.active-page2 {transform: translateY(-100%);}
@@ -145,9 +177,11 @@
 /* NAVIGATION */
 
   .nav-buttons {
+    user-select: none;
+
     position: fixed;
     top: 50%;
-    right: 100px;
+    right: 70px;
     transform: translateY(-50%);
     z-index: 10;
     transition: opacity 0.5s, transform 0.5s cubic-bezier(.61,-0.01,.31,1);
@@ -164,8 +198,8 @@
     width: 1.5em;
     height: 1.5em;
     border: 0.3em solid #fff;
-    border-left: none;
-    border-bottom: none;
+    border-left: none !important;
+    border-bottom: none !important;
     cursor: pointer;
     transform-origin: 50% 50%;
     transition: border-color 0.3s;
@@ -179,45 +213,18 @@
     transform: rotate(135deg);
   }
   .nav-buttons .btn:hover {
-    border-color: rgb(0, 0, 0);
+    animation: breath ease-in-out forwards;
+    animation-iteration-count: 1;
+    animation-duration: .3s;
+    transition-duration: .1s;
   }
   .nav-buttons .btn.invisible { 
     display: none;
   }
-
-  /*BUTTON STYLE*/
-.wrapper .page.page2 .buttons{
-  height: 100%;
-}
-.wrapper .page.page2 .buttons button{
-  font: 20px bold;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: bold;
-
-  width: 100%;
-  height: 50%;
-  background-color: #23af5600;
-  text-decoration: none;
-  border: 0;
-}
-.wrapper .page.page2 .buttons button:hover{
-  background-color: #ffffff17;
-}
-.wrapper .page.page2 .buttons .separate{
-  height: 1px;
-  background-color: #333;
-}
-/*PAGE 1 TEMP*/
-/* .wrapper .page.page1 .title{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-} 
-.wrapper .page.page1 .title p{
-  text-transform: uppercase;
-  font: 30px bold;
-  color: #fff;
-  text-align: center;
-} */
+  @media (min-width:701px) {
+    @keyframes breath{
+      0%{ border: 0.3em solid #fff; }
+      100%{ border: 0.5em solid #fff; }
+    }
+  }
+  
