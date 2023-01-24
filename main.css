@@ -7,17 +7,6 @@
     color: white
 }
 
-/*
-    COLOR NORMALIZATION
-*/
-
-:root{
-    --background-color: linear-gradient(45deg, rgba(76,143,206,1) 0%, rgba(231,110,226,1) 100%);
-    --box-black: rgba(51, 51, 51,0.7);
-    --box-black-selected: rgba(75, 75, 75,0.7);
-    --menu-color: #333;
-}
-
 body{
     margin: 0;
     padding: 0;

@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
 
+:root{
+  --page1bg: linear-gradient(45deg, rgba(74,163,198,1) 0%, rgba(71,187,165,1) 100%);
+  --page2bg: linear-gradient(220deg, rgba(102,45,140,1) 0%, rgba(237,30,121,1) 100%);
+  
+  --page3bg: linear-gradient(45deg, rgba(97,67,133,1) 0%, rgba(81,99,149,1) 100%);
+}
+
 *{
   font-family: 'Roboto Mono', monospace !important;
   color: white;
@@ -94,7 +101,7 @@
 /* EACH PAGE STYLE */
   /* PAGE 1 STYLE */
   .wrapper .page.page1 {
-    background: linear-gradient(10deg, #66a6b8 20%, #5471B9 80%);
+    background: var(--page1bg);
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -132,7 +139,8 @@
 
   /* PAGE 2 STYLE */ 
   .wrapper .page.page2 {
-    background: linear-gradient(45deg, #f29c54 0%, #DB4367 100%);
+    user-select: none;
+    background: var(--page2bg);
   }
   .wrapper .page.page2 .buttons{
     font-size: 3rem;
@@ -162,7 +170,7 @@
   }
   /* PAGE 3 STYLE */
   .wrapper .page.page3 {
-    background: linear-gradient(135deg, #23af56 0%, #67A79A 100%);
+    background: var(--page3bg);
 
   }
 
