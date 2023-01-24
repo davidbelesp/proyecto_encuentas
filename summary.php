@@ -13,54 +13,73 @@
     <div class="page">
     <?php
         require("optionsbbdd.php");
-        $conexion = new mysqli($host,$user,$pass,$bbdd);
-        if($conexion->connect_errno){
-            echo "FALLO AL CARGAR LA BASE DE DATOS";
-            exit();
+
+        error_reporting(0);
+        mysqli_report(MYSQLI_REPORT_ERROR|MYSQLI_REPORT_STRICT);
+
+
+        try{
+            $conexion = new mysqli($host,$user,$pass,$bbdd) or die("ERROR");
+            /*Consulta  comentario*/
+            $consulta = "SELECT comentario,fecha FROM encuesta";
+            $resultado = $conexion->query($consulta);
+            $comentario_with_fecha = $resultado->fetch_all(MYSQLI_ASSOC);
+
+            /*Consulta Puntuacion*/
+            $consulta = "select sum(nota)/count(nota) from encuesta";
+            $resultado = $conexion->query($consulta);
+            $notaAvg = $resultado->fetch_row();
+        }catch (Exception $e){
+            echo "ERROR AL CONECTAR CON LA BASE DE DATOS";
         }
-        /*Consulta  comentario*/
-        $consulta = "SELECT comentario,fecha FROM encuesta";
-        $resultado = $conexion->query($consulta);
-        $comentario_with_fecha = $resultado->fetch_all(MYSQLI_ASSOC);
 
-        /*Consulta Puntuacion*/
-        $consulta = "select sum(nota)/count(nota) from encuesta";
-        $resultado = $conexion->query($consulta);
-        $notaAvg = $resultado->fetch_row();
-
-
+    /*FUNCIONES*/
 
         /*IMPRIMIR COMENTARIO IZQ Y DERECHA*/
         function imprimirComentario($lado){
             global $comentario_with_fecha;
-            switch ($lado){
-                case "izquierda":
-                    for($i=0;$i<count($comentario_with_fecha);$i++){
-                        if($i==0 || $i%2==0){
-                            echo"
-                            <div class='comment box'>
-                            <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
-                            <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
-                            </div>";
+            $guardado="";
+            if($comentario_with_fecha!==NULL && ( $lado=="izquierda" ||$lado=="derecha" ) ){
+                switch ($lado){
+                    case "izquierda":
+                        for($i=0;$i<count($comentario_with_fecha);$i++){
+                            if($i==0 || $i%2==0){
+                                $guardado.="
+                                <div class='comment box'>
+                                <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
+                                <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
+                                </div>";
+                            }
                         }
-                    }
-                    break;
-                case "derecha":
-                    for($i=0;$i<count($comentario_with_fecha);$i++){
-                        if($i%2!=0){
-                            echo"
-                            <div class='comment box'>
-                            <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
-                            <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
-                            </div>";
+                        return $guardado;
+                        break;
+                    case "derecha":
+                        for($i=0;$i<count($comentario_with_fecha);$i++){
+                            if($i%2!=0){
+                                $guardado.="
+                                <div class='comment box'>
+                                <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
+                                <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
+                                </div>";
+                            }
                         }
-                    }
-                    break;
-                default:
-                    echo  "<div class='comment box'>
-                    <p id='comment-text'>"."ERROR"."</p>
-                    <p id='date'>"."ERROR"."</p>
-                    </div>";
+                        return $guardado;
+                        break;
+                }
+            }else{
+                return "<div class='comment box'>
+                <p id='comment-text'>ERROR</p>
+                <p id='date'>ERROR</p>
+                </div>";
+            }
+        }
+
+        /*IMPRIMIR MENSAJE DEPENDE DE SI ES NULL O NO*/
+        function switchPrintValueOrNullMessage($valorCompNull,$no_conecta,$conecta){
+            if($valorCompNull===NULL){
+                echo $no_conecta;
+            }else{
+                echo $conecta;
             }
         }
     ?>
@@ -101,7 +120,7 @@
                             <tbody>
                                 <tr>
                                     <td>Valoración</td>
-                                    <td> <?php echo round($notaAvg[0],1); ?> </td>
+                                    <td> <?php switchPrintValueOrNullMessage($notaAvg,"-",round($notaAvg[0],1)); ?> </td>
                                 </tr>
                                 <tr>
                                     <td>Satisfecho</td>
@@ -136,10 +155,10 @@
             </div>
             <div class="comments">
                 <div class="comments-left">
-                    <?php imprimirComentario("izquierda"); ?>
+                    <?php switchPrintValueOrNullMessage($comentario_with_fecha,imprimirComentario("error"),imprimirComentario("izquierda")); ?>
                 </div>
                 <div class="comments-right">
-                    <?php imprimirComentario("derecha"); ?>
+                    <?php switchPrintValueOrNullMessage($comentario_with_fecha,imprimirComentario("error"),imprimirComentario("derecha")); ?>
                 </div>
 
                 
