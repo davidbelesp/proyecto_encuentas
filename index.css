@@ -64,7 +64,11 @@
       50%{ border: 0.5em solid #fff; }
       100%{ border: 0.3em solid #fff; }
     }
-
+    /* PAGE 2 MEDIA*/
+    .wrapper .page.page2 .buttons{
+      height: 85% !important;
+      border-bottom: 5px solid white;
+    }
   }
   
 /* GENERAL PAGE STYLE */
@@ -114,14 +118,14 @@
     width: 10vw;
     position: absolute;
     top: 8vh;
-    right: 5vw;
+    right: 8vw;
   }
 
   .title{
     position: absolute;
     color: white;
     font-size: 11vw;
-    top: 37vh;
+    top: 36vh;
     left: 30px;
     text-transform: uppercase;
     user-select: none;
