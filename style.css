@@ -355,6 +355,12 @@
 */
 
 @media screen and (max-width: 600px){
+  /* FOOTER FIX */
+
+  .content{
+    min-height: calc(100vh - 200px);
+  }
+
   /* BACKGROUND FIX */
 
   html{
