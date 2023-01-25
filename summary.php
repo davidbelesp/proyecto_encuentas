@@ -11,12 +11,12 @@
 
 
     <?php
-        require("optionsbbdd.php");
+        require("config.php");
 
         error_reporting(0);
         try{
-            $dsn = "mysql:host=".$host."; dbname=".$bbdd;
-            $conexion = new PDO($dsn,$user,$pass);
+            $conexion = new PDO(DB_DSN_CONNECT,DB_USER,DB_PASS);
+            $conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             $conexion->exec("SET CHARACTER SET utf8");
             /*Consulta  comentario*/
             $consulta = "SELECT comentario,fecha FROM encuesta";
