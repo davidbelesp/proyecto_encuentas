@@ -15,7 +15,7 @@
 
         error_reporting(0);
         try{
-            $dsn = "mysql:host=".$host."; dbname=".$bbdd."a";
+            $dsn = "mysql:host=".$host."; dbname=".$bbdd;
             $conexion = new PDO($dsn,$user,$pass);
             $conexion->exec("SET CHARACTER SET utf8");
             /*Consulta  comentario*/
@@ -90,7 +90,7 @@
 </head>
 <body>
     <div class="page">
-        
+
         <div class="hamburger-menu">
             <div id="menuToggle" class="no-selectable">
                 <input type="checkbox"/>
