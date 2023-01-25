@@ -336,6 +336,11 @@
   margin-bottom: 0;
 }
 
+.comments-media{
+  padding: 10px;
+  display: none;
+}
+
 /*
   FOOTER
 */
@@ -369,18 +374,17 @@
   }
 
   /* COMMENT MEDIA */
-  .comments{
-    flex-direction: column;
-  }
 
   .comments-left,.comments-right{
-    width: auto;
-    padding: 10px;
-    max-width: 100%;
+    display: none;
   }
 
   .comment{
     min-width: 170px;
+  }
+
+  .comments-media{
+    display: block;
   }
 
   /* HEADER MEDIA */
