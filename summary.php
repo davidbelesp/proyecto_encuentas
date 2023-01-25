@@ -8,27 +8,30 @@
     <link href="./style.css" rel="stylesheet"></link>
     <script src="main.js"></script>
     <title>Resumen</title>
-</head>
-<body>
-    <div class="page">
+
+
     <?php
         require("optionsbbdd.php");
 
         error_reporting(0);
-        mysqli_report(MYSQLI_REPORT_ERROR|MYSQLI_REPORT_STRICT);
-
-
         try{
-            $conexion = new mysqli($host,$user,$pass,$bbdd) or die("ERROR");
+            $dsn = "mysql:host=".$host."; dbname=".$bbdd."a";
+            $conexion = new PDO($dsn,$user,$pass);
+            $conexion->exec("SET CHARACTER SET utf8");
             /*Consulta  comentario*/
             $consulta = "SELECT comentario,fecha FROM encuesta";
             $resultado = $conexion->query($consulta);
-            $comentario_with_fecha = $resultado->fetch_all(MYSQLI_ASSOC);
+            $comentario_with_fecha = $resultado->fetchAll(PDO::FETCH_ASSOC);
+            $resultado->closeCursor();
 
             /*Consulta Puntuacion*/
             $consulta = "select sum(nota)/count(nota) from encuesta";
             $resultado = $conexion->query($consulta);
-            $notaAvg = $resultado->fetch_row();
+            $notaAvg = $resultado->fetch();
+            $resultado->closeCursor();
+
+            $conexion = null;
+            
         }catch (Exception $e){
             echo "ERROR AL CONECTAR CON LA BASE DE DATOS";
         }
@@ -83,9 +86,11 @@
             }
         }
     ?>
+
+</head>
+<body>
+    <div class="page">
         
-
-
         <div class="hamburger-menu">
             <div id="menuToggle" class="no-selectable">
                 <input type="checkbox"/>
@@ -168,7 +173,6 @@
             <p>Texto de ejemplo en el footer</p>
         </div>
     </div>
-    <?php mysqli_close($conexion) ?>
 </body>
 <script>
 setTimeout(() => {noWLogo()}, 0);
