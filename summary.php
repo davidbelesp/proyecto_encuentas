@@ -42,7 +42,7 @@
         function imprimirComentario($lado){
             global $comentario_with_fecha;
             $guardado="";
-            if($comentario_with_fecha!==NULL && ( $lado=="izquierda" ||$lado=="derecha" ) ){
+            if($comentario_with_fecha!==NULL && ( $lado=="izquierda" ||$lado=="derecha" || $lado=="todos") ){
                 switch ($lado){
                     case "izquierda":
                         for($i=0;$i<count($comentario_with_fecha);$i++){
@@ -68,6 +68,16 @@
                         }
                         return $guardado;
                         break;
+                        case "todos":
+                            for($i=0;$i<count($comentario_with_fecha);$i++){
+                                    $guardado.="
+                                    <div class='comment box'>
+                                    <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
+                                    <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
+                                    </div>";
+                            }
+                            return $guardado;
+                            break;
                 }
             }else{
                 return "<div class='comment box'>
