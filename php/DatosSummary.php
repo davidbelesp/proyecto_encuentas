@@ -12,25 +12,20 @@ class DatosSummary extends Conexion{
     */
 
     public function devolverDatosComentario(){
-        $comment_with_date=NULL;
-        if($this->db_conexion!=NULL){
-            $consulta = "SELECT comentario,fecha from encuesta";
-            $resultado = $this->db_conexion->query($consulta);
-            $comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
-            $resultado->closeCursor();
-        }
 
+        $consulta = "SELECT comentario,fecha from encuesta";
+        $resultado = $this->db_conexion->query($consulta);
+        $comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        $resultado->closeCursor();
         return $comment_with_date;
     }
     public function devolverDatosGenerales(){
-        $notaAvg = NULL;
-        if($this->db_conexion!=NULL){
             $consulta = "select sum(nota)/count(nota) from encuesta";
             $resultado = $this->db_conexion->query($consulta);
             $notaAvg = $resultado->fetch();
             $notaAvg = round($notaAvg[0],1);
             $resultado->closeCursor();
-        }
+
 
         return $notaAvg;
 

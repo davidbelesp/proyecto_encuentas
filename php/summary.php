@@ -14,8 +14,11 @@
         require("DatosSummary.php");
 
         $conexion = new DatosSummary();
-        $comentario_with_fecha = $conexion->devolverDatosComentario();
-        $notaAvg = $conexion->devolverDatosGenerales();
+        if($conexion->db_conexion!=NULL){
+            $comentario_with_fecha = $conexion->devolverDatosComentario();
+            $notaAvg = $conexion->devolverDatosGenerales();
+        }
+
 
     ?>
 
