@@ -30,51 +30,51 @@ class DatosSummary extends Conexion{
             $resultado->closeCursor();
     }
     public function getDatosComentario(){
-        return $this->comment_with_date;
+        $resultado = $this->comment_with_date;
+        return $resultado;
     }
     public function getDatosGenerales(){
-        return $this->notaAvg;
+        $resultado = $this->notaAvg;
+        return $resultado;
     }
 
 
 /*STATIC METHOD*/
 
 
-
-    /*IMPRIMIR COMENTARIO IZQ Y DERECHA*/
-    public static function imprimirComentario($lado,$comentario_with_fecha){
-        global $comentario_with_fecha;
+    /*IMPRIMIR E ITERAR COMENTARIO IZQ Y DERECHA*/
+    public function printCommentAndDate($lado){
         $guardado="";
-        if($comentario_with_fecha!==NULL && ( $lado=="izquierda" ||$lado=="derecha" ) ){
+        if($this->comment_with_date!==NULL && ( $lado=="izquierda" ||$lado=="derecha" ) ){
             switch ($lado){
                 case "izquierda":
-                    for($i=0;$i<count($comentario_with_fecha);$i++){
+                    for($i=0;$i<count($this->comment_with_date);$i++){
                         if($i==0 || $i%2==0){
                             $guardado.="
                             <div class='comment box'>
-                            <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
-                            <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
+                            <p id='comment-text'>".$this->comment_with_date[$i]["comentario"]."</p>
+                            <p id='date'>".$this->comment_with_date[$i]["fecha"]."</p>
                             </div>";
                         }
                     }
                     return $guardado;
                 case "derecha":
-                    for($i=0;$i<count($comentario_with_fecha);$i++){
+                    for($i=0;$i<count($this->comment_with_date);$i++){
                         if($i%2!=0){
                             $guardado.="
                             <div class='comment box'>
-                            <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
-                            <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
+                            <p id='comment-text'>".$this->comment_with_date[$i]["comentario"]."</p>
+                            <p id='date'>".$this->comment_with_date[$i]["fecha"]."</p>
                             </div>";
                         }
                     }
                     return $guardado;
                     case "todos":
-                        for($i=0;$i<count($comentario_with_fecha);$i++){
+                        for($i=0;$i<count($this->comment_with_date);$i++){
                                 $guardado.="
                                 <div class='comment box'>
-                                <p id='comment-text'>".$comentario_with_fecha[$i]["comentario"]."</p>
-                                <p id='date'>".$comentario_with_fecha[$i]["fecha"]."</p>
+                                <p id='comment-text'>".$this->comment_with_date[$i]["comentario"]."</p>
+                                <p id='date'>".$this->comment_with_date[$i]["fecha"]."</p>
                                 </div>";
                         }
                     return $guardado;
@@ -88,7 +88,7 @@ class DatosSummary extends Conexion{
     }
 
     /*IMPRIMIR MENSAJE DEPENDE DE SI ES NULL O NO*/
-    public static function switchPrintNullOrValueMessage(&$valorCompNull,$no_conecta,$conecta){
+    public static function switchPrintNullOrValueMessage($valorCompNull,$no_conecta,$conecta){
         if($valorCompNull==NULL){
             echo $no_conecta;
         }else{

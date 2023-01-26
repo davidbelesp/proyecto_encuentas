@@ -98,10 +98,10 @@
             </div>
             <div class="comments">
                 <div class="comments-left">
-                    <?php DatosSummary::switchPrintNullOrValueMessage($comentario_with_fecha,DatosSummary::imprimirComentario("error",$comentario_with_fecha),DatosSummary::imprimirComentario("izquierda",$comentario_with_fecha)); ?>
+                    <?php DatosSummary::switchPrintNullOrValueMessage($conexion->getDatosComentario(),$conexion->printCommentAndDate("error"),$conexion->printCommentAndDate("izquierda")); ?>
                 </div>
                 <div class="comments-right">
-                    <?php DatosSummary::switchPrintNullOrValueMessage($comentario_with_fecha,DatosSummary::imprimirComentario("error",$comentario_with_fecha),DatosSummary::imprimirComentario("derecha",$comentario_with_fecha)); ?>
+                    <?php DatosSummary::switchPrintNullOrValueMessage($conexion->getDatosComentario(),$conexion->printCommentAndDate("error"),$conexion->printCommentAndDate("derecha")); ?>
                 </div>
 
                 
