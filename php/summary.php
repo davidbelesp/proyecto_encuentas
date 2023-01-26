@@ -108,6 +108,9 @@
                 <div class="comments-right">
                     <?php DatosSummary::switchPrintNullOrValueMessage($conexion->getDatosComentario(),$conexion->printCommentAndDate("error"),$conexion->printCommentAndDate("derecha")); ?>
                 </div>
+                <div class="comments-media">
+                    <?php DatosSummary::switchPrintNullOrValueMessage($conexion->getDatosComentario(),$conexion->printCommentAndDate("error"),$conexion->printCommentAndDate("todos")); ?>
+                </div>
 
                 
             </div>

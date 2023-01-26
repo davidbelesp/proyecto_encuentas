@@ -42,7 +42,7 @@ class DatosSummary extends Conexion{
     /*IMPRIMIR E ITERAR COMENTARIO IZQ Y DERECHA*/
     public function printCommentAndDate($lado){
         $guardado="";
-        if($this->comment_with_date!==NULL && ( $lado=="izquierda" ||$lado=="derecha" ) ){
+        if($this->comment_with_date!==NULL && ( $lado=="izquierda" ||$lado=="derecha" || $lado=="todos") ){
             switch ($lado){
                 case "izquierda":
                     for($i=0;$i<count($this->comment_with_date);$i++){
