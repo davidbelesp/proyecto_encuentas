@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./main.css" rel="stylesheet"></link>
-    <link href="./style.css" rel="stylesheet"></link>
+    <link href="./Styles/main.css" rel="stylesheet"></link>
+    <link href="./Styles/style.css" rel="stylesheet"></link>
     <script src="main.js"></script>
     <title>Resumen</title>
 
 
     <?php
-        require("DatosSummary.php");
+
+        session_start();
+        if(!isset($_SESSION["Usuario"])){
+            header("Location:login.html");
+        }
+
+        require("./Class/DatosSummary.php");
 
         $conexion = new DatosSummary();
         if($conexion->db_conexion!=NULL){
@@ -37,15 +43,17 @@
                   <a href="./form.html"><li>Encuesta</li></a>
                   <a href="#"><li>Resumen</li></a>
                   <a href="#"><li>Contacto</li></a>
+                  <a href="./cerrar_sesion.php"><li>Cerrar Sesion</li></a>
                 </ul>
             </div>
         </div>
         
         <div class="menu">
-            <img src="./logo-example.png" alt="logo">
+            <img src="./Resources/logo-example.png" alt="logo">
             <a href="./index.html">Inicio</a>
             <a href="./form.html">Encuesta</a>
             <a href="">Contacto</a>
+            <a href="./cerrar_sesion.php">Cerrar Sesion</a>
         </div>
 
 
