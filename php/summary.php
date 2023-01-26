@@ -15,8 +15,11 @@
 
         $conexion = new DatosSummary();
         if($conexion->db_conexion!=NULL){
-            $comentario_with_fecha = $conexion->devolverDatosComentario();
-            $notaAvg = $conexion->devolverDatosGenerales();
+
+            $conexion->setDatosComentario();
+            $conexion->setDatosGenerales();
+            $comentario_with_fecha = $conexion->getDatosComentario();
+            $notaAvg = $conexion->getDatosGenerales();
         }
 
 

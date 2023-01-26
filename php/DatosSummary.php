@@ -1,8 +1,11 @@
 <?php
 require("Conexion.php");
 class DatosSummary extends Conexion{
+    private $comment_with_date;
+    private $notaAvg;
     public function __construct(){
         parent::__construct();
+        
 
     }
     
@@ -11,24 +14,26 @@ class DatosSummary extends Conexion{
     PARA SACAR LAS CONSULTAS DE UN UNICO PROFESOR
     */
 
-    public function devolverDatosComentario(){
+    public function setDatosComentario(){
 
         $consulta = "SELECT comentario,fecha from encuesta";
         $resultado = $this->db_conexion->query($consulta);
-        $comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        $this->comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
         $resultado->closeCursor();
-        return $comment_with_date;
     }
-    public function devolverDatosGenerales(){
+    public function setDatosGenerales(){
             $consulta = "select sum(nota)/count(nota) from encuesta";
             $resultado = $this->db_conexion->query($consulta);
             $notaAvg = $resultado->fetch();
             $notaAvg = round($notaAvg[0],1);
+            $this->notaAvg = $notaAvg;
             $resultado->closeCursor();
-
-
-        return $notaAvg;
-
+    }
+    public function getDatosComentario(){
+        return $this->comment_with_date;
+    }
+    public function getDatosGenerales(){
+        return $this->notaAvg;
     }
 
 
@@ -53,7 +58,6 @@ class DatosSummary extends Conexion{
                         }
                     }
                     return $guardado;
-                    break;
                 case "derecha":
                     for($i=0;$i<count($comentario_with_fecha);$i++){
                         if($i%2!=0){
@@ -64,6 +68,7 @@ class DatosSummary extends Conexion{
                             </div>";
                         }
                     }
+                    return $guardado;
                     case "todos":
                         for($i=0;$i<count($comentario_with_fecha);$i++){
                                 $guardado.="
@@ -73,7 +78,6 @@ class DatosSummary extends Conexion{
                                 </div>";
                         }
                     return $guardado;
-                    break;
             }
         }else{
             return "<div class='comment box'>
