@@ -15,11 +15,8 @@
 
         $conexion = new DatosSummary();
         if($conexion->db_conexion!=NULL){
-
             $conexion->setDatosComentario();
             $conexion->setDatosGenerales();
-            $comentario_with_fecha = $conexion->getDatosComentario();
-            $notaAvg = $conexion->getDatosGenerales();
         }
 
 
@@ -63,7 +60,7 @@
                             <tbody>
                                 <tr>
                                     <td>Valoración</td>
-                                    <td> <?php DatosSummary::switchPrintNullOrValueMessage($notaAvg,"-",$notaAvg); ?> </td>
+                                    <td> <?php DatosSummary::switchPrintNullOrValueMessage($conexion->getDatosGenerales(),"-",$conexion->getDatosGenerales()); ?> </td>
                                 </tr>
                                 <tr>
                                     <td>Satisfecho</td>

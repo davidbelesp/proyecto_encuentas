@@ -5,8 +5,9 @@ class DatosSummary extends Conexion{
     private $notaAvg;
     public function __construct(){
         parent::__construct();
+        $this->comment_with_date = NULL;
+        $this->notaAvg = NULL;
         
-
     }
     
     
@@ -37,10 +38,6 @@ class DatosSummary extends Conexion{
         $resultado = $this->notaAvg;
         return $resultado;
     }
-
-
-/*STATIC METHOD*/
-
 
     /*IMPRIMIR E ITERAR COMENTARIO IZQ Y DERECHA*/
     public function printCommentAndDate($lado){
@@ -86,6 +83,10 @@ class DatosSummary extends Conexion{
             </div>";
         }
     }
+
+    
+
+/*STATIC METHOD*/
 
     /*IMPRIMIR MENSAJE DEPENDE DE SI ES NULL O NO*/
     public static function switchPrintNullOrValueMessage($valorCompNull,$no_conecta,$conecta){
