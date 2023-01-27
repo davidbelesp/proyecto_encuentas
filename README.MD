@@ -15,7 +15,7 @@ idProfesor int,
 nota int,
 comentario varchar(200),
 fecha date,
-constraint FK_id foreign key (idProfesor) references encuesta(id));
+constraint FK_id foreign key (idProfesor) references usuarios(id));
 
 
 ## INSERT WITH COMMAND

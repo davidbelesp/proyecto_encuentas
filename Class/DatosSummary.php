@@ -1,7 +1,6 @@
 <?php
 require("Conexion.php");
 class DatosSummary extends Conexion{
-    private $user;
     private $comment_with_date;
     private $notaAvg;
     public function __construct(){
@@ -12,12 +11,9 @@ class DatosSummary extends Conexion{
     }
     
     
-    /*TO DO: EN UN FUTURO PASAR POR PARAMETRO EL PROFESOR Y HACER UN WHERE LIKE PROFESOR
-    PARA SACAR LAS CONSULTAS DE UN UNICO PROFESOR
-    */
-
-    public function setDatosComentario(){
-        $consulta = "SELECT comentario,fecha from encuesta";
+    /*SETTER*/
+    public function setDatosComentario($profesor){
+        $consulta = "SELECT comentario,fecha from encuesta where idProfesor=(select id from usuarios where usuario = '$profesor')";
         $resultado = $this->db_conexion->query($consulta);
         $this->comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
         $resultado->closeCursor();
@@ -29,10 +25,6 @@ class DatosSummary extends Conexion{
         $notaAvg = round($notaAvg[0],1);
         $this->notaAvg = $notaAvg;
         $resultado->closeCursor();
-    }
-    public function setUser($user){
-        $this->user = $user;
-        
     }
     public function getDatosComentario(){
         $resultado = $this->comment_with_date;
