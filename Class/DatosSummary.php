@@ -1,6 +1,7 @@
 <?php
 require("Conexion.php");
 class DatosSummary extends Conexion{
+    private $user;
     private $comment_with_date;
     private $notaAvg;
     public function __construct(){
@@ -16,19 +17,22 @@ class DatosSummary extends Conexion{
     */
 
     public function setDatosComentario(){
-
         $consulta = "SELECT comentario,fecha from encuesta";
         $resultado = $this->db_conexion->query($consulta);
         $this->comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
         $resultado->closeCursor();
     }
     public function setDatosGenerales(){
-            $consulta = "select sum(nota)/count(nota) from encuesta";
-            $resultado = $this->db_conexion->query($consulta);
-            $notaAvg = $resultado->fetch();
-            $notaAvg = round($notaAvg[0],1);
-            $this->notaAvg = $notaAvg;
-            $resultado->closeCursor();
+        $consulta = "select sum(nota)/count(nota) from encuesta";
+        $resultado = $this->db_conexion->query($consulta);
+        $notaAvg = $resultado->fetch();
+        $notaAvg = round($notaAvg[0],1);
+        $this->notaAvg = $notaAvg;
+        $resultado->closeCursor();
+    }
+    public function setUser($user){
+        $this->user = $user;
+        
     }
     public function getDatosComentario(){
         $resultado = $this->comment_with_date;

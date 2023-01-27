@@ -21,6 +21,7 @@
 
         $conexion = new DatosSummary();
         if($conexion->db_conexion!=NULL){
+            $conexion->setUser($_SESSION["Usuario"]);
             $conexion->setDatosComentario();
             $conexion->setDatosGenerales();
         }
