@@ -8,6 +8,7 @@
     <link href="./Styles/style.css" rel="stylesheet"></link>
     <link href="./Styles/main.css" rel="stylesheet" >
     <link href="./Styles/form.css" rel="stylesheet" >
+    <script src="./Scripts/filterBadWords.js"></script>
     <title>formulario</title>
 </head>
 <body>
@@ -43,14 +44,14 @@
         </div>
 
         <div class="content">
-            <form action= <?php echo $_SERVER ["PHP_SELF"];?>  method="post" id="form">
+            <form id="myForm" action= <?php echo $_SERVER ["PHP_SELF"];?>  method="post" id="form">
                 <label for="nota"> Nota: </label>
                 <input type="range" name="nota" value="1" min="1" max="10" required>
                 <br>
                 <label for="comentario"> Comentario: </label>
                 <input type="text" name="comentario">
                 <br>
-        
+                <!---<input type="button" onclick="validateForm()" name="enviar" value="submit"></input>--->
                 <button type="submit" name="enviar">Enviar</button>
             </form>
         </div>
