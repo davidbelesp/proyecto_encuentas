@@ -1,6 +1,6 @@
 <?php
 require("Conexion.php");
-class login extends Conexion{
+class Login extends Conexion{
     private $user;
     private $pass;
     public function __construct($user_post,$pass_post){
@@ -25,7 +25,7 @@ class login extends Conexion{
     
                 header("location:summary.php");
             }else{
-                header("location:index.html");
+                header("location:login.php");
             }
 
         }catch(Exception $excepcion){
