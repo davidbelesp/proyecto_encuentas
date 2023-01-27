@@ -6,19 +6,19 @@ use encuestas;
 
 create table encuesta(
 id int primary key auto_increment,
+idProfesor int,
 nota int,
 comentario varchar(200),
-fecha date);
+fecha date,
+constraint FK_id foreign key (idProfesor) references encuesta(id));
 
 create table usuarios(
 id int primary key auto_increment,
 usuario varchar(20),
-idProfesor int,
-password varchar(20),
-constraint FK_id foreign key (idProfesor) references encuesta(id));
+password varchar(20));
 
 ## INSERT WITH COMMAND
-insert into encuesta(nota,comentario,fecha) values (5,"Hola que tal",CURRENT_DATE);
+insert into encuesta(nota,comentario,idProfesor,fecha) values (5,"Hola que tal","Profesor1",CURRENT_DATE);
 
 insert into usuarios(usuario,password) values ("root","");
 
