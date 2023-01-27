@@ -8,6 +8,11 @@ class Form extends Conexion{
         $this->comentario = htmlentities(addslashes($postComment));
         $this->nota = htmlentities(addslashes($postNota));
     }
+    public function setComment($postComment,$postNota){
+        $this->comentario = htmlentities(addslashes($postComment));
+        $this->nota = htmlentities(addslashes($postNota));
+    }
+
     public function enviarFormulario(){
         $consulta = "INSERT INTO encuesta (nota, comentario, fecha) VALUES (:NOTA,:COMENTARIO,CURRENT_DATE)";
         $resultado=$this->db_conexion->prepare($consulta);

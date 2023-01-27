@@ -13,8 +13,9 @@ fecha date);
 create table usuarios(
 id int primary key auto_increment,
 usuario varchar(20),
-password varchar(20));
-
+idProfesor int,
+password varchar(20),
+constraint FK_id foreign key (idProfesor) references encuesta(id));
 
 ## INSERT WITH COMMAND
 insert into encuesta(nota,comentario,fecha) values (5,"Hola que tal",CURRENT_DATE);

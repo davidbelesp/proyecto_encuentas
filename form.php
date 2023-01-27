@@ -15,10 +15,11 @@
     <?php
     require("./Class/Form.php");
     session_start();
+    
     if(isset($_POST["enviar"])){
         $conexion = new Form($_POST["comentario"],$_POST["nota"]);
         $conexion->enviarFormulario();
-        header("Location:index.html");
+        header("Location: index.html");
     }
     ?>
     <div class="page">
@@ -45,6 +46,10 @@
 
         <div class="content">
             <form id="myForm" action= <?php echo $_SERVER ["PHP_SELF"];?>  method="post" id="form">
+                <select name="profesor">
+                <option value="PROFE1">Volvo</option>
+                <option value="PROFE2">Volvo</option>
+                </select>
                 <label for="nota"> Nota: </label>
                 <input type="range" name="nota" value="1" min="1" max="10" required>
                 <br>
