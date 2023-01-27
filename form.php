@@ -15,9 +15,10 @@
     <?php
     require("./Class/Form.php");
     session_start();
-    
+    $conexion = new Form();
+    $conexion->setListaProfesores();
     if(isset($_POST["enviar"])){
-        $conexion = new Form($_POST["comentario"],$_POST["nota"]);
+        $conexion->setComment($_POST["comentario"], $_POST["nota"]);
         $conexion->enviarFormulario();
         header("Location: index.html");
     }
@@ -47,8 +48,7 @@
         <div class="content">
             <form id="myForm" action= <?php echo $_SERVER ["PHP_SELF"];?>  method="post" id="form">
                 <select name="profesor">
-                <option value="PROFE1">Volvo</option>
-                <option value="PROFE2">Volvo</option>
+                    <?php $conexion->PrintProfesores(); ?>
                 </select>
                 <label for="nota"> Nota: </label>
                 <input type="range" name="nota" value="1" min="1" max="10" required>
@@ -57,14 +57,17 @@
                 <input type="text" name="comentario">
                 <br>
                 <!---<input type="button" onclick="validateForm()" name="enviar" value="submit"></input>--->
-                <button type="submit" name="enviar">Enviar</button>
+                <button type="submit" onclick="validation()" name="enviar">Enviar</button>
             </form>
+            
         </div>
         <div class="footer">
             <p>Texto de ejemplo en el footer</p>
         </div>
     </div>
     
-    
+    <script>
+setTimeout(() => {noWLogo()}, 0);
+</script>
 </body>
 </html>
