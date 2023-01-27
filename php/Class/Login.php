@@ -24,8 +24,6 @@ class Login extends Conexion{
                 $_SESSION["Usuario"] = $this->user;
     
                 header("location:summary.php");
-            }else{
-                header("location:login.php");
             }
 
         }catch(Exception $excepcion){

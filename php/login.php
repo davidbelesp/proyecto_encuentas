@@ -18,28 +18,28 @@
         table{
             text-align: center;
         }
+        p{
+            text-align: center;
+        }
     </style>
     <?php 
             require("./Class/Login.php");
-            if(isset($_POST["user_login"])){
+            if(isset($_POST["enviar"])){
                 $login = new Login($_POST["user_login"],$_POST["password_login"]);
                 $login->iniciarSesion();
             }
     ?>
 </head>
 <body>
-<?php
-        ?>
     <form action=<?php echo $_SERVER['PHP_SELF'] ?> method="post">
         <h1>LOGIN</h1>
         <table>
         <tr><td class="izq">Login:</td><td class="der"><input type="text" name="user_login"></td></tr>
         <tr><td class="izq">Contraseña:</td><td class="der"><input type="password" name="password_login"></td></tr>
-        <tr><td colspan="2"><input type="submit"></td></tr>
+        <tr><td colspan="2"><input type="submit" name="enviar"></td></tr>
         </table>
         </tr>
-        <?php 
-    ?>
+        <?php if(isset($_POST["enviar"])){ echo "<p>Error en el usuario o constraseña</p>";}?>
     </form>
     
 </body>

@@ -15,3 +15,11 @@ id int primary key auto_increment,
 usuario varchar(20),
 password varchar(20));
 
+
+## INSERT WITH COMMAND
+insert into encuesta(nota,comentario,fecha) values (5,"Hola que tal",CURRENT_DATE);
+
+insert into usuarios(usuario,password) values ("root","");
+
+## LOCATION
+localhost/proyecto_encuentas/php/index
