@@ -12,7 +12,7 @@ class DatosSummary extends Conexion{
             $this->comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
             $resultado->closeCursor();
             /*DATOS GENERALES*/
-            $consulta = "select sum(nota)/count(nota) from encuesta";
+            $consulta = "select sum(nota)/count(nota) from encuesta where idProfesor = (select id from usuarios where usuario='$profesor')";
             $resultado = $this->db_conexion->query($consulta);
             $notaAvg = $resultado->fetch();
             $notaAvg = round($notaAvg[0],1);
