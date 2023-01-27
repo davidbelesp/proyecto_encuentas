@@ -5,10 +5,8 @@ class Form extends Conexion{
     private $lista_Profesores;
     private $comentario;
     private $nota;
-    public function __construct($profesor){
+    public function __construct(){
         parent::__construct();
-        $this->profesor= $profesor;
-        /*Lista profe*/
         $consulta = "select usuario from usuarios;";
         $resultado = $this->db_conexion->query($consulta);
         $this->lista_Profesores = $resultado->fetchAll();
@@ -17,6 +15,9 @@ class Form extends Conexion{
     public function setComment($postComment,$postNota){
         $this->comentario = htmlentities(addslashes($postComment));
         $this->nota = htmlentities(addslashes($postNota));
+    }
+    public function setProfesor($profesor){
+        $this->profesor= $profesor;
     }
     /*GETTER*/
     public function getListaProfesores(){
@@ -35,7 +36,7 @@ class Form extends Conexion{
             echo "ERROR";
         }
     }
-    public function PrintListaProfesores(){
+    public function PrintProfesoresHTMLSelect(){
         for ($i = 0; $i < count($this->lista_Profesores); $i++) {
             echo "<option value=" . $this->lista_Profesores[$i][0] . ">" . $this->lista_Profesores[$i][0] . "</option>";
         }

@@ -15,8 +15,9 @@
     <?php
     require("./Class/Form.php");
     session_start();
-    $conexion = new Form($_SESSION["Usuario"]);
+    $conexion = new Form();
     if(isset($_POST["enviar"])){
+        $conexion->setProfesor($_POST["profesor"]);
         $conexion->setComment($_POST["comentario"],$_POST["nota"]);
         $conexion->enviarFormulario();
         header("Location: index.html");
@@ -52,7 +53,7 @@
             <div class="form-box"> 
                 <form id="myForm" action="<?php echo $_SERVER ["PHP_SELF"];?>" method="post" id="form">
                     <select name="profesor">
-                        <?php $conexion->PrintListaProfesores(); ?>
+                        <?php $conexion->PrintProfesoresHTMLSelect(); ?>
                     </select>
 
                     <p>Nota</p>
