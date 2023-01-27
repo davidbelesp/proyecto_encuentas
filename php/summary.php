@@ -39,8 +39,8 @@
                 <span></span>
                 <span></span>
                 <ul id="menu">
-                  <a href="./index.html"><li>Inicio</li></a>
-                  <a href="./form.html"><li>Encuesta</li></a>
+                  <a href="./index"><li>Inicio</li></a>
+                  <a href="./form"><li>Encuesta</li></a>
                   <a href="#"><li>Resumen</li></a>
                   <a href="#"><li>Contacto</li></a>
                   <a href="./cerrar_sesion.php"><li>Cerrar Sesion</li></a>

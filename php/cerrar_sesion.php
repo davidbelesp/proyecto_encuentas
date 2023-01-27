@@ -1,5 +1,4 @@
 <?php
-    session_start();
-    session_destroy();
-    header("Location:index.html");
+require("./class/Login.php");
+Login::cerrarSession();
 ?>

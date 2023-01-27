@@ -34,7 +34,7 @@ class Login extends Conexion{
         }
 
     }
-    public function cerrarSession(){
+    public static function cerrarSession(){
         session_start();
         session_destroy();
         header("Location:index.html");

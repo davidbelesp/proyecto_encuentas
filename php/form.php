@@ -11,6 +11,15 @@
     <title>formulario</title>
 </head>
 <body>
+    <?php
+    require("./Class/Form.php");
+    session_start();
+    if(isset($_POST["enviar"])){
+        $conexion = new Form($_POST["comentario"],$_POST["nota"]);
+        $conexion->enviarFormulario();
+        header("Location:index.html");
+    }
+    ?>
     <div class="page">
         <div class="hamburger-menu">
             <div id="menuToggle" class="no-selectable">
@@ -34,7 +43,7 @@
         </div>
 
         <div class="content">
-            <form action="enviar.php" method="post" id="form">
+            <form action= <?php echo $_SERVER ["PHP_SELF"];?>  method="post" id="form">
                 <label for="nota"> Nota: </label>
                 <input type="range" name="nota" value="1" min="1" max="10" required>
                 <br>
@@ -42,7 +51,7 @@
                 <input type="text" name="comentario">
                 <br>
         
-                <button type="submit">Enviar</button>
+                <button type="submit" name="enviar">Enviar</button>
             </form>
         </div>
         <div class="footer">
