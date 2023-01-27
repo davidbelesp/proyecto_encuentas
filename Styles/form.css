@@ -1,6 +1,92 @@
 /* FORM STYLE */
 
 :root{
-
+    --background-color: linear-gradient(90deg, rgba(38,23,179,1) 0%, rgba(0,131,255,1) 100%);
+    --form-background: rgba(22,22,22,.6);
+    --form-background-hover: rgba(155,155,155,.8); 
+    --form-border: rgba(22,22,22,.8);
+    --form-border-selected: rgba(155,155,155,.8);  
 }
 
+.page{
+    background: var(--background-color);
+}
+
+/* FORM BOX */ 
+
+.content{
+    padding: 3vw;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-box{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    background: var(--form-background);
+    border: 3px solid var(--form-border);
+    border-radius: 20px;
+    padding: 3vw;
+
+    backdrop-filter: blur(10px);
+}
+
+.form-box > *{
+    margin-bottom: 20px;
+}
+
+.form-box p{
+    font-size: 3vh;
+}
+
+.nota{
+    display: flex;
+    gap: 10px
+}
+
+#send{
+    height: 60px;
+    background: var(--form-background);
+    color: white;
+    font-size: 2rem;
+    border: 2px solid var(--form-border);
+    border-radius: 10px;
+    transition-duration: .2s;
+    cursor: pointer;
+} #send:hover{
+    background: var(--form-background-hover);
+    color: black;
+}
+
+textarea{
+    padding: 10px;
+    background: var(--form-background);
+    border: 2px solid var(--form-border);
+    border-radius: 10px;
+    max-width: calc(100% - 27px);
+    min-width: calc(100% - 27px);
+    min-height: 25vh;
+    font-size: 1.5rem;
+    text-overflow: ellipsis;
+} textarea:focus{
+    border: 2px solid var(--form-border-selected);
+    outline: none;
+}
+
+select{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 2px solid var(--form-border);
+    border-radius: 5px 10px 5px 5px;
+    padding: 10px;
+    font-size: 1rem;
+    background: var(--form-background);
+}
