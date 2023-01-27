@@ -3,29 +3,27 @@ require("Conexion.php");
 class DatosSummary extends Conexion{
     private $comment_with_date;
     private $notaAvg;
-    public function __construct(){
+    public function __construct($profesor){
         parent::__construct();
-        $this->comment_with_date = NULL;
-        $this->notaAvg = NULL;
-        
+        if($this->db_conexion!=NULL){
+            /*DATO COMENTARIO*/
+            $consulta = "SELECT comentario,fecha from encuesta where idProfesor=(select id from usuarios where usuario = '$profesor')";
+            $resultado = $this->db_conexion->query($consulta);
+            $this->comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
+            $resultado->closeCursor();
+            /*DATOS GENERALES*/
+            $consulta = "select sum(nota)/count(nota) from encuesta";
+            $resultado = $this->db_conexion->query($consulta);
+            $notaAvg = $resultado->fetch();
+            $notaAvg = round($notaAvg[0],1);
+            $this->notaAvg = $notaAvg;
+            $resultado->closeCursor();
+        }else{
+            $this->notaAvg= NULL;
+            $this->comment_with_date = NULL;
+        }
     }
-    
-    
-    /*SETTER*/
-    public function setDatosComentario($profesor){
-        $consulta = "SELECT comentario,fecha from encuesta where idProfesor=(select id from usuarios where usuario = '$profesor')";
-        $resultado = $this->db_conexion->query($consulta);
-        $this->comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
-        $resultado->closeCursor();
-    }
-    public function setDatosGenerales(){
-        $consulta = "select sum(nota)/count(nota) from encuesta";
-        $resultado = $this->db_conexion->query($consulta);
-        $notaAvg = $resultado->fetch();
-        $notaAvg = round($notaAvg[0],1);
-        $this->notaAvg = $notaAvg;
-        $resultado->closeCursor();
-    }
+    /*GETTERS*/
     public function getDatosComentario(){
         $resultado = $this->comment_with_date;
         return $resultado;
@@ -34,6 +32,7 @@ class DatosSummary extends Conexion{
         $resultado = $this->notaAvg;
         return $resultado;
     }
+
 
     /*IMPRIMIR E ITERAR COMENTARIO IZQ Y DERECHA*/
     public function printCommentAndDate($lado){

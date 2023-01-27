@@ -19,11 +19,7 @@
 
         require("./Class/DatosSummary.php");
 
-        $conexion = new DatosSummary();
-        if($conexion->db_conexion!=NULL){
-            $conexion->setDatosComentario($_SESSION["Usuario"]);
-            $conexion->setDatosGenerales();
-        }
+        $conexion = new DatosSummary($_SESSION["Usuario"]);
 
 
     ?>
