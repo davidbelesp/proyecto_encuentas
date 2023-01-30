@@ -7,7 +7,7 @@ class Form extends Conexion{
     private $nota;
     public function __construct(){
         parent::__construct();
-        $consulta = "select usuario from usuarios;";
+        $consulta = "select usuario from ".TABLE_NAME_USUARIOS.";";
         $resultado = $this->db_conexion->query($consulta);
         $this->lista_Profesores = $resultado->fetchAll();
     }
@@ -25,7 +25,7 @@ class Form extends Conexion{
     }
 
     public function enviarFormulario(){
-        $consulta = "INSERT INTO encuesta (nota, comentario,idProfesor, fecha) VALUES (:NOTA,:COMENTARIO,(select id from usuarios where usuario = :PROFESOR),CURRENT_DATE)";
+        $consulta = "INSERT INTO ".TABLE_NAME_ENCUESTA." (nota, comentario,idProfesor, fecha) VALUES (:NOTA,:COMENTARIO,(select id from ".TABLE_NAME_USUARIOS." where usuario = :PROFESOR),CURRENT_DATE)";
         $resultado=$this->db_conexion->prepare($consulta);
         $resultado->bindValue(":NOTA", $this->nota);
         $resultado->bindValue(":COMENTARIO", $this->comentario);

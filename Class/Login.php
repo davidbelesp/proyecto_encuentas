@@ -11,7 +11,7 @@ class Login extends Conexion{
     public function iniciarSesion(){
         try{
 
-            $consulta = "SELECT Usuario from usuarios where usuario = :user and password = :pass";
+            $consulta = "SELECT Usuario from ".TABLE_NAME_USUARIOS." where usuario = :user and password = :pass";
             $resultado = $this->db_conexion->prepare($consulta);
     
     
