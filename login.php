@@ -6,14 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        :root{
+            --background-color: linear-gradient(90deg, blue 0%, pink 100%);
+        }
+        body{
+            background: var(--background-color);
+        }
         h1 {
             
             text-align: center;
         }
         form{
+            color: black;
+            background-color: white;
+            border-radius: 25px;
             width: fit-content;
             margin: 250px auto;
-            background-color: yellow;
+            padding: 25px;
         }
         table{
             text-align: center;
@@ -34,7 +43,7 @@
     <form action=<?php echo $_SERVER['PHP_SELF'] ?> method="post">
         <h1>LOGIN</h1>
         <table>
-        <tr><td class="izq">Login:</td><td class="der"><input type="text" name="user_login"></td></tr>
+        <tr><td class="izq">Usuario:</td><td class="der"><input type="text" name="user_login"></td></tr>
         <tr><td class="izq">Contraseña:</td><td class="der"><input type="password" name="password_login"></td></tr>
         <tr><td colspan="2"><input type="submit" name="enviar"></td></tr>
         </table>

@@ -1,7 +1,7 @@
 ## STEP 1 | CREATE A DATABASE
 create database encuestas;
 
-## STEP2 | CREATE TABLES
+## STEP 2 | CREATE TABLES
 use encuestas;
 
 create table usuarios(
@@ -24,4 +24,4 @@ insert into encuesta(nota,comentario,idProfesor,fecha) values (5,"Hola que tal",
 insert into usuarios(usuario,password) values ("root","");
 
 ## LOCATION
-localhost/proyecto_encuentas/php/index
+localhost/proyecto_encuentas/index
