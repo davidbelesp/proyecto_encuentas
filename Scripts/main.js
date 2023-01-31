@@ -1,3 +1,4 @@
+var data;
 
 function redirect(url){
     location.href = url;
@@ -15,7 +16,7 @@ function noWLogo(){
     }
 }
 
-function changeIndexPage(event = null, mode = "up"){
+function changeIndexPage(event = null){
     const classes = event.target.className;
     const wrapper = document.querySelector(".wrapper");
     const downButton = document.querySelector(".down");
@@ -50,21 +51,29 @@ function changeIndexPage(event = null, mode = "up"){
     }, 800);
 }
 
-async function validateForm(){
-    jsonPath = "./Resources/badWords.json"
-
+async function importJson(){
+    const jsonPath = "./Resources/badWords.json";
     const response = await fetch(jsonPath);
-    const rawdata = await response.json();
-    const data = {...rawdata["EN"],...rawdata["ES"]}
+    data = await response.json();
+}
+
+function validateForm(event){
+
+    const words = [...data["EN"]["words"],...data["ES"]["words"]];
 
     let text = "";
     text = document.getElementById("comentario").value.split(' ');
-
+    
     text.forEach(element => {
-        if (data.words.includes(element)){
+        if (words.includes(element)){
+            event.preventDefault()
             alert("validation failed false"); //PROCEDURE TO NOT VALIDATE
-            return;
+            return false;
         }
     })
-    document.getElementById("myForm").submit();
+    return true
 }
+
+setTimeout(() => {
+    importJson()
+}, 0);

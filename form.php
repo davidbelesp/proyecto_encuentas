@@ -58,7 +58,8 @@
 
                         <p id="number">1</p>
                     </div>
-                    
+
+
 
                     <span id="form-div"></span>
 
@@ -66,9 +67,9 @@
                     <textarea type="text" id="comentario" name="comentario" maxlength="200" placeholder="Escribe un comentario para el profesor"></textarea>
 
                     <span id="form-div"></span>
-    
+                    
+                    <button type="submit" onclick="return validateForm(event)" name="enviar" id="send">Enviar</button>
                 </form>
-                <button type="submit" onclick="validateForm()" name="enviar" id="send">Enviar</button>
             </div>
         </div>
         <div class="footer">
@@ -82,6 +83,7 @@
         let numberHTML = document.getElementById("number")
         numberHTML.innerHTML = event.target.value
     }
+
 </script>
 <script>
 setTimeout(() => {noWLogo()}, 0);
