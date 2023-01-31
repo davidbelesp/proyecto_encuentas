@@ -1,4 +1,4 @@
 <?php
-require("./class/Login.php");
+require("./Class/Login.php");
 Login::cerrarSession();
 ?>
