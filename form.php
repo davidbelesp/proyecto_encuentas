@@ -8,7 +8,7 @@
     <link href="./Styles/style.css" rel="stylesheet"></link>
     <link href="./Styles/main.css" rel="stylesheet" >
     <link href="./Styles/form.css" rel="stylesheet" >
-    <link rel="./Scripts/main.js" href="">
+    <script src="./Scripts/main.js"></script>
     <script src="./Scripts/filterBadWords.js"></script>
     <title>formulario</title>
 </head>
@@ -64,12 +64,12 @@
                     <span id="form-div"></span>
 
                     <p>Comentario</p>
-                    <textarea type="text" name="comentario" maxlength="200" placeholder="Escribe un comentario para el profesor"></textarea>
+                    <textarea type="text" id="comentario" name="comentario" maxlength="200" placeholder="Escribe un comentario para el profesor"></textarea>
 
                     <span id="form-div"></span>
     
                 </form>
-                <button type="submit" name="enviar" id="send">Enviar</button>
+                <button type="submit" onclick="getJson('./Resources/badWordsEn.json')" name="enviar" id="send">Enviar</button>
             </div>
         </div>
         <div class="footer">
