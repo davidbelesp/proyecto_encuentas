@@ -8,7 +8,7 @@ window.validation=function(data){
     let text = "";
     text = document.getElementById("comentario").value.split(' ');
     text.forEach(element => {
-        data.word.forEach(badWord =>{
+        data.words.forEach(badWord =>{
             if(element.toLowerCase()==badWord){
             alert("validation failed false");
             return;
