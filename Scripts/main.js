@@ -6,10 +6,13 @@ function redirect(url){
 function noWLogo(){
     const divs = document.getElementsByTagName("div");
     const div = divs[divs.length-1];
-    
-    if (div.firstChild == null) return;
-    if (div.firstChild.getElementsByTagName("a") && div.firstChild.title == "Hosted on free web hosting 000webhost.com. Host your own website for FREE.") div.remove();
-    return;
+    try {
+        if (div.firstChild == null) return;
+        if (div.firstChild.getElementsByTagName("a") && div.firstChild.title == "Hosted on free web hosting 000webhost.com. Host your own website for FREE.") div.remove();
+        return;
+    } catch (error) {
+        return
+    }
 }
 
 function changeIndexPage(event = null, mode = "up"){
@@ -45,4 +48,23 @@ function changeIndexPage(event = null, mode = "up"){
     setTimeout(() => {
         nav.classList.remove("invisible");
     }, 800);
+}
+
+async function validateForm(){
+    jsonPath = "./Resources/badWords.json"
+
+    const response = await fetch(jsonPath);
+    const rawdata = await response.json();
+    const data = {...rawdata["EN"],...rawdata["ES"]}
+
+    let text = "";
+    text = document.getElementById("comentario").value.split(' ');
+
+    text.forEach(element => {
+        if (data.words.includes(element)){
+            alert("validation failed false"); //PROCEDURE TO NOT VALIDATE
+            return;
+        }
+    })
+    document.getElementById("myForm").submit();
 }

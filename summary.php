@@ -46,8 +46,8 @@
         
         <div class="menu">
             <img src="./Resources/logo-example.png" alt="logo">
-            <a href="./index.html">Inicio</a>
-            <a href="./form.html">Encuesta</a>
+            <a href="./index">Inicio</a>
+            <a href="./form">Encuesta</a>
             <a href="">Contacto</a>
             <a href="./cerrar_sesion.php">Cerrar Sesion</a>
         </div>

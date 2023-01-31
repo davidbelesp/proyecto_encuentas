@@ -9,7 +9,6 @@
     <link href="./Styles/main.css" rel="stylesheet" >
     <link href="./Styles/form.css" rel="stylesheet" >
     <script src="./Scripts/main.js"></script>
-    <script src="./Scripts/filterBadWords.js"></script>
     <title>formulario</title>
 </head>
 <body>
@@ -32,8 +31,8 @@
                 <span></span>
                 <span></span>
                 <ul id="menu">
-                  <a href="./index.html"><li>Inicio</li></a>
-                  <a href="./summary.html"><li>Resumen</li></a>
+                  <a href="./index"><li>Inicio</li></a>
+                  <a href="./summary"><li>Resumen</li></a>
                   <a href="#"><li>Contacto</li></a>
                 </ul>
             </div>
@@ -41,8 +40,8 @@
         
         <div class="menu">
             <img src="./Resources/logo-example.png" alt="logo">
-            <a href="./index.html">Inicio</a>
-            <a href="./summary.html">Resumen</a>
+            <a href="./index">Inicio</a>
+            <a href="./summary">Resumen</a>
             <a href="">Contacto</a>
         </div>
 
@@ -69,7 +68,7 @@
                     <span id="form-div"></span>
     
                 </form>
-                <button type="submit" onclick="getJson('./Resources/badWordsEn.json')" name="enviar" id="send">Enviar</button>
+                <button type="submit" onclick="validateForm()" name="enviar" id="send">Enviar</button>
             </div>
         </div>
         <div class="footer">
@@ -83,5 +82,8 @@
         let numberHTML = document.getElementById("number")
         numberHTML.innerHTML = event.target.value
     }
+</script>
+<script>
+setTimeout(() => {noWLogo()}, 0);
 </script>
 </html>
