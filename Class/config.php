@@ -12,8 +12,4 @@
 
     define('DB_DSN_CONNECT',"mysql:host=".DB_HOST."; dbname=".DB_NAME);
 
-    define('TABLE_NAME_ENCUESTA', 'encuesta');
-
-    define('TABLE_NAME_USUARIOS', 'usuarios');
-
 ?>
