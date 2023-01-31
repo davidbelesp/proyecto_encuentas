@@ -1,32 +1,32 @@
 /* FORM STYLE */
 
-:root{
-    --background-color: linear-gradient(90deg, rgba(38,23,179,1) 0%, rgba(0,131,255,1) 100%);
-    --form-background: rgba(22,22,22,.6);
-    --form-background-hover: rgba(155,155,155,.8); 
-    --form-border: rgba(22,22,22,.8);
-    --form-border-selected: rgba(155,155,155,.8);  
-    --form-line-color: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.4) 40%, rgba(0,0,0,.4) 60%, rgba(0,0,0,0) 100%);
+:root {
+    --background-color: linear-gradient(90deg, rgba(38, 23, 179, 1) 0%, rgba(0, 131, 255, 1) 100%);
+    --form-background: rgba(22, 22, 22, .6);
+    --form-background-hover: rgba(155, 155, 155, .8);
+    --form-border: rgba(22, 22, 22, .8);
+    --form-border-selected: rgba(155, 155, 155, .8);
+    --form-line-color: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .4) 40%, rgba(0, 0, 0, .4) 60%, rgba(0, 0, 0, 0) 100%);
 }
 
-.page{
+.page {
     background: var(--background-color);
 }
 
-/* FORM BOX */ 
+/* FORM BOX */
 
-.content{
+.content {
     padding: 3vw;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.form-box{
+.form-box {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -39,32 +39,31 @@ form{
     backdrop-filter: blur(10px);
 }
 
-.fancybox{
+.fancybox {
     background: var(--form-background);
     border: 3px solid var(--form-border);
     border-radius: 20px;
     padding: 2vw;
-}
 
-#myForm > p, label{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.form-box p{
-    user-select: none;
-    font-size: 3vh;
-}
-
-.nota{
     display: flex;
     align-items: center;
     gap: 30px
 }
 
+#myForm>p,
+label {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-box p {
+    user-select: none;
+    font-size: 3vh;
+}
+
 /* SEND BUTTON */
 
-#send{
+#send {
     height: 60px;
     background: var(--form-background);
     color: white;
@@ -73,7 +72,9 @@ form{
     border-radius: 10px;
     transition-duration: .2s;
     cursor: pointer;
-} #send:hover{
+}
+
+#send:hover {
     background: var(--form-background-hover);
     color: black;
 }
@@ -85,74 +86,98 @@ input[type=range] {
     height: 50px;
     -webkit-appearance: none;
     width: 20vw;
-    }
-    input[type=range]:focus {outline: none;}
-    input[type=range]::-webkit-slider-runnable-track {
-        width: 100%;
-        height: 13px;
-        cursor: pointer;
-        background: #50555C;
-        border-radius: 21px;
-    }
-    input[type=range]::-webkit-slider-thumb {
-        height: 44px;
-        width: 27px;
-        border-radius: 8px;
-        background: #529DE1;
-        cursor: pointer;
-        -webkit-appearance: none;
-        margin-top: -15.5px;
-    }input[type=range]::-webkit-slider-thumb:active {
-        filter: brightness(1.3);
-    }
-    input[type=range]:focus::-webkit-slider-runnable-track {background: #50555C;}
-    input[type=range]::-moz-range-track {
-        width: 100%;
-        height: 13px;
-        cursor: pointer;
-        background: #50555C;
-        border-radius: 21px;
-    }
-    input[type=range]::-moz-range-thumb {
-        height: 44px;
-        width: 27px;
-        border-radius: 8px;
-        background: #529DE1;
-        cursor: pointer;
-    }
-    input[type=range]::-ms-track {
-        width: 100%;
-        height: 13px;
-        cursor: pointer;
-        background: transparent;
-    }
-    input[type=range]::-ms-fill-lower {
-        background: #50555C;
-        border-radius: 42px;
-    }
-    input[type=range]::-ms-fill-upper {
-        background: #50555C;
-        border-radius: 42px;
-    }
-    input[type=range]::-ms-thumb {
-        margin-top: 1px;
-        height: 44px;
-        width: 27px;
-        border-radius: 8px;
-        background: #529DE1;
-        cursor: pointer;
-    }
-    input[type=range]:focus::-ms-fill-lower {background: #50555C;}
-    input[type=range]:focus::-ms-fill-upper {background: #50555C;}
+}
 
-#number{
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 13px;
+    cursor: pointer;
+    background: #50555C;
+    border-radius: 21px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    height: 44px;
+    width: 27px;
+    border-radius: 8px;
+    background: #529DE1;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -15.5px;
+}
+
+input[type=range]::-webkit-slider-thumb:active {
+    filter: brightness(1.3);
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #50555C;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 13px;
+    cursor: pointer;
+    background: #50555C;
+    border-radius: 21px;
+}
+
+input[type=range]::-moz-range-thumb {
+    height: 44px;
+    width: 27px;
+    border-radius: 8px;
+    background: #529DE1;
+    cursor: pointer;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 13px;
+    cursor: pointer;
+    background: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #50555C;
+    border-radius: 42px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #50555C;
+    border-radius: 42px;
+}
+
+input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    height: 44px;
+    width: 27px;
+    border-radius: 8px;
+    background: #529DE1;
+    cursor: pointer;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #50555C;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #50555C;
+}
+
+#numberExam,
+#numberTarea,
+#numberNota {
     margin: 0 auto;
     width: 32px;
 }
 
 /* COMMENT AREA */
 
-textarea{
+textarea {
     padding: 10px;
     background: var(--form-background);
     border: 2px solid var(--form-border);
@@ -160,15 +185,18 @@ textarea{
     max-width: calc(100% - 27px);
     min-width: calc(100% - 27px);
     min-height: 25vh;
-    max-height: 25vh;;
+    max-height: 25vh;
+    ;
     font-size: 1.5rem;
     text-overflow: ellipsis;
-} textarea:focus{
+}
+
+textarea:focus {
     border: 2px solid var(--form-border-selected);
     outline: none;
 }
 
-#selectProfesor{
+#selectProfesor {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -179,7 +207,7 @@ textarea{
     background: var(--form-background);
 }
 
-#form-div{
+#form-div {
     background: var(--form-line-color);
     height: 5px;
     width: 100%;
