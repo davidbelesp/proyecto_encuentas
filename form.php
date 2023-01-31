@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,7 @@
     <link href="./Styles/style.css" rel="stylesheet"></link>
     <link href="./Styles/main.css" rel="stylesheet" >
     <link href="./Styles/form.css" rel="stylesheet" >
+    <link rel="./Scripts/main.js" href="">
     <script src="./Scripts/filterBadWords.js"></script>
     <title>formulario</title>
 </head>
@@ -23,10 +24,6 @@
         header("Location: index");
     }
     ?>
-
-
-
-
     <div class="page">
         <div class="hamburger-menu">
             <div id="menuToggle" class="no-selectable">
@@ -52,34 +49,39 @@
         <div class="content">
             <div class="form-box"> 
                 <form id="myForm" action="<?php echo $_SERVER ["PHP_SELF"];?>" method="post" id="form">
-                    <select name="profesor">
+                    <select name="profesor" id="selectProfesor">
                         <?php $conexion->PrintProfesoresHTMLSelect(); ?>
                     </select>
 
                     <p>Nota</p>
-                    <div class="nota">
+                    <div class="nota fancybox">
                         <input id="notaInput" type="range" name="nota" value="1" min="1" max="10" oninput="updateNotaNumber(event)" required>    
+
                         <p id="number">1</p>
                     </div>
                     
 
-                    <span></span>
+                    <span id="form-div"></span>
 
                     <p>Comentario</p>
                     <textarea type="text" name="comentario" maxlength="200" placeholder="Escribe un comentario para el profesor"></textarea>
 
-                    <input type="submit" name="enviar">Enviar</input>
-                    <span></span>
+                    <span id="form-div"></span>
     
                 </form>
+                <button type="submit" name="enviar" id="send">Enviar</button>
             </div>
         </div>
         <div class="footer">
             <p>Texto de ejemplo en el footer</p>
         </div>
     </div>
-    <script>
-setTimeout(() => {noWLogo()}, 0);
-</script>
+
 </body>
+<script>
+    function updateNotaNumber(event){
+        let numberHTML = document.getElementById("number")
+        numberHTML.innerHTML = event.target.value
+    }
+</script>
 </html>

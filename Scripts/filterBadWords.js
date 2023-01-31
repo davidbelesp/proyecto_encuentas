@@ -1,17 +1,20 @@
+async function getJson(jsonFile){
+    const response = await fetch(jsonFile);
+    const data = await response.json();
+    validation(data);
+}
+window.validation=function(data){
 
-import myJson from '../Resources/badWordsEn.json';
-let text=document.getElementById("ValidateText").innerHTML;
-let textLowerCase = text.toLowerCase;
-let validator="";
-function validateForm(){
-
-    for(let i=0; i<myJson.length; i++){
-        validator =" " + (myJson[i]).toLowerCase + " ";
-        if(textLowerCase.includes(validator)){
+    let text = "";
+    text = document.getElementById("comentario").value.split(' ');
+    text.forEach(element => {
+        data.word.forEach(badWord =>{
+            if(element.toLowerCase()==badWord){
             alert("validation failed false");
-            returnToPreviousPage();
             return;
         }
-    }
+        })
+
+    })
     document.getElementById("myForm").submit();
 }
