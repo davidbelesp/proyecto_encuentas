@@ -20,7 +20,7 @@
         $conexion->setProfesor($_POST["profesor"]);
         $conexion->setComment($_POST["comentario"],$_POST["nota"]);
         $conexion->enviarFormulario();
-        header("Location: index.html");
+        header("Location: index");
     }
     ?>
 

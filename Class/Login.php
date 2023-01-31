@@ -23,7 +23,7 @@ class Login extends Conexion{
                 session_start();
                 $_SESSION["Usuario"] = $this->user;
     
-                header("location:summary.php");
+                header("location:summary");
             }
 
         }catch(Exception $excepcion){
@@ -37,7 +37,7 @@ class Login extends Conexion{
     public static function cerrarSession(){
         session_start();
         session_destroy();
-        header("Location:index.html");
+        header("Location:index");
     }
 
 }

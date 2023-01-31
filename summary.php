@@ -14,7 +14,7 @@
 
         session_start();
         if(!isset($_SESSION["Usuario"])){
-            header("Location:login.php");
+            header("Location:login");
         }
 
         require("./Class/DatosSummary.php");
