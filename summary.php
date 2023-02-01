@@ -69,11 +69,11 @@
                                 </tr>
                                 <tr>
                                     <td>Satisfecho</td>
-                                    <td> </td>
+                                    <td> <?php DatosSummary::switchPrintNullOrValueMessage($conexion->getNoSatisfecho(),"-",$conexion->getNoSatisfecho()); ?> </td>
                                 </tr>
                                 <tr>
                                     <td>Insatisfecho</td>
-                                    <td>46</td>
+                                    <td><?php DatosSummary::switchPrintNullOrValueMessage($conexion->getNoSatisfecho(),"-",$conexion->getNoSatisfecho()); ?> </td>
                                 </tr>
                                 <tr>
                                     <td>Tareas</td>

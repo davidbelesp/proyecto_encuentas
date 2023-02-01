@@ -3,7 +3,8 @@ require("Conexion.php");
 class DatosSummary extends Conexion{
     private $comment_with_date;
     private $notaAvg;
-    private $satifaccionTotal;
+    private $satisfecho;
+    private $noSatisfecho;
     private $examenesAvg;
     private $tareasAvg;
     public function __construct($profesor){
@@ -22,6 +23,16 @@ class DatosSummary extends Conexion{
             $this->notaAvg = round($resultado[0],1);
             $this->examenesAvg = round($resultado[1],1);
             $this->tareasAvg = round($resultado[2],1);
+            /*SATISFECHO E INSATISFECHO*/
+            $consulta = "SELECT count(satifaccion) from encuesta where idProfesor=(select id from usuarios where usuario = '$profesor') and satifaccion='si'";
+            $resultado = $this->db_conexion->query($consulta);
+            $resultado = $resultado->fetch();
+            $this->satisfecho = $resultado[0];
+
+            $consulta = "SELECT count(satifaccion) from encuesta where idProfesor=(select id from usuarios where usuario = '$profesor') and satifaccion='no'";
+            $resultado = $this->db_conexion->query($consulta);
+            $resultado = $resultado->fetch();
+            $this->noSatisfecho = $resultado[0];
         }else{
             $this->notaAvg= NULL;
             $this->comment_with_date = NULL;
@@ -36,16 +47,20 @@ class DatosSummary extends Conexion{
         $resultado = $this->notaAvg;
         return $resultado;
     }
-    public function getSatifaccion(){
-        $resultado = $this->satifaccionTotal;
-        return $resultado;
-    }
     public function getExamen(){
         $resultado = $this->examenesAvg;
         return $resultado;
     }
     public function getTareas(){
         $resultado = $this->tareasAvg;
+        return $resultado;
+    }
+    public function getSatisfecho(){
+        $resultado = $this->satisfecho;
+        return $resultado;
+    }
+    public function getNoSatisfecho(){
+        $resultado = $this->noSatisfecho;
         return $resultado;
     }
 
