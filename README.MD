@@ -16,7 +16,7 @@ nota int,
 comentario varchar(200),
 satifaccion enum("si","no"),
 tareas int,
-examen int,
+examenes int,
 fecha date,
 constraint FK_id foreign key (idProfesor) references usuarios(id));
 
