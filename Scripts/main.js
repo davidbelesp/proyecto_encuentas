@@ -65,7 +65,7 @@ function validateForm(event) {
     text = document.getElementById("comentario").value.split(' ');
 
     text.forEach(element => {
-        if (words.includes(element)) {
+        if (words.includes(element.toLowerCase())) {
             event.preventDefault()
             alert("validation failed false"); //PROCEDURE TO NOT VALIDATE
             return false;
