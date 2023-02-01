@@ -20,7 +20,6 @@ class DatosSummary extends Conexion{
             $resultado = $resultado->fetch();
 
             $this->notaAvg = round($resultado[0],1);
-            echo var_dump($resultado[1]);
             $this->examenesAvg = round($resultado[1],1);
             $this->tareasAvg = round($resultado[2],1);
         }else{
