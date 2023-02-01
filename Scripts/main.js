@@ -7,13 +7,10 @@ function redirect(url) {
 function noWLogo() {
     const divs = document.getElementsByTagName("div");
     const div = divs[divs.length - 1];
-    try {
-        if (div.firstChild == null) return;
-        if (div.firstChild.getElementsByTagName("a") && div.firstChild.title == "Hosted on free web hosting 000webhost.com. Host your own website for FREE.") div.remove();
-        return;
-    } catch (error) {
-        return
-    }
+
+    if (div.firstChild == null) return;
+    if (div.firstChild.getElementsByTagName("a") && div.firstChild.title == "Hosted on free web hosting 000webhost.com. Host your own website for FREE.") div.remove();
+
 }
 
 function changeIndexPage(event = null) {
