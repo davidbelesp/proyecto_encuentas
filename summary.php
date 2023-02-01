@@ -50,7 +50,7 @@
             <a href="./form">Encuesta</a>
             <a href="">Contacto</a>
             <a href="./cerrar_sesion.php">Cerrar Sesion</a>
-            <li>USUARIO</li>
+            <p>User:<?php echo $_SESSION["Usuario"] ?></p>
         </div>
 
 
@@ -65,11 +65,11 @@
                             <tbody>
                                 <tr>
                                     <td>Valoración</td>
-                                    <td> <?php DatosSummary::switchPrintNullOrValueMessage($conexion->getDatosGenerales(),"-",$conexion->getDatosGenerales()); ?> </td>
+                                    <td> <?php DatosSummary::switchPrintNullOrValueMessage($conexion->getNota(),"-",$conexion->getNota()); ?> </td>
                                 </tr>
                                 <tr>
                                     <td>Satisfecho</td>
-                                    <td>173</td>
+                                    <td> </td>
                                 </tr>
                                 <tr>
                                     <td>Insatisfecho</td>
@@ -77,11 +77,11 @@
                                 </tr>
                                 <tr>
                                     <td>Tareas</td>
-                                    <td>9</td>
+                                    <td><?php DatosSummary::switchPrintNullOrValueMessage($conexion->getTareas(),"-",$conexion->getTareas()); ?></td>
                                 </tr>
                                 <tr>
                                     <td>Exámenes</td>
-                                    <td>3.4</td>
+                                    <td> <?php DatosSummary::switchPrintNullOrValueMessage($conexion->getExamen(),"-",$conexion->getExamen()); ?> </td>
                                 </tr>
                             </tbody>
                         </table>

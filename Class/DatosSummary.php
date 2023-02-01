@@ -3,6 +3,9 @@ require("Conexion.php");
 class DatosSummary extends Conexion{
     private $comment_with_date;
     private $notaAvg;
+    private $satifaccionTotal;
+    private $examenesAvg;
+    private $tareasAvg;
     public function __construct($profesor){
         parent::__construct();
         if($this->db_conexion!=NULL){
@@ -12,12 +15,14 @@ class DatosSummary extends Conexion{
             $this->comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
             $resultado->closeCursor();
             /*DATOS GENERALES*/
-            $consulta = "select sum(nota)/count(nota) from encuesta where idProfesor = (select id from usuarios where usuario='$profesor')";
+            $consulta = "select sum(nota)/count(nota),sum(examenes)/count(examenes),sum(tareas)/count(tareas) from encuesta where idProfesor = (select id from usuarios where usuario='$profesor')";
             $resultado = $this->db_conexion->query($consulta);
-            $notaAvg = $resultado->fetch();
-            $notaAvg = round($notaAvg[0],1);
-            $this->notaAvg = $notaAvg;
-            $resultado->closeCursor();
+            $resultado = $resultado->fetch();
+
+            $this->notaAvg = round($resultado[0],1);
+            echo var_dump($resultado[1]);
+            $this->examenesAvg = round($resultado[1],1);
+            $this->tareasAvg = round($resultado[2],1);
         }else{
             $this->notaAvg= NULL;
             $this->comment_with_date = NULL;
@@ -28,8 +33,20 @@ class DatosSummary extends Conexion{
         $resultado = $this->comment_with_date;
         return $resultado;
     }
-    public function getDatosGenerales(){
+    public function getNota(){
         $resultado = $this->notaAvg;
+        return $resultado;
+    }
+    public function getSatifaccion(){
+        $resultado = $this->satifaccionTotal;
+        return $resultado;
+    }
+    public function getExamen(){
+        $resultado = $this->examenesAvg;
+        return $resultado;
+    }
+    public function getTareas(){
+        $resultado = $this->tareasAvg;
         return $resultado;
     }
 

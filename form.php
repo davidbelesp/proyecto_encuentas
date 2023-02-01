@@ -21,7 +21,7 @@
     $conexion = new Form();
     if (isset($_POST["enviar"])) {
         $conexion->setProfesor($_POST["profesor"]);
-        $conexion->setComment($_POST["comentario"], $_POST["nota"]);
+        $conexion->setData($_POST["comentario"], $_POST["nota"],$_POST["satisf"],$_POST["exam"],$_POST["tareas"]);
         $conexion->enviarFormulario();
         header("Location: index");
     }
@@ -73,8 +73,8 @@
 
                     <p>Satisfaccion</p>
                     <div class="election">
-                        <input type="radio" name="satisf" id="si">
-                        <input type="radio" name="satisf" id="no">
+                        <input type="radio" name="satisf" value="si">
+                        <input type="radio" name="satisf" value="no">
                     </div>
 
                     <span id="form-div"></span> <!--------------------------------------------------------->
