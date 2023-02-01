@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./Styles/main.css" rel="stylesheet"></link>
     <link href="./Styles/style.css" rel="stylesheet"></link>
-    <script src="main.js"></script>
+    <script src="/Scripts/main.js"></script>
     <title>Resumen</title>
 
 
