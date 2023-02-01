@@ -116,7 +116,7 @@ class DatosSummary extends Conexion{
 
     /*IMPRIMIR MENSAJE DEPENDE DE SI ES NULL O NO*/
     public static function switchPrintNullOrValueMessage($valorCompNull,$no_conecta,$conecta){
-        if($valorCompNull==NULL){
+        if($valorCompNull===NULL){
             echo $no_conecta;
         }else{
             echo $conecta;
