@@ -1,0 +1,167 @@
+:root {
+    --background-color: linear-gradient(225deg, rgb(228, 205, 123) 0%,rgb(189, 107, 87) 100%);
+}
+
+body {
+    background: var(--background-color);
+}
+
+.loginbox {
+    box-shadow: 0 20px 20px black;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .85);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--background-color);
+}
+
+/* LOGIN BOX */
+
+.loginbox {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+    width: 370px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .85);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+
+    user-select: none;
+}
+
+.loginbox h2 {
+    margin: 0 0 30px;
+    padding: 0;
+}
+
+.loginbox .box {
+    width: 100%;
+    position: relative;
+}
+
+.loginbox .box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 1em;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    background: transparent;
+}
+
+/* INPUT TEXT */
+
+.loginbox .box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 1em;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.loginbox .box input:focus~label,
+.loginbox .box input:valid~label {
+    top: -21px;
+    left: 0;
+    color: #ff8c69;
+    font-size: .8em;
+}
+
+.submitbox{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* VOLVER BUTTON */
+
+a{
+    text-decoration: none;
+    transition-duration: .3s;
+} a:hover + #underline{
+    animation: underline .5s 1;
+    animation-play-state: running;
+    display: block;
+}
+
+#underline{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 5px;
+    transform: translateY(12px);
+    height: 1.5px;
+    width: calc(1rem*4);
+}
+
+/* ENVIAR BUTTON */
+
+input[type=submit]{
+    background: #ff8c69;
+    color: black;
+    font-weight: bold;
+
+
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition-duration: .3s;
+}input[type=submit]:hover{
+    box-shadow: 0 0 20px #ff8c69CC;
+}
+
+/* ERROR MESSAGE */
+
+.errorbox{
+    display: none;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+.message{
+    position: absolute;
+    font-weight: bold;
+    background-color: black;
+    overflow: hidden;
+} .message p{
+    color: red;
+}
+
+/* ANIMATIONS */
+
+@keyframes underline {
+    from{ 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{ 
+        opacity: 1;
+        transform: translateY(12);
+    }
+}
+
+/* MEDIA */
+
+@media (min-width: 550px) {}

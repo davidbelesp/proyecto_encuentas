@@ -11,7 +11,7 @@
     <link href="./Styles/main.css" rel="stylesheet">
     <link href="./Styles/form.css" rel="stylesheet">
     <script src="./Scripts/main.js"></script>
-    <title>formulario</title>
+    <title>Encuesta</title>
 </head>
 
 <body>
