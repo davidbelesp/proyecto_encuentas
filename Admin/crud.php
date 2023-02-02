@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="../Styles/crud.css">
 </head>
 <body>
-
+<?php
+session_start();
+    if(!isset($_SESSION["Admin"])){
+        header("Location:./login");
+    }
+?>
     <form action="createUser">
         <h1>Crear Usuario</h1>
         <input type="text" name="ususario" placeholder="Usuario">

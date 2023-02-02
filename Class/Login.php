@@ -3,6 +3,7 @@ require("Conexion.php");
 class Login extends Conexion{
     private $user;
     private $pass;
+
     public function __construct($user_post,$pass_post){
         parent::__construct();
         $this->user = htmlentities(addslashes($user_post));
@@ -10,10 +11,16 @@ class Login extends Conexion{
     }
     public function iniciarSesion(){
         try{
+            $consulta = "SELECT tipo from usuarios where usuario = :user";
+            $resultado = $this->db_conexion->prepare($consulta);
+            $resultado->bindValue(":user",$this->user);
+            $resultado->execute();
+            $tipo = $resultado->fetch();
+            $tipo = $tipo[0];
+
 
             $consulta = "SELECT Usuario from usuarios where usuario = :user and password = :pass";
             $resultado = $this->db_conexion->prepare($consulta);
-    
     
             $resultado->bindValue(":user",$this->user);
             $resultado->bindValue(":pass",$this->pass);
@@ -21,9 +28,14 @@ class Login extends Conexion{
             $numero_resultado_coincidencia = $resultado->rowCount();
             if($numero_resultado_coincidencia!=0){
                 session_start();
-                $_SESSION["Usuario"] = $this->user;
-    
-                header("location:summary");
+                $_SESSION["$tipo"] = $this->user;
+
+                if($tipo=="Usuario"){
+                    header("location:summary");
+                }else if($tipo=="Admin"){
+                    header("location: ./Admin/crud");
+                }
+
             }
 
         }catch(Exception $excepcion){
