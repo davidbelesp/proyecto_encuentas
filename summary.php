@@ -7,6 +7,8 @@
     <link href="./Styles/main.css" rel="stylesheet"></link>
     <link href="./Styles/style.css" rel="stylesheet"></link>
     <script src="/Scripts/main.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.18.0.min.js"></script>
+    <script src="plotly-2.18.0.min.js"></script>
     <title>Resumen</title>
 
 
@@ -88,7 +90,9 @@
                     </div>
                 </div>
                 <div class="prev-graph">
-                    <div class="graph box"></div>
+                    <div class="graph box">
+                        <div id="graph"></div>
+                    </div>
                 </div>
             </div>
             <div class="divisor">
@@ -119,5 +123,42 @@
 </body>
 <script>
 setTimeout(() => {noWLogo()}, 0);
+</script>
+<script>
+    function makeGraph(){
+        // const graphDiv = document.querySelector("#graph")
+
+        trace1 = {
+            x: [1, 2, 3, 4, 5],
+            y: [1, 2, 4, 8, 16]
+        }
+
+        data = [trace1]
+        
+        layout = {
+        autosize: false,
+        width: 500,
+        height: 100,
+        margin: {
+            l: 0,
+            r: 0,
+            b: 0,
+            t: 0,
+            pad: 4
+        },
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)'
+        };
+
+        config = {
+            // responsive:true
+        }
+
+        Plotly.newPlot(graphDiv, data, layout)
+    }
+
+    setTimeout(() => {
+        makeGraph()
+    }, 0);
 </script>
 </html>

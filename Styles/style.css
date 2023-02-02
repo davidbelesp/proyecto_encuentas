@@ -289,6 +289,11 @@
   width: 100%;
 }
 
+td:nth-child(2){
+  text-align: center;
+}
+
+
 /*
   DIVISOR STYLE
 */
