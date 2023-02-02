@@ -1,19 +1,18 @@
 body{
-    display: flex;
+    background-color: rgb(252, 252, 164);
     width: 100vw;
     height: auto;
-    margin: 0;
-    padding:0;
+    margin: 0; padding:0;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-auto-rows: 200px;
 }
 /*CREAR USUARIO*/
-form{
-    vertical-align: top;
-    display: inline-block;
-    padding: 10px;
+.creacion{
+    margin: 0;
+}
+form{   
     text-align: center;
-    width: fit-content;
-    border-bottom: 2px dashed black;
-    border-right: 2px dashed black;
 }
 form h1{
     padding: 0;
@@ -21,17 +20,35 @@ form h1{
 }
 form input{
     display: block;
-    margin: 10px auto;
+    margin: 30px auto;
+    border-radius: 5px;
+}
+form .radio{
+    display: inline;
 }
 /*TABLA*/
-table{
+.tablas{
     margin: 0 auto;
-    display: inline-block;
-    border: 2px groove black;
-    border-collapse: collapse;
-    text-align: center;
 }
+table{
+    border-collapse: collapse;
+    width: fit-content;
+    text-align: center;
+}   
 table th{
-    border-right: 2px groove black;
-    border-bottom: 2px groove black;
+    background-color: greenyellow;
+    border-width: 2px 2px 2px 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+
+/*General*/
+h1{
+    font-size: 30px;
+}
+.dividir{
+    background-color: black;
+    height: 1px;
+    margin: 50px;
 }
