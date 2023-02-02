@@ -33,6 +33,7 @@
             <h1>Crear Usuario</h1>
             <input type="text" name="ususario" placeholder="Usuario">
             <input type="text" name="password" placeholder="contraseña">
+            <label>Usuario:<input type="radio" value="Usuario" name="tipo" checked>Admin:<input type="radio" value="Admin" name="tipo"></label>
             <input type="submit">
         </form>
 

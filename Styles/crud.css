@@ -21,6 +21,10 @@ body{
 form{
     text-align: center;
 }
+form label input{
+    display: inline;
+    margin: 5px;
+}
 form h1{
     padding: 0;
     margin: 0;
@@ -47,6 +51,9 @@ table th{
     border-width: 2px 2px 2px 2px;
     border-style: solid;
     border-color: black;
+}
+table td input{
+    border-radius: 10px;
 }
 
 
