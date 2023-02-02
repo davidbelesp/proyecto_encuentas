@@ -48,10 +48,12 @@
         </div>
 
         <div class="menu">
-            <img src="./Resources/logo-example.png" alt="logo">
-            <a href="./index">Inicio</a>
-            <a href="./summary">Resumen</a>
-            <a href="">Contacto</a>
+            <div class="links">
+                <img src="./Resources/logo-example.png" alt="logo">
+                <a href="./index">Inicio</a>
+                <a href="./summary">Resumen</a>
+                <a href="">Contacto</a>
+            </div>
         </div>
 
         <div class="content">

@@ -58,6 +58,59 @@
   FIXED MENU STYLE
 */
 
+.user-box{
+  cursor: pointer;
+  padding: 10px;
+}.user-box:hover + div,.user-menu:hover{
+  display: flex;
+}
+
+.user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+  background-color: rgb(141, 180, 95);
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 100px;
+}
+
+#letter{
+  user-select: none;
+  font-weight: bold; 
+  transform: translateY(-2px);
+}
+
+.user-menu{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--menu-color);
+  padding: 10px;
+  z-index: 100;
+  position: fixed;
+  border-radius:0 0 0 20px ;
+  top: 50px;
+  right: 0;
+}
+
+.user-menu a {
+  border-radius: 0 0 0 16px;
+}
+.menu a:hover{
+  background: #ddd;
+  color: var(--menu-color);
+  font-weight: bold;
+}
+
+#cerrar{
+  border: 1px solid gray;
+}
+
 .menu {
   z-index: 1;
   overflow: hidden;
@@ -65,6 +118,10 @@
   position: fixed;
   top: 0;
   width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .hamburger-menu {
@@ -78,7 +135,7 @@
   padding: 10px;
 }
 
-.menu a {
+.menu a{
   background-color: var(--menu-color);
   color: #f2f2f2;
   float: left;
@@ -89,11 +146,11 @@
   font-size: 1rem;
   transition-duration: 0.3s;
 }
-
-.menu a:hover {
+.menu a:hover:not(.cerrar){
   background: #ddd;
   color: var(--menu-color);
-  font-size: 2rem;
+  font-weight: bold;
+  font-size: 2em;
 }
 
 /*
@@ -108,7 +165,7 @@
 #menuToggle {
   display: block;
   position: relative;
-  width: 50px;
+  width: 100px;
   top: 50px;
   left: 50px;
   z-index: 1;
@@ -201,6 +258,12 @@
 
 #menuToggle input:checked~ul {
   transform: none;
+}
+
+#welcome-hamb{
+  position: relative;
+  top: -70px;
+  left: 100px;
 }
 
 /*
