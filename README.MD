@@ -19,7 +19,8 @@ satifaccion enum("si","no"),
 tareas int,
 examenes int,
 fecha date,
-constraint FK_id foreign key (idProfesor) references usuarios(id));
+constraint FK_id foreign key (idProfesor) references usuarios(id)
+ON UPDATE CASCADE ON DELETE CASCADE);
 
 
 ## INSERT WITH COMMAND

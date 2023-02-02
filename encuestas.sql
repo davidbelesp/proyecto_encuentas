@@ -18,6 +18,7 @@ create table encuesta(
     examenes int,
     fecha date,
     constraint FK_id foreign key (idProfesor) references usuarios(id)
+    ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 insert into usuarios(usuario,password,tipo) values ("root","123","Admin");
