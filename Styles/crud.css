@@ -10,6 +10,13 @@ body{
 /*CREAR USUARIO*/
 .creacion{
     margin: 0;
+    text-align: center;
+}
+.creacion .seleccion h1{
+    display: inline;
+}
+.creacion .seleccion input{
+    margin: 0;
 }
 form{
     text-align: center;
@@ -20,7 +27,7 @@ form h1{
 }
 form input{
     display: block;
-    margin: 30px auto;
+    margin: 15px auto;
     border-radius: 5px;
 }
 form .radio{

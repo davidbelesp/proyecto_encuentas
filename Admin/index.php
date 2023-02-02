@@ -18,16 +18,29 @@
 
 
     <div class="creacion">
+        <div class="seleccion">
+        <h1>Visualizar</h1>
+        <input type="radio" name="seleccion" checked>
+        <input type="radio" name="seleccion">
+        </div>
+
+
+        <div class="dividir" style="margin-top: 10px"> </div>
+
+        
         <form id="createuser" action="createUser">
             <h1>Crear Usuario</h1>
             <input type="text" name="ususario" placeholder="Usuario">
             <input type="text" name="password" placeholder="contraseña">
             <input type="submit">
+        </form>
 
-            <div class="dividir"> </div>
+
+        <div class="dividir"> </div>
+
+
         <form id="createuser" action="createUser">
             <h1>Crear comentario</h1>
-
             <input type="text" name="profesor" placeholder="profesor">
             <input type="text" name="comentario" placeholder="Comentario">
             <input type="text" name="nota" placeholder="Nota">
@@ -38,11 +51,11 @@
             <input class="radio" type="radio" name="satifaccion">
             </label>
             <input type="submit">
-
         </form>
 
-
     </div>
+
+    
     <div class="tablas">
         <table >
             <tr><th>ID</th><th>USUARIO</th><th>CONTRASEÑA</th><th>TIPO</th></tr>
