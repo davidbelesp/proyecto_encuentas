@@ -33,13 +33,8 @@ class Form extends Conexion{
     public function enviarFormulario(){
         $consulta = "INSERT INTO encuesta (nota, comentario,satifaccion,tareas,examenes,idProfesor, fecha) VALUES (:NOTA,:COMENTARIO,:SATIFACCION,:TAREAS,:EXAMENES,(select id from usuarios where usuario = :PROFESOR),CURRENT_DATE)";
         $resultado=$this->db_conexion->prepare($consulta);
-        $resultado->bindValue(":NOTA", $this->nota);
-        $resultado->bindValue(":COMENTARIO", $this->comentario);
-        $resultado->bindValue(":SATIFACCION", $this->satifaccion);
-        $resultado->bindValue(":TAREAS", $this->tareas);
-        $resultado->bindValue(":EXAMENES", $this->examenes);
-        $resultado->bindValue(":PROFESOR", $this->profesor);
-        if ($resultado->execute()) {
+        $arrayDatos = array(":NOTA"=> $this->nota,":COMENTARIO"=> $this->comentario,":SATIFACCION"=> $this->satifaccion,":TAREAS"=> $this->tareas,":EXAMENES"=> $this->examenes,":PROFESOR"=> $this->profesor);
+        if ($resultado->execute($arrayDatos)) {
             echo "CONEXION";
         } else {
             echo "ERROR";

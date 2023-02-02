@@ -47,7 +47,9 @@
         <table >
             <tr><th>ID</th><th>USUARIO</th><th>CONTRASEÑA</th><th>TIPO</th></tr>
             <?php foreach($resultado as $datosUsuario):?>
-            <tr> <td><?php echo $datosUsuario->id;?></td> <td><?php echo $datosUsuario->usuario;?></td> <td><?php echo $datosUsuario->password;?></td> <td><?php echo $datosUsuario->tipo;?></td>  <td class="boton"><input type="button" value="Actualizar"></td>  <td class="boton"><a href="./borrar.php?id=<?php echo $datosUsuario->id?>" ><input type="button" value="Eliminar"></a></td></tr>
+            <tr> <td><?php echo $datosUsuario->id;?></td> <td><?php echo $datosUsuario->usuario;?></td> <td><?php echo $datosUsuario->password;?></td> <td><?php echo $datosUsuario->tipo;?></td> 
+            <td class="boton"><a href="./Actualizar.php?form=usuario&id=<?php echo $datosUsuario->id?>&usuario=<?php echo $datosUsuario->usuario?>&password=<?php echo $datosUsuario->password;?> "><input type="button" value="Actualizar"></td></a>
+            <td class="boton"><a href="./borrar.php?id=<?php echo $datosUsuario->id?>" ><input type="button" value="Eliminar"></a></td></tr>
             <?php endforeach ?>
         </table>
         <br>
