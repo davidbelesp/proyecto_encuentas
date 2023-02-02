@@ -63,7 +63,7 @@
             <tr><th>ID</th><th>USUARIO</th><th>CONTRASEÑA</th><th>TIPO</th></tr>
             <?php foreach($tableUsuarios as $datosUsuario):?>
             <tr> <td><?php echo $datosUsuario->id;?></td> <td><?php echo $datosUsuario->usuario;?></td> <td><?php echo $datosUsuario->password;?></td> <td><?php echo $datosUsuario->tipo;?></td> 
-            <td class="boton"><a href="./Actualizar.php?form=usuario&id=<?php echo $datosUsuario->id?>&usuario=<?php echo $datosUsuario->usuario?>&password=<?php echo $datosUsuario->password;?> "><input type="button" value="Actualizar"></td></a>
+            <td class="boton"><a href="./actualizar.php?form=usuario&id=<?php echo $datosUsuario->id?>&usuario=<?php echo $datosUsuario->usuario?>&password=<?php echo $datosUsuario->password;?> "><input type="button" value="Actualizar"></td></a>
             <td class="boton"><a href="./borrar.php?id=<?php echo $datosUsuario->id?>&seleccion=usuario" ><input type="button" value="Eliminar"></a></td></tr>
             <?php endforeach ?>
         </table>
@@ -71,10 +71,10 @@
         <br>
         <br>
         <table>
-            <tr><th>ID</th><th>ID PROFE</th><th>COMENTARIO</th><th>NOTA</th><th>TAREAS</th><th>EXAMENES</th><th>SATIFACCION</th></tr>
+            <tr><th>ID</th><th>ID PROFE</th><th>COMENTARIO</th><th>NOTA</th><th>TAREAS</th><th>EXAMENES</th><th>SATIFACCION</th><th>FECHA</th></tr>
             <?php foreach($tableComment as $datosComment):?>
-            <tr> <td><?php echo $datosComment->id?></td>   <td><?php echo $datosComment->idProfesor?></td>  <td><?php echo $datosComment->comentario?></td>     <td><?php echo $datosComment->nota?></td>    <td><?php echo $datosComment->tareas?></td>  <td><?php echo $datosComment->examenes?></td>  <td><?php echo $datosComment->satifaccion?></td>
-            <td class="boton"><input type="button" value="Actualizar"></td> 
+            <tr> <td><?php echo $datosComment->id?></td>   <td><?php echo $datosComment->idProfesor?></td>  <td><?php echo $datosComment->comentario?></td>     <td><?php echo $datosComment->nota?></td>    <td><?php echo $datosComment->tareas?></td>  <td><?php echo $datosComment->examenes?></td>  <td><?php echo $datosComment->satifaccion?></td>    <td><?php echo $datosComment->fecha?></td>
+            <td class="boton"><a href="./actualizar.php?form=comentario&id=<?php echo $datosComment->id?>&idprofesor=<?php echo $datosComment->idProfesor?>&comentario=<?php echo $datosComment->comentario?>&nota=<?php echo $datosComment->nota?>&tareas=<?php echo $datosComment->tareas?>&examenes=<?php echo $datosComment->examenes?>&satifaccion=<?php echo $datosComment->satifaccion?>&fecha=<?php echo $datosComment->fecha?>"><input type="button" value="Actualizar"></a></td>
             <td class="boton"><a href="./borrar.php?id=<?php echo $datosComment->id ?>&seleccion=comentario "><input type="button" value="Eliminar"></a></td></tr>
             <?php endforeach ?>
         </table>
