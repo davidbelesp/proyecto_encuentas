@@ -16,8 +16,7 @@ class Login extends Conexion{
             $resultado->bindValue(":user",$this->user);
             $resultado->execute();
             $tipo = $resultado->fetch();
-            $tipo = $tipo[0];
-
+            if($tipo){ $tipo = $tipo[0];}
 
             $consulta = "SELECT Usuario from usuarios where usuario = :user and password = :pass";
             $resultado = $this->db_conexion->prepare($consulta);
