@@ -10,7 +10,7 @@ class Form extends Conexion{
     private $tareas;
     public function __construct(){
         parent::__construct();
-        $consulta = "select usuario from usuarios;";
+        $consulta = "select usuario from usuarios where tipo= 'Usuario'";
         $resultado = $this->db_conexion->query($consulta);
         $this->lista_Profesores = $resultado->fetchAll();
     }
