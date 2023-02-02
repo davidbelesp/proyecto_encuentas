@@ -1,5 +1,5 @@
 :root {
-    --background-color: linear-gradient(225deg, rgb(228, 205, 123) 0%,rgb(189, 107, 87) 100%);
+    --background-color: linear-gradient(225deg, rgb(228, 205, 123) 0%, rgb(189, 107, 87) 100%);
 }
 
 body {
@@ -54,6 +54,16 @@ body {
     position: relative;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 999999s ease-in-out 0s;
+    -webkit-text-fill-color: rgb(255, 255, 101) !important;
+    text-decoration: none;
+    text-decoration-color: transparent;
+}
+
 .loginbox .box input {
     width: 100%;
     padding: 10px 0;
@@ -85,7 +95,7 @@ body {
     font-size: .8em;
 }
 
-.submitbox{
+.submitbox {
     margin-top: 30px;
     display: flex;
     align-items: center;
@@ -94,16 +104,18 @@ body {
 
 /* VOLVER BUTTON */
 
-a{
+a {
     text-decoration: none;
     transition-duration: .3s;
-} a:hover + #underline{
+}
+
+a:hover+#underline {
     animation: underline .5s 1;
     animation-play-state: running;
     display: block;
 }
 
-#underline{
+#underline {
     display: none;
     position: absolute;
     background-color: #fff;
@@ -115,7 +127,7 @@ a{
 
 /* ENVIAR BUTTON */
 
-input[type=submit]{
+input[type=submit] {
     background: #ff8c69;
     color: black;
     font-weight: bold;
@@ -127,38 +139,66 @@ input[type=submit]{
     border: none;
     cursor: pointer;
     transition-duration: .3s;
-}input[type=submit]:hover{
+}
+
+input[type=submit]:hover {
     box-shadow: 0 0 20px #ff8c69CC;
 }
 
 /* ERROR MESSAGE */
 
-.errorbox{
-    display: none;
-    padding: 0;
-    margin: 0;
-    width: 100vw;
+.errordiv {
+    position: relative;
+    z-index: 100;
     height: 100vh;
+    width: 100vw;
+
+    display: none;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    animation: errormessage ease-in-out 2s 1;
 }
-.message{
+
+.message {
     position: absolute;
+    top: 40%;
+    padding: 10px;
     font-weight: bold;
-    background-color: black;
+    background: #000000CC;
+    backdrop-filter: blur(4px);
+    border-radius: 5px;
     overflow: hidden;
-} .message p{
+    box-shadow: 0 0 20px #000;
+}
+
+.message p {
     color: red;
 }
 
 /* ANIMATIONS */
 
 @keyframes underline {
-    from{ 
+    from {
         opacity: 0;
         transform: translateY(20px);
     }
-    to{ 
+
+    to {
         opacity: 1;
         transform: translateY(12);
+    }
+}
+
+@keyframes errormessage {
+    from {
+        opacity: 1;
+        display: flex;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
     }
 }
 
