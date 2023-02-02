@@ -12,8 +12,9 @@
     <?php
     require("../Class/Conexion.php");
     $conexion = new Conexion();
-    $resultado = $conexion->db_conexion->query("Select * from usuarios")->fetchAll(PDO::FETCH_OBJ);
-    //echo var_dump($resultado);
+    $tableUsuarios = $conexion->db_conexion->query("Select * from usuarios")->fetchAll(PDO::FETCH_OBJ);
+    $tableComment = $conexion->db_conexion->query("Select * from encuesta")->fetchAll(PDO::FETCH_OBJ);
+    //echo var_dump($tableComment);
     ?>
 
 
@@ -27,7 +28,7 @@
 
         <div class="dividir" style="margin-top: 10px"> </div>
 
-        
+
         <form id="createuser" action="createUser">
             <h1>Crear Usuario</h1>
             <input type="text" name="ususario" placeholder="Usuario">
@@ -47,8 +48,8 @@
             <input type="number" name="examen" placeholder="Nota examenes">
             <input type="number" name="tareas" placeholder="Nota tareas">
             <label>SATIFACCION:<br>
-            <input class="radio" type="radio" name="satifaccion" checked>
-            <input class="radio" type="radio" name="satifaccion">
+            <input class="radio" type="radio" name="satifaccion" value="si" checked>
+            <input class="radio" type="radio" name="satifaccion" value="no">
             </label>
             <input type="submit">
         </form>
@@ -59,20 +60,22 @@
     <div class="tablas">
         <table >
             <tr><th>ID</th><th>USUARIO</th><th>CONTRASEÑA</th><th>TIPO</th></tr>
-            <?php foreach($resultado as $datosUsuario):?>
+            <?php foreach($tableUsuarios as $datosUsuario):?>
             <tr> <td><?php echo $datosUsuario->id;?></td> <td><?php echo $datosUsuario->usuario;?></td> <td><?php echo $datosUsuario->password;?></td> <td><?php echo $datosUsuario->tipo;?></td> 
             <td class="boton"><a href="./Actualizar.php?form=usuario&id=<?php echo $datosUsuario->id?>&usuario=<?php echo $datosUsuario->usuario?>&password=<?php echo $datosUsuario->password;?> "><input type="button" value="Actualizar"></td></a>
-            <td class="boton"><a href="./borrar.php?id=<?php echo $datosUsuario->id?>" ><input type="button" value="Eliminar"></a></td></tr>
+            <td class="boton"><a href="./borrar.php?id=<?php echo $datosUsuario->id?>&seleccion=usuario" ><input type="button" value="Eliminar"></a></td></tr>
             <?php endforeach ?>
         </table>
         <br>
         <br>
         <br>
-        <br>
-        <br>
         <table>
-            <tr><th>COMENTARIO</th><th>NOTA</th><th>BLA</th></tr>
-            <tr><td>Esto es un comentario bla bla</td><td>1</td> <td>123</td> <td class="boton"><input type="button" value="Actualizar"></td>  <td class="boton"><input type="button" value="Eliminar"></td></tr>
+            <tr><th>ID</th><th>ID PROFE</th><th>COMENTARIO</th><th>NOTA</th><th>TAREAS</th><th>EXAMENES</th><th>SATIFACCION</th></tr>
+            <?php foreach($tableComment as $datosComment):?>
+            <tr> <td><?php echo $datosComment->id?></td>   <td><?php echo $datosComment->idProfesor?></td>  <td><?php echo $datosComment->comentario?></td>     <td><?php echo $datosComment->nota?></td>    <td><?php echo $datosComment->tareas?></td>  <td><?php echo $datosComment->examenes?></td>  <td><?php echo $datosComment->satifaccion?></td>
+            <td class="boton"><input type="button" value="Actualizar"></td> 
+            <td class="boton"><a href="./borrar.php?id=<?php echo $datosComment->id ?>&seleccion=comentario "><input type="button" value="Eliminar"></a></td></tr>
+            <?php endforeach ?>
         </table>
 </div>
 
