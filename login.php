@@ -63,6 +63,8 @@
         displayError(false)
     })
 
+    setTimeout(() => {noWLogo();}, 0);
+    
     function displayError(a = true) {
         const box = document.querySelector(".errordiv");
         a ? box.style.display = "flex" : box.style.display = "none"
