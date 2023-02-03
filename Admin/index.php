@@ -19,7 +19,7 @@
     if(isset($_POST["crearuser"])){
         try{
             $usuario = $_POST["ususario"];
-            $password = crypt($_POST["password_login"], DB_NAME);
+            $password = crypt($_POST["password"], DB_NAME);
             $tipo = $_POST["tipo"];
             $resultado = $conexion->db_conexion->prepare("insert into usuarios(usuario,password,tipo) values(:usuario,:password,:tipo)");
             $resultado->execute(array(":usuario"=>$usuario,":password"=>$password,":tipo"=>$tipo));
