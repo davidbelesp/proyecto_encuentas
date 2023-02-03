@@ -8,10 +8,25 @@
     <link rel="stylesheet" href="../Styles/crud.css">
 </head>
 <body>
-
     <?php
     require("../Class/Conexion.php");
     $conexion = new Conexion();
+    /*CREAR USUARIO O CREAR COMENTARIO*/
+    if(isset($_POST["crearuser"])){
+        try{
+            $usuario = $_POST["ususario"];
+            $password = $_POST["password"];
+            $tipo = $_POST["tipo"];
+            $resultado = $conexion->db_conexion->prepare("insert into usuarios(usuario,password,tipo) values(:usuario,:password,:tipo)");
+            $resultado->execute(array(":usuario"=>$usuario,":password"=>$password,":tipo"=>$tipo));
+        }catch(Exception $excepcion){
+            echo "ERROR";
+        }
+    }
+    if(isset($_POST["crearcomentario"])){
+
+    }
+    /*QUERY*/
     $tableUsuarios = $conexion->db_conexion->query("Select * from usuarios")->fetchAll(PDO::FETCH_OBJ);
     $tableComment = $conexion->db_conexion->query("Select * from encuesta")->fetchAll(PDO::FETCH_OBJ);
     //echo var_dump($tableComment);
@@ -19,6 +34,9 @@
 
 
     <div class="creacion">
+
+
+
         <div class="seleccion">
         <h1>Visualizar</h1>
         <input type="radio" name="seleccion" checked>
@@ -29,19 +47,19 @@
         <div class="dividir" style="margin-top: 10px"> </div>
 
 
-        <form id="createuser" action="createUser">
+        <form id="createuser" action="<?php $_SERVER['PHP_SELF']?>" method="post">
             <h1>Crear Usuario</h1>
             <input type="text" name="ususario" placeholder="Usuario">
             <input type="text" name="password" placeholder="contraseña">
             <label>Usuario:<input type="radio" value="Usuario" name="tipo" checked>Admin:<input type="radio" value="Admin" name="tipo"></label>
-            <input type="submit">
+            <input type="submit" name="crearuser">
         </form>
 
 
         <div class="dividir"> </div>
 
 
-        <form id="createuser" action="createUser">
+        <form id="createcomment" action="<?php $_SERVER['PHP_SELF']?>" method="post">
             <h1>Crear comentario</h1>
             <input type="text" name="profesor" placeholder="profesor">
             <input type="text" name="comentario" placeholder="Comentario">
@@ -52,7 +70,7 @@
             <input class="radio" type="radio" name="satifaccion" value="si" checked>
             <input class="radio" type="radio" name="satifaccion" value="no">
             </label>
-            <input type="submit">
+            <input type="submit" name="crearcomentario">
         </form>
 
     </div>

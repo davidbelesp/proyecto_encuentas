@@ -32,7 +32,7 @@ class Login extends Conexion{
                 if($tipo=="Usuario"){
                     header("location:summary");
                 }else if($tipo=="Admin"){
-                    header("location: ./Admin/crud");
+                    header("location: ./Admin/");
                 }
 
             }
