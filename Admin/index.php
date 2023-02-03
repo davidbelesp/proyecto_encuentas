@@ -9,7 +9,11 @@
 </head>
 <body>
     <?php
-    require("../Class/Conexion.php");
+    require("../Class/Login.php");
+
+    session_start();
+    Login::comprobarInicioSesion($_SESSION['Admin']);
+
     $conexion = new Conexion();
     /*CREAR USUARIO O CREAR COMENTARIO*/
     if(isset($_POST["crearuser"])){
@@ -50,9 +54,13 @@
 
 
         <div class="seleccion">
+        <a href="../cerrar_sesion.php"><input type="button" value="CERRAR SESION" style="margin: 10px;"></a>
+        <div class="dividir" style="margin: 0px 50px 10px 50px;"> </div>
         <h1>Visualizar</h1>
-        <input type="radio" name="seleccion" checked>
-        <input type="radio" name="seleccion">
+        <label>
+            User:<input type="radio" name="seleccion" value="enc" checked>
+            Enc:<input type="radio" name="seleccion" value="usu">
+        </label>
         </div>
 
 
@@ -79,9 +87,9 @@
             <input type="number" name="examen" placeholder="Nota examenes">
             <input type="number" name="tareas" placeholder="Nota tareas">
             <input type="date" name="fecha" placeholder="fecha">
-            <label>SATIFACCION:<br>
-            <input class="radio" type="radio" name="satifaccion" value="si" checked>
-            <input class="radio" type="radio" name="satifaccion" value="no">
+            <label>SATIFACCION<br>
+            Si:<input class="radio" type="radio" name="satifaccion" value="si" checked>
+            No:<input class="radio" type="radio" name="satifaccion" value="no">
             </label>
             <input type="submit" name="crearcomentario">
         </form>

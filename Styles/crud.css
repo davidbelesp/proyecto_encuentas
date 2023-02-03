@@ -42,10 +42,19 @@ form .radio{
     margin: 0 auto;
 }
 table{
+    margin: 0 auto;
     border-collapse: collapse;
     width: fit-content;
     text-align: center;
-}   
+}
+table td{
+    max-width: 150px;
+    word-wrap: break-word;
+    border-top: 1px solid black;
+}
+table tr .boton{
+    border-top: 0px;
+}
 table th{
     background-color: greenyellow;
     border-width: 2px 2px 2px 2px;

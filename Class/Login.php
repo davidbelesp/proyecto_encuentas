@@ -18,7 +18,7 @@ class Login extends Conexion{
             $tipo = $resultado->fetch();
             if($tipo){ $tipo = $tipo[0];}
 
-            $consulta = "SELECT Usuario from usuarios where usuario = :user and password = :pass";
+            $consulta = "SELECT usuario from usuarios where usuario = :user and password = :pass";
             $resultado = $this->db_conexion->prepare($consulta);
     
             $resultado->bindValue(":user",$this->user);
@@ -49,6 +49,12 @@ class Login extends Conexion{
         session_start();
         session_destroy();
         header("Location:index");
+    }
+    public static function comprobarInicioSesion(&$sesion){
+        if(!isset($sesion)){
+            header("Location: ../login.php");
+        }
+
     }
 
 }

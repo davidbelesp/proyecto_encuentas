@@ -1,3 +1,5 @@
+# CREATE DATABASE WHIT COMMAND OR WITH SQL FILE IN ROOT FOLDER
+CREATE WITH COMMANDS STEPS
 ## STEP 1 | CREATE A DATABASE
 create database encuestas;
 
@@ -24,7 +26,7 @@ ON UPDATE CASCADE ON DELETE CASCADE);
 
 
 ## INSERT WITH COMMAND USER AND COMMENT
-iinsert into usuarios(usuario,password,tipo) values ("root","123","Admin");
+insert into usuarios(usuario,password,tipo) values ("root","123","Admin");
 insert into usuarios(usuario,password,tipo) values ("Adelaida","123","Usuario");
 
 insert into encuesta(nota,comentario,idProfesor,tareas,examenes,satifaccion,fecha) values (5,"Hola que tal",2,8,9,"si",CURRENT_DATE);

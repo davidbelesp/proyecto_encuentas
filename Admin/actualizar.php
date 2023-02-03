@@ -16,7 +16,10 @@
 
 <body>
     <?php
-    require("../Class/Conexion.php");
+    require("../Class/Login.php");
+
+    session_start();
+    Login::comprobarInicioSesion($_SESSION['Admin']);
 
     $form = $_GET["form"];
     $conexion = new Conexion();
