@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./Styles/login.css">
     <link rel="stylesheet" href="./Styles/main.css">
     <script src="./Scripts/main.js"></script>
-    <script src="./Scripts/md5.js"></script>
     <title>Log in</title>
     <?php
     require("./Class/Login.php");
@@ -24,7 +23,7 @@
 
         <div class="loginbox">
             <h2>Acceder</h2>
-            <form action=<?php echo $_SERVER['PHP_SELF'] ?> method="post" onsubmit="return h5()">
+            <form action=<?php echo $_SERVER['PHP_SELF'] ?> method="post">
 
                 <div class="box">
                     <input type="text" name="user_login" required>
@@ -32,11 +31,9 @@
                 </div>
 
                 <div class="box">
-                    <input type="password" name="pass" required autocomplete="off">
+                    <input type="password" name="password_login" required autocomplete="off">
                     <label>Contraseña</label>
                 </div>
-
-                <input type="hidden" name="password_login" class="passwd">
 
                 <div class="submitbox">
                     <a href="./index">Volver</a>
@@ -61,14 +58,6 @@
 
     </div>
 </body>
-<script data-md5>
-    function h5(){
-        let pd = document.querySelector('input[type=password]');
-        let p = document.querySelector('input[type=hidden]');
-        p.value = md5(pd.value);
-        return true;
-    }
-</script>
 <script>
     document.addEventListener("click", () => {
         displayError(false)

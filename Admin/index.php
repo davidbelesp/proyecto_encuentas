@@ -24,7 +24,7 @@
             $resultado = $conexion->db_conexion->prepare("insert into usuarios(usuario,password,tipo) values(:usuario,:password,:tipo)");
             $resultado->execute(array(":usuario"=>$usuario,":password"=>$password,":tipo"=>$tipo));
         }catch(Exception $excepcion){
-            echo "ERROR CREAR USUARIO";
+            echo "$excepcion";
         }
     }
     if(isset($_POST["crearcomentario"])){
@@ -39,7 +39,7 @@
             $resultado = $conexion->db_conexion->prepare("insert into encuesta(idProfesor,comentario,nota,examenes,tareas,fecha,satifaccion) values(:profesor,:comentario,:nota,:examen,:tareas,:fecha,:satifaccion)");
             $resultado->execute(array(":profesor"=>$profesor,":comentario"=>$comentario,":nota"=>$nota,":examen"=>$examen,":tareas"=>$tareas,":fecha"=>$fecha,":satifaccion"=>$satifaccion));
         }catch(Exception $excepcion){
-            echo "ERROR CREAR COMENTARIO";
+            echo "$excepcion";
         }
     }
     /*QUERY*/
@@ -67,11 +67,10 @@
         <div class="dividir" style="margin-top: 10px"> </div>
 
 
-        <form id="createuser" action="<?php $_SERVER['PHP_SELF']?>" method="post" onsubmit="return h5()">
+        <form id="createuser" action="<?php $_SERVER['PHP_SELF']?>" method="post">
             <h1>Crear Usuario</h1>
             <input type="text" name="ususario" placeholder="Usuario">
-            <input type="text" placeholder="contraseña">
-            <input type="hidden" name="password">
+            <input type="text"  name="password" placeholder="contraseña">
             <label>Usuario:<input type="radio" value="Usuario" name="tipo" checked>Admin:<input type="radio" value="Admin" name="tipo"></label>
             <input type="submit" name="crearuser">
         </form>
@@ -119,14 +118,5 @@
             <?php endforeach ?>
         </table>
 </div>
-<script data-md5>
-    function h5(){
-        let pd = document.querySelector('input[type=password]');
-        let p = document.querySelector('input[type=hidden]');
-        p.value = md5(pd.value);
-        console.log(p.value)
-        return false;
-    }
-</script>
 </body>
 </html>

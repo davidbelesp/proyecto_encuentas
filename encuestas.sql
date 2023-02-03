@@ -21,6 +21,6 @@ create table encuesta(
     ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-insert into usuarios(usuario,password,tipo) values ("root","202cb962ac59075b964b07152d234b70","Admin");
-insert into usuarios(usuario,password,tipo) values ("Adelaida","202cb962ac59075b964b07152d234b70","Usuario");
+insert into usuarios(usuario,password,tipo) values ("root","123","Admin");
+insert into usuarios(usuario,password,tipo) values ("Adelaida","123","Usuario");
 insert into encuesta(nota,comentario,idProfesor,tareas,examenes,satifaccion,fecha) values (5,"Hola que tal",2,8,9,"si",CURRENT_DATE);
