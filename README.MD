@@ -7,7 +7,7 @@ use encuestas;
 create table usuarios(
 id int primary key auto_increment,
 tipo enum("Usuario","Admin"),
-usuario varchar(20),
+usuario varchar(20) NOT NULL UNIQUE,
 password varchar(20));
 
 create table encuesta(
@@ -23,11 +23,11 @@ constraint FK_id foreign key (idProfesor) references usuarios(id)
 ON UPDATE CASCADE ON DELETE CASCADE);
 
 
-## INSERT WITH COMMAND
-insert into encuesta(nota,comentario,idProfesor,fecha) values (5,"Hola que tal","Profesor1",CURRENT_DATE);
-
-insert into usuarios(usuario,password,tipo) values ("root","123","Admin");
+## INSERT WITH COMMAND USER AND COMMENT
+iinsert into usuarios(usuario,password,tipo) values ("root","123","Admin");
 insert into usuarios(usuario,password,tipo) values ("Adelaida","123","Usuario");
+
+insert into encuesta(nota,comentario,idProfesor,tareas,examenes,satifaccion,fecha) values (5,"Hola que tal",2,8,9,"si",CURRENT_DATE);
 
 ## LOCATION
 localhost/proyecto_encuentas/index
