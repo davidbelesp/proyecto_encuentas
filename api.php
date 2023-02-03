@@ -39,9 +39,5 @@ for($i = 0; $i<count($notaDia); $i++){
     }
 }
 
-
-
-
-
     ?>
 </html>

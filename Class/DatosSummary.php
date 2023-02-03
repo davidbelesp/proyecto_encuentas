@@ -57,6 +57,7 @@ class DatosSummary extends Conexion{
     /*GETTERS*/
     public function getDatosComentario(){
         $resultado = $this->comment_with_date;
+        echo();
         return $resultado;
     }
     public function getNota(){
