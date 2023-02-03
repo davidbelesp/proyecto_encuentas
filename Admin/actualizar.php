@@ -20,7 +20,8 @@
 
     $form = $_GET["form"];
     $conexion = new Conexion();
-
+    
+    /*COMPROBAR ENVIOU SUARIO O ENVIO COMENTARIO*/
     if(isset($_POST["enviousuario"])){
         $id = $_POST["id"];
         $usuario = $_POST["usuario"];
@@ -43,7 +44,6 @@
         $resultado = $conexion->db_conexion->prepare($consulta);
         $resultado->execute($datosArray);
         header("Location: ./index.php");
-
     }
 
     ?>
@@ -84,7 +84,7 @@
                     <tr><td>Tareas</td><td><input type='text' name='tareas' value='$tareas'></td></tr>
                     <tr><td>Examenes</td><td><input type='text' name='examenes' value='$examenes'></td></tr>
                     <tr><td>Satifaccion</td><td><input type='text' name='satifaccion' value='$satifaccion'></td></tr>
-                    <tr><td>Fecha</td><td><input type='text' name='fecha' value='$fecha'></td></tr>
+                    <tr><td>Fecha</td><td><input type='date' name='fecha' value='$fecha'></td></tr>
                     </table>
                     <input type='submit' name='enviocommentario' value='enviar'>
                     ";

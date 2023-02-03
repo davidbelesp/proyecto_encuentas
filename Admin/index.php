@@ -20,11 +20,23 @@
             $resultado = $conexion->db_conexion->prepare("insert into usuarios(usuario,password,tipo) values(:usuario,:password,:tipo)");
             $resultado->execute(array(":usuario"=>$usuario,":password"=>$password,":tipo"=>$tipo));
         }catch(Exception $excepcion){
-            echo "ERROR";
+            echo "ERROR CREAR USUARIO";
         }
     }
     if(isset($_POST["crearcomentario"])){
-
+        try{
+            $profesor = $_POST["profesor"];
+            $comentario = $_POST["comentario"];
+            $nota = $_POST["nota"];
+            $examen = $_POST["examen"];
+            $tareas = $_POST["tareas"];
+            $fecha = $_POST["fecha"];
+            $satifaccion = $_POST["satifaccion"];
+            $resultado = $conexion->db_conexion->prepare("insert into encuesta(idProfesor,comentario,nota,examenes,tareas,fecha,satifaccion) values(:profesor,:comentario,:nota,:examen,:tareas,:fecha,:satifaccion)");
+            $resultado->execute(array(":profesor"=>$profesor,":comentario"=>$comentario,":nota"=>$nota,":examen"=>$examen,":tareas"=>$tareas,":fecha"=>$fecha,":satifaccion"=>$satifaccion));
+        }catch(Exception $excepcion){
+            echo "ERROR CREAR COMENTARIO";
+        }
     }
     /*QUERY*/
     $tableUsuarios = $conexion->db_conexion->query("Select * from usuarios")->fetchAll(PDO::FETCH_OBJ);
@@ -63,9 +75,10 @@
             <h1>Crear comentario</h1>
             <input type="text" name="profesor" placeholder="profesor">
             <input type="text" name="comentario" placeholder="Comentario">
-            <input type="text" name="nota" placeholder="Nota">
+            <input type="number" name="nota" placeholder="Nota">
             <input type="number" name="examen" placeholder="Nota examenes">
             <input type="number" name="tareas" placeholder="Nota tareas">
+            <input type="date" name="fecha" placeholder="fecha">
             <label>SATIFACCION:<br>
             <input class="radio" type="radio" name="satifaccion" value="si" checked>
             <input class="radio" type="radio" name="satifaccion" value="no">
