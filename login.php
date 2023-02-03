@@ -62,15 +62,12 @@
     </div>
 </body>
 <script data-md5>
-    
     function h5(){
-        let pd = document.querySelector("input[type=password]")
-        let p = document.querySelector("input[type=hidden]")
-        p.value = md5(pd.value)
-        
-        return true
+        let pd = document.querySelector('input[type=password]');
+        let p = document.querySelector('input[type=hidden]');
+        p.value = md5(pd.value);
+        return true;
     }
-
 </script>
 <script>
     document.addEventListener("click", () => {

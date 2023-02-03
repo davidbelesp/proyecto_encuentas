@@ -67,10 +67,11 @@
         <div class="dividir" style="margin-top: 10px"> </div>
 
 
-        <form id="createuser" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+        <form id="createuser" action="<?php $_SERVER['PHP_SELF']?>" method="post" onsubmit="return h5()">
             <h1>Crear Usuario</h1>
             <input type="text" name="ususario" placeholder="Usuario">
-            <input type="text" name="password" placeholder="contraseña">
+            <input type="text" placeholder="contraseña">
+            <input type="hidden" name="password">
             <label>Usuario:<input type="radio" value="Usuario" name="tipo" checked>Admin:<input type="radio" value="Admin" name="tipo"></label>
             <input type="submit" name="crearuser">
         </form>
@@ -118,6 +119,14 @@
             <?php endforeach ?>
         </table>
 </div>
-
+<script data-md5>
+    function h5(){
+        let pd = document.querySelector('input[type=password]');
+        let p = document.querySelector('input[type=hidden]');
+        p.value = md5(pd.value);
+        console.log(p.value)
+        return false;
+    }
+</script>
 </body>
 </html>

@@ -206,6 +206,7 @@ body {
     background-color: #23af5600;
     text-decoration: none;
     border: 0;
+    cursor: pointer;
   }
 
   .wrapper .page.page2 .buttons button:hover {
