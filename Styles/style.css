@@ -145,6 +145,7 @@
   text-decoration: none;
   font-size: 1rem;
   transition-duration: 0.3s;
+  user-select: none;
 }
 .menu a:hover:not(.cerrar){
   background: #ddd;

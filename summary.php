@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./Styles/main.css" rel="stylesheet">
-    </link>
     <link href="./Styles/style.css" rel="stylesheet">
-    </link>
     <script src="./Scripts/main.js"></script>
     <script src="https://cdn.plot.ly/plotly-2.18.0.min.js"></script>
     <title>Resumen</title>
@@ -162,7 +160,7 @@
 </body>
 <script>
     setTimeout(() => { noWLogo() }, 0);
-</script>
+</script> 
 <script>
     function makeGraph() {
         // const graphDiv = document.querySelector("#graph")

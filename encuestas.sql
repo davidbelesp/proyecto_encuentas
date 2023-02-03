@@ -5,7 +5,7 @@ create table usuarios(
     id int primary key auto_increment,
     tipo enum("Usuario","Admin"),
     usuario varchar(20) NOT NULL UNIQUE,
-    password varchar(20)
+    password varchar(32)
 );
 
 create table encuesta(
