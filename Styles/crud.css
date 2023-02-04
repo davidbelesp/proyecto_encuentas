@@ -39,6 +39,7 @@ form .radio{
 }
 /*TABLA*/
 .tablas{
+    padding: 40px;
     margin: 0 auto;
 }
 table{
@@ -74,4 +75,8 @@ h1{
     background-color: black;
     height: 1px;
     margin: 50px;
+}
+
+#encuestas{
+    display: none;
 }

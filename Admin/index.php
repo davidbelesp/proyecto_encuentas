@@ -57,10 +57,14 @@
         <a href="../cerrar_sesion.php"><input type="button" value="CERRAR SESION" style="margin: 10px;"></a>
         <div class="dividir" style="margin: 0px 50px 10px 50px;"> </div>
         <h1>Visualizar</h1>
-        <label>
-            User:<input type="radio" name="seleccion" value="enc" checked>
-            Enc:<input type="radio" name="seleccion" value="usu">
-        </label>
+        
+        <div>
+            <label>Usuario:</label>
+            <input type="radio" name="seleccion" value="usu" checked class="usu-enc">
+            <label>Encuesta:</label>
+            <input type="radio" name="seleccion" value="enc" class="usu-enc"> 
+        </div>
+
         </div>
 
 
@@ -98,7 +102,7 @@
 
     
     <div class="tablas">
-        <table >
+        <table id="usuarios">
             <tr><th>ID</th><th>USUARIO</th><th>CONTRASEÑA</th><th>TIPO</th></tr>
             <?php foreach($tableUsuarios as $datosUsuario):?>
             <tr> <td><?php echo $datosUsuario->id;?></td> <td><?php echo $datosUsuario->usuario;?></td> <td><?php echo $datosUsuario->password;?></td> <td><?php echo $datosUsuario->tipo;?></td> 
@@ -109,7 +113,7 @@
         <br>
         <br>
         <br>
-        <table>
+        <table id="encuestas">
             <tr><th>ID</th><th>ID PROFE</th><th>COMENTARIO</th><th>NOTA</th><th>TAREAS</th><th>EXAMENES</th><th>SATIFACCION</th><th>FECHA</th></tr>
             <?php foreach($tableComment as $datosComment):?>
             <tr> <td><?php echo $datosComment->id?></td>   <td><?php echo $datosComment->idProfesor?></td>  <td><?php echo $datosComment->comentario?></td>     <td><?php echo $datosComment->nota?></td>    <td><?php echo $datosComment->tareas?></td>  <td><?php echo $datosComment->examenes?></td>  <td><?php echo $datosComment->satifaccion?></td>    <td><?php echo $datosComment->fecha?></td>
@@ -119,4 +123,23 @@
         </table>
 </div>
 </body>
+<script>
+    const inputs = document.querySelectorAll(".usu-enc")
+    inputs.forEach(element => {
+        element.addEventListener("change", (event) => {
+            const usuTable = document.getElementById("usuarios")
+            const encTable = document.getElementById("encuestas")
+
+            const selection = event.target.value
+            if (!selection) return
+            if (selection == "usu") {
+                usuTable.style.display = "block"
+                encTable.style.display = "none"
+            }if (selection == "enc") {
+                encTable.style.display = "block"
+                usuTable.style.display = "none"
+            }
+        })
+    });
+</script>
 </html>
