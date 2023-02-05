@@ -7,8 +7,8 @@ class DatosSummary extends Conexion{
     private $noSatisfecho;
     private $examenesAvg;
     private $tareasAvg;
-    private $notaDia;
-    private $fecha;
+    private $datosGrafico;
+    
     public function __construct($profesor){
         parent::__construct();
         if($this->db_conexion!=NULL){
@@ -25,19 +25,13 @@ class DatosSummary extends Conexion{
             $this->notaAvg = round($resultado[0],1);
             $this->examenesAvg = round($resultado[1],1);
             $this->tareasAvg = round($resultado[2],1);
-            /*DATOS POR DIA*/
-            $consulta = "select sum(nota)/count(nota),sum(examenes)/count(examenes),sum(tareas)/count(tareas) from encuesta where idProfesor = (select id from usuarios where usuario='$profesor') group by fecha order by fecha asc;";
+            
+            /*DATOS POR DIA CON FECHA*/
+            $consulta = "select fecha,sum(nota)/count(nota),sum(examenes)/count(examenes),sum(tareas)/count(tareas) from encuesta where idProfesor = (select id from usuarios where usuario='$profesor') group by fecha order by fecha asc;";
             $resultado = $this->db_conexion->query($consulta);
             $resultado = $resultado->fetchAll();
             
-
-            $this->notaDia = $resultado;
-            /*FECHAS*/
-            $consulta = "select distinct fecha from encuesta where idProfesor = (select id from usuarios where usuario='$profesor') group by fecha order by fecha asc;";
-            $resultado = $this->db_conexion->query($consulta);
-            $resultado = $resultado->fetchAll();
-
-            $this->fecha = $resultado;
+            $this->datosGrafico = $resultado;
 
             /*SATISFECHO E INSATISFECHO*/
             $consulta = "SELECT count(satifaccion) from encuesta where idProfesor=(select id from usuarios where usuario = '$profesor') and satifaccion='si'";
@@ -57,7 +51,6 @@ class DatosSummary extends Conexion{
     /*GETTERS*/
     public function getDatosComentario(){
         $resultado = $this->comment_with_date;
-        echo();
         return $resultado;
     }
     public function getNota(){
@@ -81,12 +74,8 @@ class DatosSummary extends Conexion{
         return $resultado;
     }
 
-    public function getNotaDia(){
-        $resultado = $this->notaDia;
-        return $resultado;
-    }
-    public function getFecha(){
-        $resultado = $this->fecha;
+    public function getdatosGrafico(){
+        $resultado = $this->datosGrafico;
         return $resultado;
     }
 

@@ -26,8 +26,8 @@ ON UPDATE CASCADE ON DELETE CASCADE);
 
 
 ## INSERT WITH COMMAND USER AND COMMENT
-insert into usuarios(usuario,password,tipo) values ("root","123","Admin");
-insert into usuarios(usuario,password,tipo) values ("Adelaida","123","Usuario");
+insert into usuarios(usuario,password,tipo) values ("root","enB3ELVOGdgdc","Admin");
+insert into usuarios(usuario,password,tipo) values ("Adelaida","enB3ELVOGdgdc","Usuario");
 
 insert into encuesta(nota,comentario,idProfesor,tareas,examenes,satifaccion,fecha) values (5,"Hola que tal",2,8,9,"si",CURRENT_DATE);
 

@@ -10,33 +10,17 @@ require("./Class/DatosSummary.php");
 $conexion = new DatosSummary($_SESSION["Usuario"]);
 
 
-$notaDia = $conexion->getNotaDia();
-$fecha = $conexion->getFecha();
+$datosGrafico = $conexion->getdatosGrafico();
 
-echo('{<br>');
-for($i = 0; $i<count($notaDia); $i++){
-    echo('"' . $fecha[$i][0] . '"' . ': [');
-    for($j = 0; $j<3; $j++){
-        if(is_null($notaDia[$i][$j])){
-            echo('null');
-        }
-        else{
-            echo(round($notaDia[$i][$j]));
-        }
-        if($j!=2){
-            echo(',');
-        }
-        else{
-            echo(']');
-        }
-    }
+if($datosGrafico!==NULL){
+    echo '{<br>';
+    foreach ($datosGrafico as $datos){
+        echo '"'.$datos[0].'": ['.round($datos[1]).','.round($datos[2]).','.round($datos[3]).']';
+        if($datos!==$datosGrafico[count($datosGrafico)-1]){     echo ',';      }
 
-    if($i!=count($notaDia)-1){
-        echo(',<br>');
+        echo "<br>";
     }
-    else{
-        echo('<br>}');
-    }
+    echo "}";
 }
 
     ?>
