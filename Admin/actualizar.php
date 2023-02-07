@@ -28,7 +28,7 @@
     if(isset($_POST["enviousuario"])){
         $id = $_POST["id"];
         $usuario = $_POST["usuario"];
-        $password = $_POST["password"];
+        $password = crypt($_POST["password"],DB_NAME);
         $consulta = "UPDATE usuarios set usuario=:usuario,password=:password where id= :id";
         $resultado = $conexion->db_conexion->prepare($consulta);
         $resultado->execute(array(":usuario"=>$usuario,":password"=>$password,":id"=>$id));
@@ -64,7 +64,7 @@
                     <table>
                     <input type='hidden' name='id' value='$id'>
                     <tr><td>Usuario</td><td><input type='text' name='usuario' value='$usuario'></td></tr>
-                    <tr><td>Contraseña</td><td><input type='text' name='password' value='$password'></td></tr>
+                    <tr><td>Contraseña</td><td><input type='text' name='password' value=''></td></tr>
                     </table>
                     <input type='submit' name='enviousuario' value='enviar'>
                     ";

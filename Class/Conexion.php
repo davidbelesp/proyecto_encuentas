@@ -10,8 +10,6 @@ class Conexion{
             $this->db_conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             $this->db_conexion->exec("SET CHARACTER SET ".DB_CHARSET);
 
-            return $this->db_conexion;
-
         }catch(Exception $excepcion){
             /*echo "ERROR: " . $excepcion->getMessage();*/
             echo "ERROR";
