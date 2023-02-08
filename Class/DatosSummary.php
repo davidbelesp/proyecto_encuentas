@@ -13,7 +13,7 @@ class DatosSummary extends Conexion{
         parent::__construct();
         if($this->db_conexion!=NULL){
             /*DATO COMENTARIO*/
-            $consulta = "SELECT comentario,fecha from encuesta where idProfesor=(select id from usuarios where usuario = '$profesor')";
+            $consulta = "SELECT comentario,fecha from encuesta where comentario <> '' and idProfesor=(select id from usuarios where usuario = '$profesor')";
             $resultado = $this->db_conexion->query($consulta);
             $this->comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
             $resultado->closeCursor();
