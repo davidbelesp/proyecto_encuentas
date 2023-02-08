@@ -159,53 +159,12 @@
     </div>
 </body>
 <script>
-    setTimeout(() => { noWLogo() }, 0);
-</script> 
-<script>
-    async function makeGraph() {
-        const data = await getData();
-
-        const graphDiv = document.querySelector("#graph")
-
-        Object.keys(data).forEach(date => {
-            trace = []
-            
-        });
-
-        console.log(data)
-
-        trace1 = {
-            x: [1, 2, 3, 4, 5],
-            y: [1, 2, 4, 8, 16]
-        }
-
-        graphData = [trace1]
-
-        layout = {
-            autosize: false,
-            width: 500,
-            height: 100,
-            margin: {
-                l: 0,
-                r: 0,
-                b: 0,
-                t: 0,
-                pad: 4
-            },
-            paper_bgcolor: 'rgba(0,0,0,0)',
-            plot_bgcolor: 'rgba(0,0,0,0)'
-        };
-
-        config = {
-            // responsive:true
-        }
-
-        Plotly.newPlot(graphDiv, graphData, layout)
-    }
+    document.querySelector(".user").style.background = getRandomColor()
 </script>
 <script>
-    setTimeout( () => {
-        makeGraph()
-    }, 0);
+    setTimeout( () => {makeGraph()}, 0);
+    setTimeout(() => {noWLogo()}, 0);
+    var x = window.matchMedia("(max-width: 800px)")
+    x.addListener(()=>{makeGraph()})
 </script>
 </html>

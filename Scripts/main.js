@@ -78,6 +78,80 @@ async function getData(){
     return data;
 }
 
+async function makeGraph() {
+
+    var graphData = [];
+
+    const data = await getData();
+
+    const graphDiv = document.querySelector("#graph")
+    for (let index = 0; index < 3; index++) {
+        var traceX= [];
+        var traceY = [];
+        var trace = {
+            marker:{
+                size:12
+            },
+            line:{
+                width:3
+            }
+        }
+
+        Object.keys(data).forEach(date => {
+            traceX.push(date)
+            traceY.push(data[date][index])
+        });
+        trace["x"]= traceX
+        trace["y"]= traceY
+        index == 0 ? traceName="General" : index == 1? traceName="Examenes" : traceName="Tareas"
+        trace["name"] = traceName
+        graphData.push(trace)
+    }
+
+    window.innerWidth<800 ? sl = false : sl = true;
+
+    layout = {
+        showlegend:sl,
+        autosize: true,
+        font:{
+            family: 'Courier New, monospace',
+            color:"FFFFFF"
+        },
+        legend:{
+            x:1,
+            y:0.5,
+            bgcolor:"#00000099",
+            font: {
+                family: 'sans-serif',
+                size: 12,
+                color: '#fff'
+                },
+        },
+        // width: 500,
+        height: 300,
+        margin: {
+            l: 50,
+            r: 10,
+            b: 60,
+            t: 30,
+            pad: 20
+        },
+        paper_bgcolor: 'rgba(0,0,0,0)',
+        plot_bgcolor: 'rgba(0,0,0,0)'
+    };
+
+    config = {
+        responsive:true
+    }
+
+    Plotly.newPlot(graphDiv, graphData, layout, config)
+}
+
+function getRandomColor(){
+    let randomNumber = Math.round(Math.random() * 0x7FFFFF).toString(16);
+    return `#${randomNumber}`
+}
+
 setTimeout(() => {
     importJson()
 }, 0);
