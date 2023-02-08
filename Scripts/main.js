@@ -71,6 +71,13 @@ function validateForm(event) {
     return true
 }
 
+async function getData(){
+    const url = "./api.php";
+    const raw = await fetch(url);
+    const data = await raw.json();
+    return data;
+}
+
 setTimeout(() => {
     importJson()
 }, 0);

@@ -162,15 +162,24 @@
     setTimeout(() => { noWLogo() }, 0);
 </script> 
 <script>
-    function makeGraph() {
-        // const graphDiv = document.querySelector("#graph")
+    async function makeGraph() {
+        const data = await getData();
+
+        const graphDiv = document.querySelector("#graph")
+
+        Object.keys(data).forEach(date => {
+            trace = []
+            
+        });
+
+        console.log(data)
 
         trace1 = {
             x: [1, 2, 3, 4, 5],
             y: [1, 2, 4, 8, 16]
         }
 
-        data = [trace1]
+        graphData = [trace1]
 
         layout = {
             autosize: false,
@@ -191,12 +200,12 @@
             // responsive:true
         }
 
-        Plotly.newPlot(graphDiv, data, layout)
+        Plotly.newPlot(graphDiv, graphData, layout)
     }
-
-    setTimeout(() => {
+</script>
+<script>
+    setTimeout( () => {
         makeGraph()
     }, 0);
 </script>
-
 </html>
