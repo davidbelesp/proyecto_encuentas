@@ -214,3 +214,15 @@ textarea:focus {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+/* LIKE / DISLIKE */
+
+.disabled{
+    fill: #CCC;
+}
+.like{
+    fill: green;
+}
+.dislike{
+    fill: red;
+}

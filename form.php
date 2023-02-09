@@ -75,8 +75,26 @@
 
                     <p>Satisfaccion</p>
                     <div class="election">
-                        <input type="radio" name="satisf" value="si">
-                        <input type="radio" name="satisf" value="no">
+                                <svg width="50px" height="50px"
+                                viewBox="0 0 24 24" fill="none" 
+                                id="like" onclick="likeButtons('like')"
+                                data-like
+                                class="disabled"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 9.40652C3.44772 9.40652 3 9.85424 3 10.4065V18.4065C3 20.0634 4.34315 21.4065 6 21.4065H9V9.40652H4Z" />
+                                <path d="M14.3059 4.16184C13.9067 2.9643 12.3868 2.60551 11.4942 3.4981L7.87868 7.11364C7.31607 7.67624 7 8.43931 7 9.23495V20.4065C7 20.9588 7.44772 21.4065 8 21.4065H15.6812C16.8813 21.4065 17.9659 20.6913 18.4386 19.5883L20.7574 14.1778C20.9175 13.8043 21 13.4023 21 12.996V12.4065C21 10.7497 19.6569 9.40653 18 9.40653H14.2808L14.4771 8.62115C14.8452 7.14867 14.7858 5.60175 14.3059 4.16184Z"/>
+                                </svg>
+                        <input type="hidden" name="satisf" value="si" id="like-radio">
+                                <svg width="50px" height="50px"
+                                viewBox="0 0 24 24" fill="none" 
+                                id="like" onclick="likeButtons('dislike')"
+                                data-dislike
+                                class="disabled"
+                                transform="rotate(180)"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 9.40652C3.44772 9.40652 3 9.85424 3 10.4065V18.4065C3 20.0634 4.34315 21.4065 6 21.4065H9V9.40652H4Z"/>
+                                <path d="M14.3059 4.16184C13.9067 2.9643 12.3868 2.60551 11.4942 3.4981L7.87868 7.11364C7.31607 7.67624 7 8.43931 7 9.23495V20.4065C7 20.9588 7.44772 21.4065 8 21.4065H15.6812C16.8813 21.4065 17.9659 20.6913 18.4386 19.5883L20.7574 14.1778C20.9175 13.8043 21 13.4023 21 12.996V12.4065C21 10.7497 19.6569 9.40653 18 9.40653H14.2808L14.4771 8.62115C14.8452 7.14867 14.7858 5.60175 14.3059 4.16184Z"/>
+                                </svg>
                     </div>
 
                     <span id="form-div"></span> <!--------------------------------------------------------->
@@ -139,6 +157,27 @@
                 alert("EXCEPTION CHANGING NUMBER")
                 break;
         }
+    }
+
+    function likeButtons(event){
+        if (!event) return;
+        const dislike = document.querySelector("[data-dislike]");
+        const like = document.querySelector("[data-like]");
+        const input = document.getElementById("like-radio")
+        if (event == "like"){
+            like.classList = "like"
+            dislike.classList = "disabled"
+            input.value = "si"
+        }
+        if (event == "dislike"){
+            dislike.classList = "dislike"
+            like.classList = "disabled"
+            input.value = "no"
+        }
+        console.log(input.value)
+        // const inputS = document.getElementById("like-radio")
+        // inputS.value = "si"
+        // console.log(event)
     }
 
 </script>

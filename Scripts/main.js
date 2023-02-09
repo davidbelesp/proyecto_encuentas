@@ -36,9 +36,9 @@ function changeIndexPage(event = null) {
     if (classes.includes("up")) {
         if (landPage == 1) upButton.classList.add("invisible");
         setTimeout(() => { downButton.classList.remove("invisible") }, 400);
-        wrapper.classList.add(`active-page${landPage}`)
+        wrapper.classList.add(`active-page${landPage}`);
     } else if (classes.includes("down")) {
-        if (landPage == 3) downButton.classList.add("invisible")
+        if (landPage == 3) downButton.classList.add("invisible");
         setTimeout(() => { upButton.classList.remove("invisible") }, 400);
         wrapper.classList.add(`active-page${landPage}`);
     } else return console.log("Evento no valido");
@@ -63,12 +63,12 @@ function validateForm(event) {
 
     text.forEach(element => {
         if (words.includes(element.toLowerCase())) {
-            event.preventDefault()
+            event.preventDefault();
             alert("validation failed false"); //PROCEDURE TO NOT VALIDATE
             return false;
         }
     })
-    return true
+    return true;
 }
 
 async function getData(){
@@ -84,7 +84,9 @@ async function makeGraph() {
 
     const data = await getData();
 
-    const graphDiv = document.querySelector("#graph")
+    if (!Object.keys(data).length) return noData();
+
+    const graphDiv = document.querySelector("#graph");
     for (let index = 0; index < 3; index++) {
         var traceX= [];
         var traceY = [];
@@ -95,17 +97,17 @@ async function makeGraph() {
             line:{
                 width:3
             }
-        }
+        };
 
         Object.keys(data).forEach(date => {
-            traceX.push(date)
-            traceY.push(data[date][index])
+            traceX.push(date);
+            traceY.push(data[date][index]);
         });
-        trace["x"]= traceX
-        trace["y"]= traceY
-        index == 0 ? traceName="General" : index == 1? traceName="Examenes" : traceName="Tareas"
-        trace["name"] = traceName
-        graphData.push(trace)
+        trace["x"]= traceX;
+        trace["y"]= traceY;
+        index == 0 ? traceName="General" : index == 1? traceName="Examenes" : traceName="Tareas";
+        trace["name"] = traceName;
+        graphData.push(trace);
     }
 
     window.innerWidth<800 ? sl = false : sl = true;
@@ -144,7 +146,11 @@ async function makeGraph() {
         responsive:true
     }
 
-    Plotly.newPlot(graphDiv, graphData, layout, config)
+    Plotly.newPlot(graphDiv, graphData, layout, config);
+}
+
+function noData(){
+    return document.getElementById("nodata").style.display = "block"
 }
 
 function getRandomColor(){

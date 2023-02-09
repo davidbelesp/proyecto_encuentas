@@ -128,7 +128,7 @@
                 </div>
                 <div class="prev-graph">
                     <div class="graph box">
-                        <div id="graph"></div>
+                        <div id="graph"><p id="nodata">No data</p></div>
                     </div>
                 </div>
             </div>

@@ -332,8 +332,16 @@
 }
 
 .graph {
+
   height: 100%;
   width: 100%;
+}
+
+#nodata{
+  text-align: center;
+  margin:0;
+  padding:0;
+  display:none;
 }
 
 .summary {
