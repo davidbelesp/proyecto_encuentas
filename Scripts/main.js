@@ -158,6 +158,44 @@ function getRandomColor(){
     return `#${randomNumber}`
 }
 
+function likeButtons(event){
+    if (!event) return;
+    const dislike = document.querySelector("[data-dislike]");
+    const like = document.querySelector("[data-like]");
+    const input = document.getElementById("like-radio")
+    if (event == "like"){
+        like.classList = "like"
+        dislike.classList = "disabled"
+        input.value = "si"
+    }
+    if (event == "dislike"){
+        dislike.classList = "dislike"
+        like.classList = "disabled"
+        input.value = "no"
+    }
+}
+
+function updateNumber(event, mode) {
+    let numberNota = document.getElementById("numberNota");
+    let numberExam = document.getElementById("numberExam");
+    let numberTarea = document.getElementById("numberTarea");
+
+    switch (mode) {
+        case "nota":
+            numberNota.innerHTML = event.target.value;
+            break;
+        case "exam":
+            numberExam.innerHTML = event.target.value;
+            break;
+        case "tarea":
+            numberTarea.innerHTML = event.target.value;
+            break;
+        default:
+            alert("EXCEPTION CHANGING NUMBER")
+            break;
+    }
+}
+
 setTimeout(() => {
     importJson()
 }, 0);

@@ -63,7 +63,7 @@
                         <?php $conexion->PrintProfesoresHTMLSelect(); ?>
                     </select>
 
-                    <p>Nota</p>
+                    <p id="nota">Nota</p>
                     <div class="nota fancybox">
                         <input id="notaInput" type="range" name="nota" value="1" min="1" max="10"
                             oninput="updateNumber(event,'nota')" required>
@@ -137,50 +137,6 @@
     </div>
 
 </body>
-<script>
-    function updateNumber(event, mode) {
-        let numberNota = document.getElementById("numberNota");
-        let numberExam = document.getElementById("numberExam");
-        let numberTarea = document.getElementById("numberTarea");
-
-        switch (mode) {
-            case "nota":
-                numberNota.innerHTML = event.target.value;
-                break;
-            case "exam":
-                numberExam.innerHTML = event.target.value;
-                break;
-            case "tarea":
-                numberTarea.innerHTML = event.target.value;
-                break;
-            default:
-                alert("EXCEPTION CHANGING NUMBER")
-                break;
-        }
-    }
-
-    function likeButtons(event){
-        if (!event) return;
-        const dislike = document.querySelector("[data-dislike]");
-        const like = document.querySelector("[data-like]");
-        const input = document.getElementById("like-radio")
-        if (event == "like"){
-            like.classList = "like"
-            dislike.classList = "disabled"
-            input.value = "si"
-        }
-        if (event == "dislike"){
-            dislike.classList = "dislike"
-            like.classList = "disabled"
-            input.value = "no"
-        }
-        console.log(input.value)
-        // const inputS = document.getElementById("like-radio")
-        // inputS.value = "si"
-        // console.log(event)
-    }
-
-</script>
 <script>
     setTimeout(() => { noWLogo() }, 0);
 </script>
