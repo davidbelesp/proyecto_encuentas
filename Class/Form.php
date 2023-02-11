@@ -1,6 +1,6 @@
 <?php
 require("Conexion.php");
-class Form extends Conexion{
+class Form {
     private $profesor;
     private $lista_Profesores;
     private $comentario;
@@ -9,9 +9,8 @@ class Form extends Conexion{
     private $examenes;
     private $tareas;
     public function __construct(){
-        parent::__construct();
         $consulta = "select usuario from usuarios where tipo= 'Usuario'";
-        $resultado = $this->db_conexion->query($consulta);
+        $resultado = Conexion::getConexion()->query($consulta);
         $this->lista_Profesores = $resultado->fetchAll();
     }
     /*SETTER*/
@@ -32,7 +31,7 @@ class Form extends Conexion{
 
     public function enviarFormulario(){
         $consulta = "INSERT INTO encuesta (nota, comentario,satifaccion,tareas,examenes,idProfesor, fecha) VALUES (:NOTA,:COMENTARIO,:SATIFACCION,:TAREAS,:EXAMENES,(select id from usuarios where usuario = :PROFESOR),CURRENT_DATE)";
-        $resultado=$this->db_conexion->prepare($consulta);
+        $resultado=Conexion::getConexion()->prepare($consulta);
         $arrayDatos = array(":NOTA"=> $this->nota,":COMENTARIO"=> $this->comentario,":SATIFACCION"=> $this->satifaccion,":TAREAS"=> $this->tareas,":EXAMENES"=> $this->examenes,":PROFESOR"=> $this->profesor);
         if ($resultado->execute($arrayDatos)) {
             echo "CONEXION";

@@ -17,12 +17,11 @@
 <body>
     <?php
     require("../Class/Login.php");
-
+    
     session_start();
     Login::comprobarInicioSesion($_SESSION['Admin']);
 
     $form = $_GET["form"];
-    $conexion = new Conexion();
     
     /*COMPROBAR ENVIOU SUARIO O ENVIO COMENTARIO*/
     if(isset($_POST["enviousuario"])){
@@ -30,7 +29,7 @@
         $usuario = $_POST["usuario"];
         $password = crypt($_POST["password"],DB_NAME);
         $consulta = "UPDATE usuarios set usuario=:usuario,password=:password where id= :id";
-        $resultado = $conexion->db_conexion->prepare($consulta);
+        $resultado = Conexion::getConexion()->prepare($consulta);
         $resultado->execute(array(":usuario"=>$usuario,":password"=>$password,":id"=>$id));
         header("Location: ./index.php");
     }elseif(isset($_POST["enviocommentario"])){
@@ -44,7 +43,7 @@
         $fecha = $_POST["fecha"];
         $consulta = "UPDATE encuesta set idProfesor=:idProfesor,nota=:nota,comentario=:comentario,tareas=:tareas,examenes=:examenes,satifaccion=:satifaccion,fecha=:fecha where id= :id";
         $datosArray = array(":idProfesor"=>$idProfesor,":nota"=>$nota,":comentario"=>$comentario,":tareas"=>$tareas,":examenes"=>$examenes,":satifaccion"=>$satifaccion,":fecha"=>$fecha,":id"=>$id);
-        $resultado = $conexion->db_conexion->prepare($consulta);
+        $resultado = Conexion::getConexion()->prepare($consulta);
         $resultado->execute($datosArray);
         header("Location: ./index.php");
     }

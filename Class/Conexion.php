@@ -1,19 +1,25 @@
 <?php
 require "config.php";
 
-class Conexion{
-    public $db_conexion;
+class Conexion extends PDO{
+    private static $db_conexion=null;
 
-    public function __construct(){
+    private function __construct(){
         try{
-            $this->db_conexion = new PDO(DB_DSN_CONNECT,DB_USER,DB_PASS);
-            $this->db_conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            $this->db_conexion->exec("SET CHARACTER SET ".DB_CHARSET);
-
+            parent::__construct(DB_DSN_CONNECT,DB_USER,DB_PASS);
         }catch(Exception $excepcion){
             /*echo "ERROR: " . $excepcion->getMessage();*/
             echo "ERROR";
         }
+    }
+
+    public static function getConexion(){
+        if(is_null(self::$db_conexion)){
+            self::$db_conexion = new Conexion();
+            self::$db_conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            self::$db_conexion->exec("SET CHARACTER SET ".DB_CHARSET);
+        }
+        return self::$db_conexion;
     }
 }
 ?>

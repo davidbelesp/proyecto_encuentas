@@ -1,6 +1,6 @@
 <?php
 require("Conexion.php");
-class DatosSummary extends Conexion{
+class DatosSummary {
     private $comment_with_date;
     private $notaAvg;
     private $satisfecho;
@@ -10,16 +10,16 @@ class DatosSummary extends Conexion{
     private $datosGrafico;
     
     public function __construct($profesor){
-        parent::__construct();
-        if($this->db_conexion!=NULL){
+        
+        if(Conexion::getConexion()!=NULL){
             /*DATO COMENTARIO*/
             $consulta = "SELECT comentario,fecha from encuesta where comentario <> '' and idProfesor=(select id from usuarios where usuario = '$profesor')";
-            $resultado = $this->db_conexion->query($consulta);
+            $resultado = Conexion::getConexion()->query($consulta);
             $this->comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
             $resultado->closeCursor();
             /*DATOS GENERALES*/
             $consulta = "select sum(nota)/count(nota),sum(examenes)/count(examenes),sum(tareas)/count(tareas) from encuesta where idProfesor = (select id from usuarios where usuario='$profesor')";
-            $resultado = $this->db_conexion->query($consulta);
+            $resultado = Conexion::getConexion()->query($consulta);
             $resultado = $resultado->fetch();
 
             $this->notaAvg = round($resultado[0],1);
@@ -28,19 +28,19 @@ class DatosSummary extends Conexion{
             
             /*DATOS POR DIA CON FECHA*/
             $consulta = "select fecha,sum(nota)/count(nota),sum(examenes)/count(examenes),sum(tareas)/count(tareas) from encuesta where idProfesor = (select id from usuarios where usuario='$profesor') group by fecha order by fecha asc;";
-            $resultado = $this->db_conexion->query($consulta);
+            $resultado = Conexion::getConexion()->query($consulta);
             $resultado = $resultado->fetchAll();
             
             $this->datosGrafico = $resultado;
 
             /*SATISFECHO E INSATISFECHO*/
             $consulta = "SELECT count(satifaccion) from encuesta where idProfesor=(select id from usuarios where usuario = '$profesor') and satifaccion='si'";
-            $resultado = $this->db_conexion->query($consulta);
+            $resultado =Conexion::getConexion()->query($consulta);
             $resultado = $resultado->fetch();
             $this->satisfecho = $resultado[0];
 
             $consulta = "SELECT count(satifaccion) from encuesta where idProfesor=(select id from usuarios where usuario = '$profesor') and satifaccion='no'";
-            $resultado = $this->db_conexion->query($consulta);
+            $resultado = Conexion::getConexion()->query($consulta);
             $resultado = $resultado->fetch();
             $this->noSatisfecho = $resultado[0];
         }else{

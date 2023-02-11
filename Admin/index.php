@@ -16,15 +16,14 @@
 
     session_start();
     Login::comprobarInicioSesion($_SESSION['Admin']);
-
-    $conexion = new Conexion();
+    
     /*CREAR USUARIO O CREAR COMENTARIO*/
     if(isset($_POST["crearuser"])){
         try{
             $usuario = $_POST["ususario"];
             $password = crypt($_POST["password"], DB_NAME);
             $tipo = $_POST["tipo"];
-            $resultado = $conexion->db_conexion->prepare("insert into usuarios(usuario,password,tipo) values(:usuario,:password,:tipo)");
+            $resultado = Conexion::getConexion()->prepare("insert into usuarios(usuario,password,tipo) values(:usuario,:password,:tipo)");
             $resultado->execute(array(":usuario"=>$usuario,":password"=>$password,":tipo"=>$tipo));
         }catch(Exception $excepcion){
             $errorCreacion = "usuario";
@@ -39,15 +38,15 @@
             $tareas = $_POST["tareas"];
             $fecha = $_POST["fecha"];
             $satifaccion = $_POST["satifaccion"];
-            $resultado = $conexion->db_conexion->prepare("insert into encuesta(idProfesor,comentario,nota,examenes,tareas,fecha,satifaccion) values(:profesor,:comentario,:nota,:examen,:tareas,:fecha,:satifaccion)");
+            $resultado = Conexion::getConexion()->prepare("insert into encuesta(idProfesor,comentario,nota,examenes,tareas,fecha,satifaccion) values(:profesor,:comentario,:nota,:examen,:tareas,:fecha,:satifaccion)");
             $resultado->execute(array(":profesor"=>$profesor,":comentario"=>$comentario,":nota"=>$nota,":examen"=>$examen,":tareas"=>$tareas,":fecha"=>$fecha,":satifaccion"=>$satifaccion));
         }catch(Exception $excepcion){
             $errorCreacion = "comentario";
         }
     }
     /*QUERY*/
-    $tableUsuarios = $conexion->db_conexion->query("Select * from usuarios")->fetchAll(PDO::FETCH_OBJ);
-    $tableComment = $conexion->db_conexion->query("Select * from encuesta")->fetchAll(PDO::FETCH_OBJ);
+    $tableUsuarios = Conexion::getConexion()->query("Select * from usuarios")->fetchAll(PDO::FETCH_OBJ);
+    $tableComment = Conexion::getConexion()->query("Select * from encuesta")->fetchAll(PDO::FETCH_OBJ);
     //echo var_dump($tableComment);
     ?>
 

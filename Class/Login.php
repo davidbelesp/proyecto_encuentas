@@ -1,25 +1,24 @@
 <?php
 require("Conexion.php");
-class Login extends Conexion{
+class Login{
     private $user;
     private $pass;
 
     public function __construct($user_post,$pass_post){
-        parent::__construct();
         $this->user = htmlentities(addslashes($user_post));
         $this->pass = htmlentities(addslashes($pass_post));
     }
     public function iniciarSesion(){
         try{
             $consulta = "SELECT tipo from usuarios where usuario = :user";
-            $resultado = $this->db_conexion->prepare($consulta);
+            $resultado = Conexion::getConexion()->prepare($consulta);
             $resultado->bindValue(":user",$this->user);
             $resultado->execute();
             $tipo = $resultado->fetch();
             if($tipo){ $tipo = $tipo[0];}
 
             $consulta = "SELECT usuario from usuarios where usuario = :user and password = :pass";
-            $resultado = $this->db_conexion->prepare($consulta);
+            $resultado = Conexion::getConexion()->prepare($consulta);
     
             $resultado->bindValue(":user",$this->user);
             $resultado->bindValue(":pass",$this->pass);
