@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../Styles/crud.css">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
 </head>
 <body>
+
     <?php
+    $errorCreacion;
     require("../Class/Login.php");
 
     session_start();
@@ -24,7 +27,7 @@
             $resultado = $conexion->db_conexion->prepare("insert into usuarios(usuario,password,tipo) values(:usuario,:password,:tipo)");
             $resultado->execute(array(":usuario"=>$usuario,":password"=>$password,":tipo"=>$tipo));
         }catch(Exception $excepcion){
-            echo "$excepcion";
+            $errorCreacion = "usuario";
         }
     }
     if(isset($_POST["crearcomentario"])){
@@ -39,7 +42,7 @@
             $resultado = $conexion->db_conexion->prepare("insert into encuesta(idProfesor,comentario,nota,examenes,tareas,fecha,satifaccion) values(:profesor,:comentario,:nota,:examen,:tareas,:fecha,:satifaccion)");
             $resultado->execute(array(":profesor"=>$profesor,":comentario"=>$comentario,":nota"=>$nota,":examen"=>$examen,":tareas"=>$tareas,":fecha"=>$fecha,":satifaccion"=>$satifaccion));
         }catch(Exception $excepcion){
-            echo "$excepcion";
+            $errorCreacion = "comentario";
         }
     }
     /*QUERY*/
@@ -49,13 +52,12 @@
     ?>
 
 
+
     <div class="creacion">
 
 
-
         <div class="seleccion">
-        <a href="../cerrar_sesion.php"><input type="button" value="CERRAR SESION" style="margin: 10px;"></a>
-        <div class="dividir" style="margin: 0px 50px 10px 50px;"> </div>
+        
         <h1>Visualizar</h1>
         
         <div>
@@ -78,6 +80,7 @@
             <label>Usuario:<input type="radio" value="Usuario" name="tipo" checked>Admin:<input type="radio" value="Admin" name="tipo"></label>
             <input type="submit" name="crearuser">
         </form>
+        <?php if(isset($errorCreacion) and $errorCreacion=="usuario"){echo "Error al crear usuario";}?>
 
 
         <div class="dividir"> </div>
@@ -97,11 +100,13 @@
             </label>
             <input type="submit" name="crearcomentario">
         </form>
+        <?php if(isset($errorCreacion) and $errorCreacion=="comentario"){echo "Error al crear comentario";}?>
 
     </div>
 
     
-    <div class="tablas">
+    <div class="tablas" style="width:100%;">
+        <a href="../cerrar_sesion.php" class="cerrarsesion"><input type="button" value="CERRAR SESION"></a>
         <table id="usuarios">
             <tr><th>ID</th><th>USUARIO</th><th>CONTRASEÑA</th><th>TIPO</th></tr>
             <?php foreach($tableUsuarios as $datosUsuario):?>
@@ -110,9 +115,6 @@
             <td class="boton"><a href="./borrar.php?id=<?php echo $datosUsuario->id?>&seleccion=usuario" ><input type="button" value="Eliminar"></a></td></tr>
             <?php endforeach ?>
         </table>
-        <br>
-        <br>
-        <br>
         <table id="encuestas">
             <tr><th>ID</th><th>ID PROFE</th><th>COMENTARIO</th><th>NOTA</th><th>TAREAS</th><th>EXAMENES</th><th>SATIFACCION</th><th>FECHA</th></tr>
             <?php foreach($tableComment as $datosComment):?>
