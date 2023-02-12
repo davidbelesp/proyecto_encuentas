@@ -313,7 +313,7 @@
 
 .header {
   display: grid;
-  margin: 0 20px;
+  margin: 0 30px;
   row-gap: 30px;
   gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
@@ -321,9 +321,12 @@
     "div div div";
 }
 
-.prev-summary,
+.prev-summary{
+  padding: 20px 20px 20px 0px;
+  display: block;
+}
 .prev-graph {
-  padding: 20px;
+  padding: 20px 0px 20px 20px;
   display: block;
 }
 
@@ -345,7 +348,7 @@
 }
 
 .summary {
-  padding: 10px;
+  padding: 0px 10px;
   grid-area: summary;
 }
 

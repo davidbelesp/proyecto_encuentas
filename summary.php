@@ -86,7 +86,7 @@
         <div class="content">
             <div class="header">
                 <div class="prev-summary">
-                    <div class="summary box">
+                    <div class="summary box" id="databox">
                         <table class="summary-table">
                             <thead>
                                 <th colspan="2">Resumen</th>
@@ -162,9 +162,11 @@
     document.querySelector(".user").style.background = getRandomColor()
 </script>
 <script>
-    setTimeout( () => {makeGraph()}, 0);
+    var heightDivsInfo = "300";
+    setTimeout( () => {makeGraph(heightDivsInfo)}, 0);
     setTimeout(() => {noWLogo()}, 0);
+    document.getElementById("databox").style.height=heightDivsInfo+"px";   
     var x = window.matchMedia("(max-width: 800px)")
-    x.addListener(()=>{makeGraph()})
+    x.addListener(()=>{makeGraph(heightDivsInfo)})
 </script>
 </html>
