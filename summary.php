@@ -162,11 +162,9 @@
     document.querySelector(".user").style.background = getRandomColor()
 </script>
 <script>
-    var heightDivsInfo = "300";
-    setTimeout( () => {makeGraph(heightDivsInfo)}, 0);
+    setTimeout( () => {makeGraph()}, 0);
     setTimeout(() => {noWLogo()}, 0);
-    document.getElementById("databox").style.height=heightDivsInfo+"px";   
     var x = window.matchMedia("(max-width: 800px)")
-    x.addListener(()=>{makeGraph(heightDivsInfo)})
+    x.addListener(()=>{makeGraph()})
 </script>
 </html>

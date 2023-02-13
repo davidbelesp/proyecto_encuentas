@@ -78,7 +78,7 @@ async function getData(){
     return data;
 }
 
-async function makeGraph(heightGraph) {
+async function makeGraph() {
 
     var graphData = [];
 
@@ -130,7 +130,7 @@ async function makeGraph(heightGraph) {
                 },
         },
         // width: 500,
-        height: heightGraph,
+        height: 300,
         margin: {
             l: 50,
             r: 10,

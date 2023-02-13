@@ -323,7 +323,6 @@
 
 .prev-summary{
   padding: 20px 20px 20px 0px;
-  display: block;
 }
 .prev-graph {
   padding: 20px 0px 20px 20px;
@@ -338,6 +337,7 @@
 
   height: 100%;
   width: 100%;
+  max-height: 300px;
 }
 
 #nodata{
@@ -348,8 +348,10 @@
 }
 
 .summary {
-  padding: 0px 10px;
+  padding: 0 10px;
   grid-area: summary;
+
+  min-height: 300px;
 }
 
 /*
@@ -506,6 +508,7 @@ td:nth-child(2){
   .prev-summary,
   .prev-graph {
     min-width: 190px;
+    min-height: 300px;
     padding: 20px;
     display: block;
   }
