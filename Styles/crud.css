@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(252, 252, 164);
+    background-color: rgb(168 164 252 / 53%);
     width: 100vw;
     height: auto;
     margin: 0; padding:0;
@@ -61,7 +61,7 @@ table tr .boton{
     border-top: 0px;
 }
 table th{
-    background-color: greenyellow;
+    background-color: #982fff;
     border-width: 2px 2px 2px 2px;
     border-style: solid;
     border-color: black;
@@ -80,8 +80,8 @@ table td input{
     
 }
 .tablas .cerrarsesion input:hover{
-    background-color: white;
-    color: red;
+    background-color: black;
+    color: white;
     
 }
 
