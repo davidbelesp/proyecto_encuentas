@@ -7,6 +7,7 @@
   --box-black-selected: rgba(75, 75, 75, 0.7);
   --hamburger-white: #ddd;
   --menu-color: #333;
+  --table-odd-color: rgb(0, 0, 0, 0.11);
 }
 
 /*
@@ -358,16 +359,27 @@
   SUMMARY TABLE
 */
 
-.summary {
+.summary{
   display: flex;
 }
 
 .summary-table {
+  padding-bottom: 15px;
+  padding-top: 0;
   width: 100%;
 }
-
+.summary-table tr:nth-child(odd) td{
+  background: var(--table-odd-color);
+}
+.summary-table > *{
+  padding: 0;
+  border: none;
+}
 td:nth-child(2){
   text-align: center;
+}
+th{
+  padding: 10px;
 }
 
 

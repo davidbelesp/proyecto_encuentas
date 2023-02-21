@@ -96,6 +96,28 @@ body {
     height: 85% !important;
     border-bottom: 5px solid white;
   }
+
+  .text > div{
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+    font-size: .9em;
+  }
+
+  #percentage{
+    font-size: .7em;
+    color: #999;
+  }
+
+  .developers{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .languages, #languagestext{
+    display: none !important;
+  }
 }
 
 /* GENERAL PAGE STYLE */
@@ -224,8 +246,59 @@ body {
 
   .wrapper .page.page3 {
     background: var(--page3bg);
+    display: flex;
+    flex-direction: column;
 
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
   }
+
+  .developers, .languages{
+    display: flex;
+    gap: 20px;
+  }
+
+  .card{
+    width: 150px;
+    height: 200px;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px #00000088;
+  }
+
+  .image{
+    height: 70%;
+    background: var(--image);
+    background-size: cover;
+  }
+  
+  .text{
+    background-color: white;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .text > div{
+    padding: 10px;
+    font-weight: bold;
+    color: black;
+    font-size: .9em;
+  }
+
+  #percentage{
+    font-size: .7em;
+    color: #999;
+  }
+
+  .developers, .languages{
+    display: flex;
+  }
+
 
 /* ANIMATIONS FOR CHANGING PAGE */
 

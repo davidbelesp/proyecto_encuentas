@@ -63,12 +63,12 @@
                         <?php $conexion->PrintProfesoresHTMLSelect(); ?>
                     </select>
 
-                    <p id="nota">Nota</p>
+                    <p id="nota">Clases</p>
                     <div class="nota fancybox">
-                        <input id="notaInput" type="range" name="nota" value="1" min="1" max="10"
+                        <input id="notaInput" type="range" name="nota" value="5" min="1" max="10"
                             oninput="updateNumber(event,'nota')" required>
 
-                        <p id="numberNota">1</p>
+                        <p id="numberNota">5</p>
                     </div>
 
                     <span id="form-div"></span> <!--------------------------------------------------------->
@@ -79,7 +79,7 @@
                                 viewBox="0 0 24 24" fill="none" 
                                 id="like" onclick="likeButtons('like')"
                                 data-like
-                                class="disabled"
+                                class="disabled anchor"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4 9.40652C3.44772 9.40652 3 9.85424 3 10.4065V18.4065C3 20.0634 4.34315 21.4065 6 21.4065H9V9.40652H4Z" />
                                 <path d="M14.3059 4.16184C13.9067 2.9643 12.3868 2.60551 11.4942 3.4981L7.87868 7.11364C7.31607 7.67624 7 8.43931 7 9.23495V20.4065C7 20.9588 7.44772 21.4065 8 21.4065H15.6812C16.8813 21.4065 17.9659 20.6913 18.4386 19.5883L20.7574 14.1778C20.9175 13.8043 21 13.4023 21 12.996V12.4065C21 10.7497 19.6569 9.40653 18 9.40653H14.2808L14.4771 8.62115C14.8452 7.14867 14.7858 5.60175 14.3059 4.16184Z"/>
@@ -89,7 +89,7 @@
                                 viewBox="0 0 24 24" fill="none" 
                                 id="like" onclick="likeButtons('dislike')"
                                 data-dislike
-                                class="disabled"
+                                class="disabled anchor"
                                 transform="rotate(180)"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4 9.40652C3.44772 9.40652 3 9.85424 3 10.4065V18.4065C3 20.0634 4.34315 21.4065 6 21.4065H9V9.40652H4Z"/>
@@ -102,10 +102,10 @@
                     <p>Examenes</p>
 
                     <div class="examenes fancybox">
-                        <input id="examInput" type="range" name="exam" value="1" min="1" max="10"
+                        <input id="examInput" type="range" name="exam" value="5" min="1" max="10"
                             oninput="updateNumber(event,'exam')" required>
 
-                        <p id="numberExam">1</p>
+                        <p id="numberExam">5</p>
                     </div>
 
                     <span id="form-div"></span> <!--------------------------------------------------------->
@@ -113,10 +113,10 @@
                     <p>Tareas</p>
 
                     <div class="tareas fancybox">
-                        <input id="tareaInput" type="range" name="tareas" value="1" min="1" max="10"
+                        <input id="tareaInput" type="range" name="tareas" value="5" min="1" max="10"
                             oninput="updateNumber(event,'tarea')" required>
 
-                        <p id="numberTarea">1</p>
+                        <p id="numberTarea">5</p>
                     </div>
 
                     <span id="form-div"></span> <!--------------------------------------------------------->
@@ -132,7 +132,7 @@
             </div>
         </div>
         <div class="footer">
-            <p>Texto de ejemplo en el footer</p>
+            <p> © 2023 !TrueDevs y sus afiliados</p>
         </div>
     </div>
 

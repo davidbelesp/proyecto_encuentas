@@ -70,7 +70,7 @@
             <div class="user-box">
                 <div class="user">
                     <p id="letter">
-                        <?php echo substr($_SESSION["Usuario"], 0, 1) ?>
+                        <?php echo strtoupper(substr($_SESSION["Usuario"], 0, 1)) ?>
                     </p>
                 </div>
             </div>
@@ -154,7 +154,7 @@
             </div>
         </div>
         <div class="footer">
-            <p>Texto de ejemplo en el footer</p>
+            <p> © 2023 !TrueDevs y sus afiliados</p>
         </div>
     </div>
 </body>

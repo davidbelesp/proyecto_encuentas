@@ -1,10 +1,10 @@
 /* FORM STYLE */
 
 :root {
-    --background-color: linear-gradient(90deg, rgba(38, 23, 179, 1) 0%, rgba(0, 131, 255, 1) 100%);
-    --form-background: rgba(22, 22, 22, .8);
+    --background-color: linear-gradient(90deg, rgb(79, 66, 196) 0%, rgba(0, 131, 255, 1) 100%);
+    --form-background: rgba(0, 0, 0, 0.67);
     --form-background-hover: rgba(155, 155, 155, .8);
-    --form-border: rgba(22, 22, 22, .8);
+    --form-border: rgba(89, 89, 89, 0);
     --form-border-selected: rgba(155, 155, 155, .8);
     --form-line-color: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .4) 40%, rgba(0, 0, 0, .4) 60%, rgba(0, 0, 0, 0) 100%);
 }
@@ -32,9 +32,11 @@ form {
     flex-direction: column;
 
     background: var(--form-background);
-    border: 3px solid var(--form-border);
     border-radius: 20px;
     padding: 3vw;
+    margin: 0 10vw;
+
+    box-shadow: 0px 0px 40px #000000CC;
 
     backdrop-filter: blur(10px);
 }
@@ -65,6 +67,7 @@ label {
 
 #send {
     height: 60px;
+    width: 40vw;
     background: var(--form-background);
     color: white;
     font-size: 2rem;
@@ -218,6 +221,7 @@ textarea:focus {
 /* LIKE / DISLIKE */
 
 .disabled{
+    cursor: pointer;
     fill: #CCC;
 }
 .like{
@@ -230,9 +234,10 @@ textarea:focus {
 } 
 
 
+
 /* MEDIA QUERY */
 
-@media (max-width:700px){
+@media (max-width:900px){
     .fancybox{
         width: 80%;
     }
@@ -242,5 +247,8 @@ textarea:focus {
     #nota{
         margin-top: 60px !important; 
     }
-
+    .form-box {
+        padding: 10;
+        margin: 0;
+    }
 }
