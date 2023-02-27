@@ -56,6 +56,13 @@ async function importJson() {
 
 function validateForm(event) {
 
+    cookies = localStorage.getItem("d")
+    if(Date.now() < parseInt(cookies) + 8640000){
+        alert("Ya has enviado una encuesta!");
+        return false;
+    } 
+    cookies = parseInt(cookies)
+
     const words = [...data["EN"]["words"], ...data["ES"]["words"]];
 
     let text = "";
@@ -68,6 +75,8 @@ function validateForm(event) {
             return false;
         }
     })
+
+    localStorage.setItem("d", Date.now())
     return true;
 }
 
