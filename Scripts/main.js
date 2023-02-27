@@ -56,8 +56,11 @@ async function importJson() {
 
 function validateForm(event) {
 
+    let pass = true;
+    const commentDiv = document.querySelector("#comentario")
+
     cookies = localStorage.getItem("d")
-    if(Date.now() < parseInt(cookies) + 8640000){
+    if(Date.now() < parseInt(cookies) + 350000){
         alert("Ya has enviado una encuesta!");
         return false;
     } 
@@ -71,12 +74,16 @@ function validateForm(event) {
     text.forEach(element => {
         if (words.includes(element.toLowerCase())) {
             event.preventDefault();
-            alert("validation failed false"); //PROCEDURE TO NOT VALIDATE
+            pass = false;
+            commentDiv.style = "border: 2px solid red;"
+            setTimeout(() => {
+                commentDiv.style = "border: 2px solid var(--form-border);"
+            }, 3000);
             return false;
         }
     })
 
-    localStorage.setItem("d", Date.now())
+    if(pass) localStorage.setItem("d", Date.now())
     return true;
 }
 
