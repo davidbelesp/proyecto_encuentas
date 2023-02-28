@@ -1,5 +1,5 @@
 <?php
-require("Conexion.php");
+require_once("Conexion.php");
 class DatosSummary {
     private $comment_with_date;
     private $notaAvg;
@@ -8,15 +8,19 @@ class DatosSummary {
     private $examenesAvg;
     private $tareasAvg;
     private $datosGrafico;
+    private $enActivada;
     
     public function __construct($profesor){
         
         if(Conexion::getConexion()!=NULL){
+            /*PROFE ACTIVADO*/
+            $consulta = "SELECT encActivada from usuarios where usuario = '$profesor'";
+            $resultado = Conexion::getConexion()->query($consulta);
+            $this->enActivada = $resultado->fetch();
             /*DATO COMENTARIO*/
             $consulta = "SELECT comentario,fecha from encuesta where comentario <> '' and idProfesor=(select id from usuarios where usuario = '$profesor')";
             $resultado = Conexion::getConexion()->query($consulta);
             $this->comment_with_date = $resultado->fetchAll(PDO::FETCH_ASSOC);
-            $resultado->closeCursor();
             /*DATOS GENERALES*/
             $consulta = "select sum(nota)/count(nota),sum(examenes)/count(examenes),sum(tareas)/count(tareas) from encuesta where idProfesor = (select id from usuarios where usuario='$profesor')";
             $resultado = Conexion::getConexion()->query($consulta);
@@ -43,6 +47,7 @@ class DatosSummary {
             $resultado = Conexion::getConexion()->query($consulta);
             $resultado = $resultado->fetch();
             $this->noSatisfecho = $resultado[0];
+            $resultado=NULL;
         }else{
             $this->notaAvg= NULL;
             $this->comment_with_date = NULL;
@@ -50,33 +55,29 @@ class DatosSummary {
     }
     /*GETTERS*/
     public function getDatosComentario(){
-        $resultado = $this->comment_with_date;
-        return $resultado;
+        return $this->comment_with_date;
     }
     public function getNota(){
-        $resultado = $this->notaAvg;
-        return $resultado;
+        return $this->notaAvg;
     }
     public function getExamen(){
-        $resultado = $this->examenesAvg;
-        return $resultado;
+        return $this->examenesAvg;
     }
     public function getTareas(){
-        $resultado = $this->tareasAvg;
-        return $resultado;
+        return $this->tareasAvg;
     }
     public function getSatisfecho(){
-        $resultado = $this->satisfecho;
-        return $resultado;
+        return $this->satisfecho;
     }
     public function getNoSatisfecho(){
-        $resultado = $this->noSatisfecho;
-        return $resultado;
+        return $this->noSatisfecho;
     }
 
     public function getdatosGrafico(){
-        $resultado = $this->datosGrafico;
-        return $resultado;
+        return $this->datosGrafico;
+    }
+    public function IsEncActivada(){
+        return $this->enActivada[0];
     }
 
 

@@ -37,6 +37,7 @@
                 <span></span>
                 <span></span>
                 <span></span>
+
                 <ul id="menu">
                     <p id="welcome-hamb">Hola,
                         <?php echo $_SESSION["Usuario"] ?>
@@ -50,8 +51,14 @@
                     <a href="#">
                         <li>Resumen</li>
                     </a>
+                    <a href="./utiles/changePassword.php">
+                        <li>Cambiar Contraseña</li>
+                    </a>
+                    
                     <a href="#">
-                        <li>Contacto</li>
+                    <form method="post" action="./utiles/switchEncProfe.php">
+                        <input style="position: initial; opacity: 100%; width: 90%; height: 50px;" type="submit" name=switch_encuesta value=<?php if($conexion->IsEncActivada()){echo "Activado";}else{echo"Desactivado";}?>>
+                    </form>
                     </a>
                     <a href="./cerrar_sesion.php">
                         <li>Cerrar Sesion</li>
@@ -65,7 +72,7 @@
                 <img src="./Resources/logo-example.png" alt="logo">
                 <a href="./index">Inicio</a>
                 <a href="./form">Encuesta</a>
-                <a href="">Contacto</a>
+                <a href="./utiles/changePassword.php">Cambiar Contraseña</a>
             </div>
             <div class="user-box">
                 <div class="user">
@@ -77,6 +84,10 @@
             <div class="user-menu">
                 <p>Hola,
                     <?php echo $_SESSION["Usuario"] ?>
+                    <br>
+                    <form method="post" action="./utiles/switchEncProfe.php">
+                        <input type="submit" name=switch_encuesta value=<?php if($conexion->IsEncActivada()){echo "Activado";}else{echo"Desactivado";}?>>
+                    </form>
                 </p>
                 <a href="./cerrar_sesion.php" id="cerrar">Cerrar Sesion</a>
             </div>

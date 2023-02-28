@@ -16,14 +16,23 @@
 
 <body>
     <?php
-    require("./Class/Form.php");
+    require_once("./Class/Form.php");
+    require_once("./Class/DatosSummary.php");
     session_start();
     $conexion = new Form();
     if (isset($_POST["enviar"])) {
-        $conexion->setProfesor($_POST["profesor"]);
-        $conexion->setData($_POST["comentario"], $_POST["nota"],$_POST["satisf"],$_POST["exam"],$_POST["tareas"]);
-        $conexion->enviarFormulario();
-        header("Location: index");
+        $profesor=htmlentities(addslashes( $_POST["profesor"]));
+        $datos = new DatosSummary($profesor);
+        #COMPROBAR PUEDO MANDAR MENSAJE
+        if($datos->IsEncActivada()){
+            #MARDAR FORM
+            $conexion->setProfesor($_POST["profesor"]);
+            $conexion->setData($_POST["comentario"], $_POST["nota"],$_POST["satisf"],$_POST["exam"],$_POST["tareas"]);
+            $conexion->enviarFormulario();
+            header("Location: index");
+        }else{
+            $profeDesactivado = true;
+        }
     }
     ?>
     <div class="page">
@@ -62,6 +71,7 @@
                     <select name="profesor" id="selectProfesor">
                         <?php $conexion->PrintProfesoresHTMLSelect(); ?>
                     </select>
+                    <p style="text-align: center; color: red;"><?php if(isset($profeDesactivado)){ echo "No se pudo enviar, el profesor tiene desactivado las encuestas.<br>Prueba de nuevo."; }?></p>
 
                     <p id="nota">Clases</p>
                     <div class="nota fancybox">

@@ -1,5 +1,5 @@
 <?php
-require("Conexion.php");
+require_once("Conexion.php");
 class Form {
     private $profesor;
     private $lista_Profesores;
@@ -22,7 +22,7 @@ class Form {
         $this->tareas = htmlentities(addslashes($postTareas));
     }
     public function setProfesor($profesor){
-        $this->profesor= $profesor;
+        $this->profesor= htmlentities(addslashes($profesor));
     }
     /*GETTER*/
     public function getListaProfesores(){

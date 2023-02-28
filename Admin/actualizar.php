@@ -25,22 +25,26 @@
     
     /*COMPROBAR ENVIOU SUARIO O ENVIO COMENTARIO*/
     if(isset($_POST["enviousuario"])){
-        $id = $_POST["id"];
-        $usuario = $_POST["usuario"];
-        $password = crypt($_POST["password"],DB_NAME);
+        #DATOS A METER
+        $id = htmlentities(addslashes( $_POST["id"] ));
+        $usuario = htmlentities(addslashes( $_POST["usuario"] ));
+        $password = crypt( htmlentities(addslashes( $_POST["password"] )),DB_NAME);
+        #QUERY
         $consulta = "UPDATE usuarios set usuario=:usuario,password=:password where id= :id";
         $resultado = Conexion::getConexion()->prepare($consulta);
         $resultado->execute(array(":usuario"=>$usuario,":password"=>$password,":id"=>$id));
         header("Location: ./index.php");
     }elseif(isset($_POST["enviocommentario"])){
-        $id=$_POST["id"];
-        $idProfesor = $_POST["idprofesor"];
-        $comentario = $_POST["comentario"];
-        $nota = $_POST["nota"];
-        $tareas = $_POST["tareas"];
-        $examenes = $_POST["examenes"];
-        $satifaccion = $_POST["satifaccion"];
-        $fecha = $_POST["fecha"];
+        #DATOS A METER
+        $id= htmlentities(addslashes( $_POST["id"]  ));
+        $idProfesor = htmlentities(addslashes( $_POST["idprofesor"]  ));
+        $comentario = htmlentities(addslashes( $_POST["comentario"]  ));
+        $nota = htmlentities(addslashes( $_POST["nota"]  ));
+        $tareas = htmlentities(addslashes( $_POST["tareas"]  ));
+        $examenes = htmlentities(addslashes( $_POST["examenes"]  ));
+        $satifaccion = htmlentities(addslashes( $_POST["satifaccion"]  ));
+        $fecha = htmlentities(addslashes( $_POST["fecha"]  ));
+        #QUERY
         $consulta = "UPDATE encuesta set idProfesor=:idProfesor,nota=:nota,comentario=:comentario,tareas=:tareas,examenes=:examenes,satifaccion=:satifaccion,fecha=:fecha where id= :id";
         $datosArray = array(":idProfesor"=>$idProfesor,":nota"=>$nota,":comentario"=>$comentario,":tareas"=>$tareas,":examenes"=>$examenes,":satifaccion"=>$satifaccion,":fecha"=>$fecha,":id"=>$id);
         $resultado = Conexion::getConexion()->prepare($consulta);

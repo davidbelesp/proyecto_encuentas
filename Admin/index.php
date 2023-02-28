@@ -20,9 +20,9 @@
     /*CREAR USUARIO O CREAR COMENTARIO*/
     if(isset($_POST["crearuser"])){
         try{
-            $usuario = $_POST["ususario"];
-            $password = crypt($_POST["password"], DB_NAME);
-            $tipo = $_POST["tipo"];
+            $usuario = htmlentities(addslashes($_POST["ususario"]));
+            $password = crypt( htmlentities(addslashes($_POST["password"])) , DB_NAME);
+            $tipo = htmlentities(addslashes($_POST["tipo"]));
             $resultado = Conexion::getConexion()->prepare("insert into usuarios(usuario,password,tipo) values(:usuario,:password,:tipo)");
             $resultado->execute(array(":usuario"=>$usuario,":password"=>$password,":tipo"=>$tipo));
         }catch(Exception $excepcion){
@@ -31,13 +31,13 @@
     }
     if(isset($_POST["crearcomentario"])){
         try{
-            $profesor = $_POST["profesor"];
-            $comentario = $_POST["comentario"];
-            $nota = $_POST["nota"];
-            $examen = $_POST["examen"];
-            $tareas = $_POST["tareas"];
-            $fecha = $_POST["fecha"];
-            $satifaccion = $_POST["satifaccion"];
+            $profesor = htmlentities(addslashes($_POST["profesor"]));
+            $comentario = htmlentities(addslashes($_POST["comentario"]));
+            $nota = htmlentities(addslashes($_POST["nota"]));
+            $examen = htmlentities(addslashes($_POST["examen"]));
+            $tareas = htmlentities(addslashes($_POST["tareas"]));
+            $fecha = htmlentities(addslashes($_POST["fecha"]));
+            $satifaccion = htmlentities(addslashes($_POST["satifaccion"]));
             $resultado = Conexion::getConexion()->prepare("insert into encuesta(idProfesor,comentario,nota,examenes,tareas,fecha,satifaccion) values(:profesor,:comentario,:nota,:examen,:tareas,:fecha,:satifaccion)");
             $resultado->execute(array(":profesor"=>$profesor,":comentario"=>$comentario,":nota"=>$nota,":examen"=>$examen,":tareas"=>$tareas,":fecha"=>$fecha,":satifaccion"=>$satifaccion));
         }catch(Exception $excepcion){
@@ -87,7 +87,7 @@
 
         <form id="createcomment" action="<?php $_SERVER['PHP_SELF']?>" method="post">
             <h1>Crear comentario</h1>
-            <input type="text" name="profesor" placeholder="profesor">
+            <input type="text" name="profesor" placeholder="IdProfesor">
             <input type="text" name="comentario" placeholder="Comentario">
             <input type="number" name="nota" placeholder="Nota">
             <input type="number" name="examen" placeholder="Nota examenes">
