@@ -24,11 +24,37 @@ body {
 
 .message{
     display: none;
+    flex-direction: column;
     width: 100vw;
+    height: 100vh;
     padding: 20px;
     background-color: #333;
     text-align: center;
     justify-content: space-around;
+    align-items: center;
+}
+
+.message > a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 10vh;
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition-duration: .3s;
+}
+.message > a:hover{
+    filter: brightness(0.5);
+}
+
+.message > a > p{
+    font-size: 7vw;
+    color: black;
+
 }
 
 /*CREAR USUARIO*/

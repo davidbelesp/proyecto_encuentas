@@ -55,6 +55,7 @@
 
     <div class="message">
         <p>Device not supported</p>
+        <a href="../cerrar_sesion.php" class="cerrarsesion"><p>Cerrar Sesión</p></a>
     </div>
 
     <div class="wrapper">
@@ -194,7 +195,6 @@
             </table>
         </div>
     </div>
-
 </body>
 <script>
     const inputs = document.querySelectorAll(".usu-enc")
@@ -206,7 +206,7 @@
             const selection = event.target.value
             if (!selection) return
             if (selection == "usu") {
-                usuTable.style.display = "flex"
+                usuTable.style.display = "table"
                 encTable.style.display = "none"
             } if (selection == "enc") {
                 encTable.style.display = "table"
@@ -215,5 +215,4 @@
         })
     });
 </script>
-
 </html>
