@@ -8,6 +8,8 @@
   --hamburger-white: #ddd;
   --menu-color: #333;
   --table-odd-color: rgb(0, 0, 0, 0.11);
+  --desactivado: #ff5c5c;
+  --activado: #67ff52;
 }
 
 /*
@@ -62,6 +64,7 @@
 .user-box{
   cursor: pointer;
   padding: 10px;
+  gap: 10px
 }.user-box:hover + div,.user-menu:hover{
   display: flex;
 }
@@ -108,9 +111,43 @@
   font-weight: bold;
 }
 
+.form-activate{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-activate > input{
+  width: 100%;
+  height: 100%;
+  background: var(--menu-color);
+  border: 1px solid gray;
+  transition-duration: 0.3s;
+  border-radius: 0 10px 0 0;
+  cursor: pointer;
+
+  font-weight: bold;
+  color: black;
+}
+
+input[value=Desactivado]{
+  background: var(--desactivado);
+}
+
+input[value=Activado]{
+  background: var(--activado);
+}
+
+.form-activate > input:hover{
+  filter: brightness(1.4);
+}
+
 #cerrar{
   border: 1px solid gray;
 }
+
 
 .menu {
   z-index: 1;

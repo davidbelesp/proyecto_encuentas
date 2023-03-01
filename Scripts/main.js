@@ -60,7 +60,7 @@ function validateForm(event) {
     const commentDiv = document.querySelector("#comentario")
 
     cookies = localStorage.getItem("d")
-    if(Date.now() < parseInt(cookies) + 350000){
+    if(Date.now() < parseInt(cookies) + 600000){
         alert("Ya has enviado una encuesta!");
         return false;
     } 
@@ -81,10 +81,15 @@ function validateForm(event) {
             }, 3000);
             return false;
         }
+        
+        return true;
     })
 
-    if(pass) localStorage.setItem("d", Date.now())
     return true;
+}
+
+function setCookies(){
+    localStorage.setItem("d", Date.now())
 }
 
 async function getData(){

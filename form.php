@@ -29,7 +29,9 @@
             $conexion->setProfesor($_POST["profesor"]);
             $conexion->setData($_POST["comentario"], $_POST["nota"],$_POST["satisf"],$_POST["exam"],$_POST["tareas"]);
             $conexion->enviarFormulario();
-            header("Location: index");
+
+            echo "<script>setCookies()</script>";
+            echo "<script>redirect('./index')</script>";
         }else{
             $profeDesactivado = true;
         }
@@ -48,9 +50,6 @@
                     </a>
                     <a href="./summary">
                         <li>Resumen</li>
-                    </a>
-                    <a href="#">
-                        <li>Contacto</li>
                     </a>
                 </ul>
             </div>
@@ -71,7 +70,13 @@
                     <select name="profesor" id="selectProfesor">
                         <?php $conexion->PrintProfesoresHTMLSelect(); ?>
                     </select>
-                    <p style="text-align: center; color: red;"><?php if(isset($profeDesactivado)){ echo "No se pudo enviar, el profesor tiene desactivado las encuestas.<br>Prueba de nuevo."; }?></p>
+
+                    <?php if(isset($profeDesactivado)){ echo "
+                    <div data-error class='box'>
+                        <p>No se pudo enviar, el profesor tiene desactivado las encuestas.<br>Prueba de nuevo más tarde.</p>
+                    </div>
+                    ";}
+                    ?>
 
                     <p id="nota">Clases</p>
                     <div class="nota fancybox">
@@ -145,7 +150,6 @@
             <p> © 2023 !TrueDevs y sus afiliados</p>
         </div>
     </div>
-
 </body>
 <script>
     setTimeout(() => { noWLogo() }, 0);

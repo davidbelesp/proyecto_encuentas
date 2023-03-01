@@ -7,6 +7,7 @@
     --form-border: rgba(89, 89, 89, 0);
     --form-border-selected: rgba(155, 155, 155, .8);
     --form-line-color: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .4) 40%, rgba(0, 0, 0, .4) 60%, rgba(0, 0, 0, 0) 100%);
+    --desactivado: #fd2f2f;
 }
 
 .page {
@@ -61,6 +62,20 @@ label {
 .form-box p {
     user-select: none;
     font-size: 3vh;
+}
+
+/* ERROR DIV */
+
+div[data-error]{
+    margin-top: 60px;
+    padding: 10px;
+}
+
+div[data-error] > p{
+    text-align: center;
+    color: var(--desactivado);
+    font-weight: bold;
+    margin: 0;
 }
 
 /* SEND BUTTON */

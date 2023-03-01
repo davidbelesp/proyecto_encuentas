@@ -84,11 +84,11 @@
             <div class="user-menu">
                 <p>Hola,
                     <?php echo $_SESSION["Usuario"] ?>
-                    <br>
-                    <form method="post" action="./utiles/switchEncProfe.php">
-                        <input type="submit" name=switch_encuesta value=<?php if($conexion->IsEncActivada()){echo "Activado";}else{echo"Desactivado";}?>>
-                    </form>
                 </p>
+                    <form method="post" action="./utiles/switchEncProfe.php" class="form-activate">
+
+                        <input type="submit" name=switch_encuesta id="switch-encuesta" value=<?php if($conexion->IsEncActivada()){echo "Activado";}else{echo"Desactivado";}?>>
+                    </form>
                 <a href="./cerrar_sesion.php" id="cerrar">Cerrar Sesion</a>
             </div>
         </div>
