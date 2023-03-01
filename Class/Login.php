@@ -8,41 +8,52 @@ class Login{
         $this->user = htmlentities(addslashes($user_post));
         $this->pass = htmlentities(addslashes($pass_post));
     }
+    public function isPassword(){
+        echo $this->user;
+        $consulta = "SELECT password from usuarios where usuario = :user";
+        $resultado=Conexion::getConexion()->prepare($consulta);
+        $resultado->bindValue(":user",$this->user);
+        $resultado->execute();
+        $resultado = $resultado->fetch();
+        if(password_verify($_POST["password_login"],$resultado[0])){
+            $this->pass=$resultado[0];
+        }
+        return password_verify($_POST["password_login"],$resultado[0]);
+    }
     public function iniciarSesion(){
-        try{
-            $consulta = "SELECT tipo from usuarios where usuario = :user";
-            $resultado = Conexion::getConexion()->prepare($consulta);
-            $resultado->bindValue(":user",$this->user);
-            $resultado->execute();
-            $tipo = $resultado->fetch();
-            if($tipo){ $tipo = $tipo[0];}
+            try{
+                $consulta = "SELECT tipo from usuarios where usuario = :user";
+                $resultado = Conexion::getConexion()->prepare($consulta);
+                $resultado->bindValue(":user",$this->user);
+                $resultado->execute();
+                $tipo = $resultado->fetch();
+                if($tipo){ $tipo = $tipo[0];}
 
-            $consulta = "SELECT usuario from usuarios where usuario = :user and password = :pass";
-            $resultado = Conexion::getConexion()->prepare($consulta);
-    
-            $resultado->bindValue(":user",$this->user);
-            $resultado->bindValue(":pass",$this->pass);
-            $resultado->execute();
-            $numero_resultado_coincidencia = $resultado->rowCount();
-            if($numero_resultado_coincidencia!=0){
-                session_start();
-                $_SESSION["$tipo"] = $this->user;
+                $consulta = "SELECT usuario from usuarios where usuario = :user and password = :pass";
+                $resultado = Conexion::getConexion()->prepare($consulta);
+        
+                $resultado->bindValue(":user",$this->user);
+                $resultado->bindValue(":pass",$this->pass);
+                $resultado->execute();
+                $numero_resultado_coincidencia = $resultado->rowCount();
+                if($numero_resultado_coincidencia!=0){
+                    session_start();
+                    $_SESSION["$tipo"] = $this->user;
 
-                if($tipo=="Usuario"){
-                    header("location:summary");
-                }else if($tipo=="Admin"){
-                    header("location: ./Admin/");
+                    if($tipo=="Usuario"){
+                        header("location:summary");
+                    }else if($tipo=="Admin"){
+                        header("location: ./Admin/");
+                    }
+
                 }
 
+            }catch(Exception $excepcion){
+
+                echo "ERROR AL REALIZAR LA CONSULTA:";
+                echo "<br><br>";
+                echo "ERROR:". $excepcion->getMessage();
             }
-
-        }catch(Exception $excepcion){
-
-            echo "ERROR AL REALIZAR LA CONSULTA:";
-            echo "<br><br>";
-            echo "ERROR:". $excepcion->getMessage();
-        }
-
     }
     public static function cerrarSession(){
         session_start();

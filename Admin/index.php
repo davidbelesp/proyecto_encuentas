@@ -21,7 +21,7 @@
     if(isset($_POST["crearuser"])){
         try{
             $usuario = htmlentities(addslashes($_POST["ususario"]));
-            $password = crypt( htmlentities(addslashes($_POST["password"])) , DB_NAME);
+            $password = password_hash($_POST["password"], PASSWORD_DEFAULT,['cost'=>10]);
             $tipo = htmlentities(addslashes($_POST["tipo"]));
             $resultado = Conexion::getConexion()->prepare("insert into usuarios(usuario,password,tipo) values(:usuario,:password,:tipo)");
             $resultado->execute(array(":usuario"=>$usuario,":password"=>$password,":tipo"=>$tipo));

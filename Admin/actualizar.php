@@ -28,7 +28,8 @@
         #DATOS A METER
         $id = htmlentities(addslashes( $_POST["id"] ));
         $usuario = htmlentities(addslashes( $_POST["usuario"] ));
-        $password = crypt( htmlentities(addslashes( $_POST["password"] )),DB_NAME);
+        
+        $password = password_hash($_POST["password"], PASSWORD_DEFAULT,['cost'=>10]);
         #QUERY
         $consulta = "UPDATE usuarios set usuario=:usuario,password=:password where id= :id";
         $resultado = Conexion::getConexion()->prepare($consulta);
