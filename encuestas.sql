@@ -5,7 +5,7 @@ create table usuarios(
     id int primary key auto_increment,
     tipo enum("Usuario","Admin"),
     usuario varchar(20) NOT NULL UNIQUE,
-    password varchar(32),
+    password varchar(72),
     encActivada bit not null
 );
 
@@ -22,6 +22,6 @@ create table encuesta(
     ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-insert into usuarios(usuario,password,tipo) values ("root","enB3ELVOGdgdc","Admin");
-insert into usuarios(usuario,password,tipo) values ("Adelaida","enB3ELVOGdgdc","Usuario");
+insert into usuarios(usuario,password,tipo) values ("root","$2y$10$zERWpBYk3oYD2svlaoG8eu5iN8U/XLp8CfMaWkxxk8zYFA64vDPuq","Admin");
+insert into usuarios(usuario,password,tipo) values ("Adelaida","$2y$10$EbBLNTGNdNTYL7bVznQosulMG.dz0HQpkRC5R4gBrq8HxpvkwqhCO","Usuario");
 insert into encuesta(nota,comentario,idProfesor,tareas,examenes,satifaccion,fecha) values (5,"Hola que tal",2,8,9,"si",CURRENT_DATE);
