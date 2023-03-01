@@ -1,100 +1,204 @@
-*{
+* {
     box-sizing: border-box;
 }
-body{
+
+body {
     background-color: rgb(168 164 252 / 53%);
     width: 100vw;
     height: auto;
-    margin: 0; padding:0;
+    margin: 0;
+    padding: 0;
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-auto-rows: 200px;
 }
-/*CREAR USUARIO*/
-.creacion{
-    margin: 0;
-    text-align: center;
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+    gap: 30px;
+    padding: 30px;
 }
+
+.message{
+    display: none;
+    width: 100vw;
+    padding: 20px;
+    background-color: #333;
+    text-align: center;
+    justify-content: space-around;
+}
+
+/*CREAR USUARIO*/
+.creacion {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 33%;
+    text-align: center;
+
+}
+
+.creacion > div > h1, .creacion > form > h1{
+    font-size: 2vw;
+}
+
+.box{
+    background: #000000AA;
+    color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 20px #000000AA;
+}
+
 .creacion .seleccion h1{
     display: inline;
+
 }
-.creacion .seleccion input{
+
+.creacion .seleccion input {
     margin: 0;
 }
-form{
+
+input[type=text], input[type=date]{
+    color: black !important;
+    font-weight: bold;
+}
+
+form {
     text-align: center;
 }
-form label input{
+
+form label input {
     display: inline;
     margin: 5px;
 }
-form h1{
+
+form h1 {
     padding: 0;
     margin: 0;
 }
-form input{
+
+form input {
     display: block;
     margin: 15px auto;
     border-radius: 5px;
 }
-form .radio{
+
+form .radio {
     display: inline;
 }
+
 /*TABLA*/
-.tablas{
+.tablas {
     padding: 20px;
+    height: fit-content;
     margin: 0 auto;
     vertical-align: top;
 }
-table{
+
+table {
+    width: 100%;
     margin: 30px auto 0 auto;
     border-collapse: collapse;
-    width: fit-content;
     text-align: center;
 }
-table td{
+
+table td {
     max-width: 150px;
     word-wrap: break-word;
     border-top: 1px solid black;
+    border: 2px solid black;
 }
-table tr .boton{
+
+table tr .boton {
     border-top: 0px;
 }
-table th{
+
+table th {
     background-color: #982fff;
     border-width: 2px 2px 2px 2px;
     border-style: solid;
     border-color: black;
 }
-table td input{
-    border-radius: 10px;
+
+input[type=button]{
+    background: #333;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition-duration: .2s;
 }
-.tablas .cerrarsesion{
+input[type=button]:hover{
+    filter: brightness(1.5);
+}
+
+.boton > a > input{
+    height: 50px;
+}
+
+.tablas .cerrarsesion {
     float: right;
 }
-.tablas .cerrarsesion input{
-    border-radius: 15px;
+
+.tablas .cerrarsesion input {
+    border-radius: 5px;
     background-color: white;
     color: black;
     height: 30px;
-    
+    margin-bottom: 30px;
 }
-.tablas .cerrarsesion input:hover{
+.tablas .cerrarsesion input:hover {
     background-color: black;
     color: white;
-    
+
+}
+
+#createcomment > input, #createuser > input{
+    color: black;
+    font-weight: bold;
 }
 
 /*General*/
-h1{
-    font-size: 30px;
-}
-.dividir{
+
+.dividir {
     background-color: black;
     height: 1px;
     margin: 50px;
 }
 
-#encuestas{
+#encuestas {
     display: none;
+}
+
+@media screen and (max-width:800px) {
+    .wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .creacion {
+        width: 80%;
+    }
+    
+    .creacion > div > h1, .creacion > form > h1{
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width:570px) {
+    .wrapper {
+        display: none;
+    }
+    .message{
+        display: flex;
+    }
+    .message > p{
+        font-size: 10vw;
+    }
+    body{
+        background-color: #333;
+    }
 }
