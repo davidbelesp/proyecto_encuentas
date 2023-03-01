@@ -1,0 +1,20 @@
+:root {
+    --background-color: linear-gradient(225deg, rgb(123, 228, 149) 0%, rgb(87, 135, 189) 100%);
+}
+
+#name{
+    color: aqua;
+    margin-bottom: 30px !important;
+}
+
+.loginbox .box input:focus~label,
+.loginbox .box input:valid~label {
+    color: #69ff9b;
+}
+
+input[type=submit] {
+    background: #69ffb9;
+}
+input[type=submit]:hover {
+    box-shadow: 0 0 20px #69dcffcc;
+}

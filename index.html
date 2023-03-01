@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,15 +9,17 @@
     <script src="./Scripts/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./Resources/davidbelesp.jpg">
+    <link rel="icon" type="image/x-icon" href="./Resources/logo-example.png">
     <title>ENC Profesores</title>
 </head>
+
 <body>
     <div class="wrapper active-page1">
         <div class="page page1">
             <img src="./Resources/logo-example.png" alt="logo" class="logo">
             <div class="title">
                 <p id="title" class="enc">ENC</p>
-                <p id="title">PROFESORES</p> 
+                <p id="title">PROFESORES</p>
             </div>
         </div>
         <div class="page page2">
@@ -30,7 +33,9 @@
             <p>Developers</p>
             <div class="developers">
                 <div class="card developer">
-                    <div class="image" style="--image:url('https://yt3.ggpht.com/Uiq7rk8nndKrpEV_-2qi4hA5v2qAGnzClm4wNOAna9RgNc9MsYCB8QF8bwLdDypboLZXQlLyQQ=s900-c-k-c0x00ffffff-no-rj')"></div>
+                    <div class="image"
+                        style="--image:url('https://yt3.ggpht.com/Uiq7rk8nndKrpEV_-2qi4hA5v2qAGnzClm4wNOAna9RgNc9MsYCB8QF8bwLdDypboLZXQlLyQQ=s900-c-k-c0x00ffffff-no-rj')">
+                    </div>
                     <div class="text">
                         <div id="text">David Beltran</div>
                     </div>
@@ -89,19 +94,20 @@
 
 
         </div>
-      </div>
-      <div class="nav-buttons">
+    </div>
+    <div class="nav-buttons">
         <div class="btn up invisible"></div>
         <div class="btn down"></div>
-      </div>
+    </div>
 </body>
 <script>
-    
+
     const nav_buttons = document.querySelectorAll("div.up, div.down")
     nav_buttons.forEach(button => button.addEventListener("click", (event) => {
         changeIndexPage(event);
     }))
-    
-    setTimeout(() => {noWLogo();}, 0);
+
+    setTimeout(() => { noWLogo(); }, 0);
 </script>
+
 </html>

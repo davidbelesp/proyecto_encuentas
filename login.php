@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Styles/login.css">
     <link rel="stylesheet" href="./Styles/main.css">
+    <link rel="icon" type="image/x-icon" href="./Resources/logo-example.png">
     <script src="./Scripts/main.js"></script>
     <title>Log in</title>
     <?php
