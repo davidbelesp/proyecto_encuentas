@@ -4,31 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{background-color: rgb(164, 242, 252);height: 100%;}
-        form{height: 100%;}
-        table{border-collapse: collapse;margin-top:10%;}
-        h1{
-            padding-top: 100px;
-        }
-        td{border-color: black; border-style: solid;border-width: 2px;}
-        a {
-            float: right;
-            padding-right: 20px;
-        }
-        a input{
-            float: right;
-            border-radius: 20px;
-        }
-        a input:hover{
-           background-color: black;
-           color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="../Styles/login.css">
+    <link rel="stylesheet" href="../Styles/main.css">
+    <link rel="stylesheet" href="../Styles/chpass.css">
+    <link rel="icon" type="image/x-icon" href="./Resources/logo-example.png">
+    <script src="./Scripts/main.js"></script>
+    <title>Cambiar Contraseña</title>
 </head>
-
-
 <body>
     <?php
     require("../Class/Login.php");
@@ -49,7 +31,11 @@
                 $resultado->execute($array);
                 header("Location: ../summary");
             }else{
-                echo "Las contraseñas no son las mismas.";
+                echo "
+                    <script>
+                        setTimeout(() => {displayError()}, 0);
+                        setTimeout(() => {displayError(false)}, 2000);
+                    </script>";
             }
         }catch(Exception $e){
             echo $e->getMessage();
@@ -60,20 +46,49 @@
 
 
     ?>
+    <div class="content">
 
-        <center>
-        <a href="../summary"><input type="button" value="Volver atras"></a>
-        <h1>ACTUALIZAR CONTRASEÑA</h1>
-        
-        <form method="post" action="<?php $_SERVER["PHP_SELF"] ?>">
-        <table>
-        <tr><td>Usuario</td><td style="text-align: center;"><?php echo $_SESSION["Usuario"] ?></td></tr>
-        <tr><td>Contraseña</td><td><input type='password' name='password' value='' placeholder="Introduce una contraseña."></td></tr>
-        <tr><td>Repetir contraseña</td><td><input type='password' name='password2' value='' placeholder="Introduce de nuevo la contraseña."></td></tr>
-        </table>
-        <input type='submit' name='enviarform' value='enviar'>
-        </form>
-        </center>
-        </form>
+        <div class="loginbox">
+            <h2>Cambiar Contraseña</h2>
+            <h2 id="name"><?php echo $_SESSION["Usuario"] ?></h2>
+            <form method="post" action="<?php $_SERVER["PHP_SELF"] ?>">
+                <div class="box">
+                    <input type='password' name='password' required>
+                    <label>Nueva contraseña</label>
+                </div>
+                <div class="box">
+                    <input type='password' name='password2' required>
+                    <label>Repetir contraseña</label>
+                </div>
+                <div class="submitbox">
+                    <a href="../summary">Volver</a>
+                    <span id="underline"></span>
+                    <input type='submit' name='enviarform' value='Enviar'>
+                </div>
+            </form>
+        </div>
+
+        <div class="errordiv">
+            <div class="message">
+                <p>Las contraseñas no coinciden</p>
+            </div>
+        </div>
+
+    </div>
+
+
 </body>
+<script>
+    document.addEventListener("click", () => {
+        displayError(false)
+    })
+
+    setTimeout(() => {noWLogo();}, 0);
+    
+    function displayError(a = true) {
+        const box = document.querySelector(".errordiv");
+        a ? box.style.display = "flex" : box.style.display = "none"
+    }
+
+</script>
 </html>

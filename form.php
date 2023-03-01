@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <link href="./Styles/style.css" rel="stylesheet">
-    </link>
+    <link href="./Styles/style.css" rel="stylesheet"></link>
     <link href="./Styles/main.css" rel="stylesheet">
     <link href="./Styles/form.css" rel="stylesheet">
     <script src="./Scripts/main.js"></script>
+    <link rel="icon" type="image/x-icon" href="./Resources/logo-example.png">
     <title>Encuesta</title>
 </head>
 

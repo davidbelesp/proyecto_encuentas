@@ -33,7 +33,7 @@ body {
 
     top: 50%;
     left: 50%;
-    width: 370px;
+    width: 350px;
     padding: 40px;
     transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, .85);
@@ -173,7 +173,7 @@ input[type=submit]:hover {
 }
 
 .message p {
-    color: red;
+    color: rgb(255, 43, 43);
 }
 
 /* ANIMATIONS */
