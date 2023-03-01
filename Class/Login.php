@@ -9,7 +9,6 @@ class Login{
         $this->pass = htmlentities(addslashes($pass_post));
     }
     public function isPassword(){
-        echo $this->user;
         $consulta = "SELECT password from usuarios where usuario = :user";
         $resultado=Conexion::getConexion()->prepare($consulta);
         $resultado->bindValue(":user",$this->user);

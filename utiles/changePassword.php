@@ -23,7 +23,7 @@
             if($_POST["password"]==$_POST["password2"]){
                 #DATOS A METER
                 $usuario = htmlentities(addslashes( $_SESSION["Usuario"] ));
-                $password = crypt(htmlentities(addslashes($_POST["password"])),DB_NAME);
+                $password = password_hash($_POST["password"], PASSWORD_DEFAULT,['cost'=>10]);
                 #QUERY
                 $consulta = "UPDATE usuarios set password=:password where usuario= :usuario";
                 $resultado = Conexion::getConexion()->prepare($consulta);

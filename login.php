@@ -13,8 +13,10 @@
     <?php
     require("./Class/Login.php");
     if (isset($_POST["enviar"])) {
-        $login = new Login($_POST["user_login"], crypt($_POST["password_login"],DB_NAME));
-        $login->iniciarSesion();
+        $login = new Login($_POST["user_login"], $_POST["password_login"]);
+        if($login->isPassword()){
+            $login->iniciarSesion();
+        }
     }
     ?>
 </head>
