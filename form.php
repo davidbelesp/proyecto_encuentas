@@ -10,7 +10,7 @@
     <link href="./Styles/main.css" rel="stylesheet">
     <link href="./Styles/form.css" rel="stylesheet">
     <script src="./Scripts/main.js"></script>
-    <link rel="icon" type="image/x-icon" href="./Resources/logo-example.png">
+    <link rel="icon" type="image/x-icon" href="./Resources/logo.ico">
     <title>Encuesta</title>
 </head>
 

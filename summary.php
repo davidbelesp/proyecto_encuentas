@@ -8,7 +8,7 @@
     <link href="./Styles/main.css" rel="stylesheet">
     <link href="./Styles/style.css" rel="stylesheet">
     <script src="./Scripts/main.js"></script>
-    <link rel="icon" type="image/x-icon" href="./Resources/logo-example.png">
+    <link rel="icon" type="image/x-icon" href="./Resources/logo.ico">
     <script src="https://cdn.plot.ly/plotly-2.18.0.min.js"></script>
     <title>Resumen</title>
 

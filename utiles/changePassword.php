@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Styles/login.css">
     <link rel="stylesheet" href="../Styles/main.css">
     <link rel="stylesheet" href="../Styles/chpass.css">
-    <link rel="icon" type="image/x-icon" href="./Resources/logo-example.png">
+    <link rel="icon" type="image/x-icon" href="./Resources/logo.ico">
     <script src="./Scripts/main.js"></script>
     <title>Cambiar Contraseña</title>
 </head>

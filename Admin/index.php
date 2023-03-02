@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="../Styles/crud.css">
     <link rel="stylesheet" href="../Styles/main.css">
+    <link rel="icon" type="image/x-icon" href="./Resources/logo.ico">
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+    <title>Admin Panel</title>
 </head>
 
 <body>
