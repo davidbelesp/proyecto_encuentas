@@ -49,8 +49,8 @@
                     <a href="./form">
                         <li>Encuesta</li>
                     </a>
-                    <a href="#">
-                        <li>Resumen</li>
+                    <a href="./contacto.html">
+                        <li>Contacto</li>
                     </a>
                     <a href="./utiles/changePassword.php">
                         <li>Cambiar Contraseña</li>
@@ -73,6 +73,7 @@
                 <img src="./Resources/logo-example.png" alt="logo">
                 <a href="./index">Inicio</a>
                 <a href="./form">Encuesta</a>
+                <a href="./contacto.html">Contacto</a>
                 <a href="./utiles/changePassword.php">Cambiar Contraseña</a>
             </div>
             <div class="user-box">

@@ -88,7 +88,7 @@
 
                     <span id="form-div"></span> <!--------------------------------------------------------->
 
-                    <p>Satisfaccion</p>
+                    <p>Satisfacción</p>
                     <div class="election">
                                 <svg width="50px" height="50px"
                                 viewBox="0 0 24 24" fill="none" 
@@ -114,7 +114,7 @@
 
                     <span id="form-div"></span> <!--------------------------------------------------------->
 
-                    <p>Examenes</p>
+                    <p>Exámenes</p>
 
                     <div class="examenes fancybox">
                         <input id="examInput" type="range" name="exam" value="5" min="1" max="10"

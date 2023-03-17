@@ -379,6 +379,10 @@ body {
   display: none;
 }
 
+.clickable{
+  cursor: pointer;
+}
+
 @media (min-width:701px) {
   @keyframes breath {
     0% {

@@ -558,14 +558,27 @@ th{
   .prev-graph {
     min-width: 190px;
     min-height: 300px;
-    padding: 20px;
     display: block;
+    padding: 0;
   }
 
   .prev-graph {
     height: auto;
     width: auto;
     margin-bottom: 30px;
+  }
+
+  form{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  form > input{
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+    font-size: 1.5em;
   }
 
   /* DIVISION MEDIA */
