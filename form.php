@@ -60,7 +60,7 @@
                 <img src="./Resources/logo-example.png" alt="logo">
                 <a href="./index">Inicio</a>
                 <a href="./summary">Resumen</a>
-                <a href="">Contacto</a>
+                <a href="./contacto.html">Contacto</a>
             </div>
         </div>
 

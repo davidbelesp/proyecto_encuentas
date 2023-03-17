@@ -62,7 +62,7 @@
                     </form>
                     </a>
                     <a href="./cerrar_sesion.php">
-                        <li>Cerrar Sesion</li>
+                        <li>Cerrar Sesión</li>
                     </a>
                 </ul>
             </div>

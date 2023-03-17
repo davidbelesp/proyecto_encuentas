@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./Resources/logo.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="./Styles/main.css">
+    <link rel="stylesheet" href="./Styles/contacto.css">
+    <title>Contacto</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="menu">
+
+        </div>
+        <div class="card-div">
+            <div class="cards">
+                <div class="card" data-image="../Resources/davidbelesp.jpg" >
+                    <div class="shadow"></div>
+                    <div class="label">
+                        <div class="icon" style="--image:url(../Resources/davidbelesp.jpg);"></div>
+                        <div class="info">
+                            <div class="main">David Beltran</div>
+                            <div class="sub">REDES----</div>
+                        </div>
+                        <div class="outer-name">
+                            <div class="name">David Beltran</div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="card" data-image="../Resources/Unknown_person.jpg" >
+                    <div class="shadow"></div>
+                    <div class="label">
+                        <div class="icon" style="--image:url(../Resources/Unknown_person.jpg);"></div>
+                        <div class="info">
+                            <div class="main">Jesus Chavero</div>
+                            <div class="sub">REDES----</div>
+                        </div>
+                        <div class="outer-name">
+                            <div class="name">Jesus Chavero</div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="card" data-image="../Resources/Unknown_person.jpg" >
+                    <div class="shadow"></div>
+                    <div class="label">
+                        <div class="icon" style="--image:url(../Resources/Unknown_person.jpg);"></div>
+                        <div class="info">
+                            <div class="main">Jose Antonio Ramos</div>
+                            <div class="sub">REDES----</div>
+                        </div>
+                        <div class="outer-name">
+                            <div class="name">Jose Antonio Ramos</div>
+                        </div>
+                    </div>
+                </div>            
+            </div>
+
+        </div>
+        <div class="page-div">
+
+        </div>
+
+    </div>
+</body>
+<script>
+
+    cards = document.querySelectorAll(".card")
+
+    cards.forEach(card => {
+        card.addEventListener("click", (event) => {
+
+            if(event.target.classList[1] == "active"){
+                event.target.style = `--bgimage:var(--card-color)`
+                return event.target.classList.remove("active")
+            }    
+
+            cards.forEach(card => {
+                card.classList.remove("active")
+                card.style = `--bgimage:var(--card-color)`
+            })
+
+            event.target.style = `--bgimage:url(${event.target.dataset.image})`
+
+            event.target.classList.add("active")
+        })
+    });
+
+    function deleteClass(cards){
+
+    }
+</script>
+
+</html>
