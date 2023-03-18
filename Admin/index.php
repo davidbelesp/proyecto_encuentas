@@ -99,10 +99,10 @@
                 <input type="text" name="profesor" placeholder="IdProfesor">
                 <input type="text" name="comentario" placeholder="Comentario">
                 <input type="number" name="nota" placeholder="Nota">
-                <input type="number" name="examen" placeholder="Nota examenes">
+                <input type="number" name="examen" placeholder="Nota exámenes">
                 <input type="number" name="tareas" placeholder="Nota tareas">
                 <input type="date" name="fecha" placeholder="fecha">
-                <label>SATIFACCION<br>
+                <label>SATIFACCIÓN<br>
                     Si:<input class="radio" type="radio" name="satifaccion" value="si" checked>
                     No:<input class="radio" type="radio" name="satifaccion" value="no">
                 </label>
@@ -153,8 +153,8 @@
                     <th>COMENTARIO</th>
                     <th>NOTA</th>
                     <th>TAREAS</th>
-                    <th>EXAMENES</th>
-                    <th>SATIFACCION</th>
+                    <th>EXÁMENES</th>
+                    <th>SATIFACCIÓN</th>
                     <th>FECHA</th>
                     <th>CAMBIAR</th>
                     <th>ELIMINAR</th>

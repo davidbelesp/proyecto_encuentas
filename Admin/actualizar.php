@@ -89,8 +89,8 @@
                     <tr><td>Comentario</td><td><input type='text' name='comentario' value='$comentario'></td></tr>
                     <tr><td>Nota</td><td><input type='text' name='nota' value='$nota'></td></tr>
                     <tr><td>Tareas</td><td><input type='text' name='tareas' value='$tareas'></td></tr>
-                    <tr><td>Examenes</td><td><input type='text' name='examenes' value='$examenes'></td></tr>
-                    <tr><td>Satifaccion</td><td><input type='text' name='satifaccion' value='$satifaccion'></td></tr>
+                    <tr><td>Exámenes</td><td><input type='text' name='examenes' value='$examenes'></td></tr>
+                    <tr><td>Satifacción</td><td><input type='text' name='satifaccion' value='$satifaccion'></td></tr>
                     <tr><td>Fecha</td><td><input type='date' name='fecha' value='$fecha'></td></tr>
                     </table>
                     <input type='submit' name='enviocommentario' value='enviar'>
