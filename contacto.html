@@ -112,8 +112,9 @@
 
     cards.forEach(card => {
         card.addEventListener("click", (event) => {
-            console.log(event.target.localName)
-            if (event.target.localName == "path" || event.target.localName == "svg" || event.target.localName == "a") return
+           
+            if (event.target.localName == "path" || event.target.localName == "svg" || event.target.localName == "a" || event.target.classList[0] == "shadow") return
+
 
             if (getWidth() < 800) {
                 cards.forEach((card) => {
