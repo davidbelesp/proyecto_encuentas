@@ -138,7 +138,7 @@
 
                     <p>Comentario</p>
                     <textarea type="text" id="comentario" name="comentario" maxlength="200"
-                        placeholder="Escribe un comentario para el profesor"></textarea>
+                        placeholder="Escribe un comentario"></textarea>
 
                     <span id="form-div"></span> <!--------------------------------------------------------->
 
